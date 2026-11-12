@@ -1,26 +1,249 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens — Bocharov Bureau
+ * Source: Figma "Homepage — Variant 1b (light)" (node 74:1209).
+ * The Figma file has no Variables, so values are taken from the design context.
+ * Fluid sizes interpolate linearly between 390px (mobile) and 1440px (desktop = Figma).
+ */
+@theme {
+  /* Colour — monochrome UI; colour lives only in media */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-muted: #77776f;
+  --color-placeholder: #92928c; /* Figma #b4b4ae darkened to pass AA large-text 3:1 */
+  --color-surface: #f9f9f9;
+  --color-line: #e4e4e0;
+  --color-line-strong: #cfcfca;
+
+  /* Type families (wired to next/font variables in app/layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Fluid type scale: clamp(390px value, …, 1440px value) */
+  --text-h-xl: clamp(4rem, 1.771rem + 9.143vw, 10rem); /* Let's talk. 160 */
+  --text-h-xl--line-height: 0.9;
+  --text-stat: clamp(4.5rem, 3.386rem + 4.571vw, 7.5rem); /* 120 */
+  --text-stat--line-height: 0.9;
+  --text-h-lg: clamp(3rem, 1.886rem + 4.571vw, 6rem); /* section titles 96 */
+  --text-h-lg--line-height: 0.95;
+  --text-h-md: clamp(2.375rem, 1.771rem + 2.476vw, 4rem); /* FAQ title 64 */
+  --text-h-md--line-height: 1;
+  --text-manifesto: clamp(1.875rem, 1.179rem + 2.857vw, 3.75rem); /* 60 */
+  --text-manifesto--line-height: 1.08;
+  --text-industries: clamp(1.875rem, 1.271rem + 2.476vw, 3.5rem); /* 56 */
+  --text-industries--line-height: 1.15;
+  --text-form: clamp(1.625rem, 1.3rem + 1.333vw, 2.5rem); /* 40 */
+  --text-form--line-height: 1.21;
+  --text-service: clamp(1.625rem, 1.393rem + 0.9524vw, 2.25rem); /* 36 */
+  --text-service--line-height: 1.1;
+  --text-step: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem); /* 30 */
+  --text-step--line-height: 1.21;
+  --text-faq: clamp(1.188rem, 1.071rem + 0.4762vw, 1.5rem); /* 24 */
+  --text-faq--line-height: 1.21;
+  --text-lead: clamp(1.0625rem, 0.9929rem + 0.2857vw, 1.25rem); /* 20 */
+  --text-lead--line-height: 1.35;
+  --text-body-lg: clamp(1rem, 0.9536rem + 0.1905vw, 1.125rem); /* 18 */
+  --text-body-lg--line-height: 1.45;
+  --text-quote: 1.0625rem; /* 17 */
+  --text-quote--line-height: 1.45;
+  --text-body: 1rem; /* 16 */
+  --text-body--line-height: 1.5;
+  --text-small: 0.9375rem; /* 15 */
+  --text-small--line-height: 1.45;
+  --text-btn: 0.875rem; /* 14 */
+  --text-btn--line-height: 1.21;
+  --text-tag: 0.8125rem; /* 13 */
+  --text-tag--line-height: 1.21;
+  --text-mono: 0.75rem; /* 12 */
+  --text-mono--line-height: 1.32;
+
+  /* Tracking (Figma px → em) */
+  --tracking-wordmark: -0.07em;
+  --tracking-display: -0.05em;
+  --tracking-stat: -0.06em;
+  --tracking-tight: -0.04em;
+  --tracking-snug: -0.03em;
+  --tracking-title: -0.02em;
+  --tracking-soft: -0.01em;
+  --tracking-mono: 0.04em;
+
+  /* Radii */
+  --radius-media: 6px;
+  --radius-card: 8px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Layout — gutter 40px @1440 → 16px @390; grid gap 12px */
+  --gutter: clamp(1rem, 0.4429rem + 2.286vw, 2.5rem);
+  --gap: 12px;
+  /* Section top paddings from Figma: 140 / 160 */
+  --space-section: clamp(5.5rem, 4.293rem + 4.952vw, 8.75rem);
+  --space-section-lg: clamp(6rem, 4.514rem + 6.095vw, 10rem);
+  --header-h: 84px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility px-gutter {
+  padding-inline: var(--gutter);
+}
+@utility pt-section {
+  padding-top: var(--space-section);
+}
+@utility pt-section-lg {
+  padding-top: var(--space-section-lg);
+}
+@utility gap-grid {
+  gap: var(--gap);
+}
+/* Mono labels: IBM Plex Mono 12 / uppercase / +0.04em */
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  line-height: var(--text-mono--line-height);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+/* Giant wordmark: 268px @1440 (18.61vw), scales with the viewport */
+@utility text-wordmark {
+  font-size: clamp(3rem, 18.61vw, 30rem);
+  letter-spacing: var(--tracking-wordmark);
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.5;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* Lenis recommended styles */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+  }
+  .lenis [data-lenis-prevent] {
+    overscroll-behavior: contain;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- Motion primitives ---------- */
+
+/* Hero wordmark: letters rise one by one (CSS, so it starts at first paint) */
+.rise-letter {
+  display: inline-block;
+  animation: rise 1.1s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 45ms + 80ms);
+}
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/*
+ * Hero media: a paper-coloured veil retracts upwards while the photo settles from a slight zoom.
+ * The image itself is never hidden (no opacity/clip), so it stays a valid, early LCP candidate.
+ */
+.media-intro::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--color-paper);
+  transform-origin: top;
+  animation: veil-out 1.3s var(--ease-in-out-quart) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 200ms);
+  pointer-events: none;
+}
+.media-intro img {
+  animation: settle 1.8s var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 200ms);
+}
+@keyframes veil-out {
+  to {
+    transform: scaleY(0);
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+  }
+}
+
+/* Elements revealed by GSAP start hidden only once JS has marked the document */
+.js [data-reveal="media"] {
+  clip-path: inset(100% 0 0 0 round var(--radius-media));
+}
+.js [data-reveal="fade"] {
+  opacity: 0;
+}
+
+/* SplitText line masks: give descenders room without changing layout */
+.split-line-mask {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+/* Process steps: top rule draws in, content follows */
+.js [data-reveal="line"]::before {
+  transform: scaleX(0);
+  transition: transform 1.2s var(--ease-out-expo);
+}
+.js [data-reveal="line"] > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s var(--ease-out-expo) 0.25s,
+    transform 0.9s var(--ease-out-expo) 0.25s;
+}
+.js [data-reveal="line"].is-in::before {
+  transform: scaleX(1);
+}
+.js [data-reveal="line"].is-in > * {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js [data-reveal="media"] {
+    clip-path: none;
+  }
+  .js [data-reveal="fade"] {
+    opacity: 1;
+  }
 }
