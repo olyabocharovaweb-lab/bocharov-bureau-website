@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FooterTheme } from "@/components/layout/FooterTheme";
 import { legalLinks, siteConfig, socialLinks, studioLinks, type NavItem } from "@/config/site";
 
 const linkClass =
@@ -31,7 +32,7 @@ export function Footer() {
   // An e-mail with a "[domain]" placeholder is not linkable yet.
   const emailReady = !siteConfig.email.includes("[");
   return (
-    <footer className="flex flex-col gap-10 px-gutter pt-section-lg pb-10">
+    <footer className="site-footer relative flex flex-col gap-10 px-gutter pt-section-lg pb-10">
       <div className="grid grid-cols-2 gap-x-10 gap-y-12 text-body leading-[1.2] md:flex md:gap-10">
         <Column title="Social">
           <ul className="flex flex-col gap-[10px]">
@@ -65,13 +66,16 @@ export function Footer() {
         </Column>
       </div>
 
-      <p
-        aria-hidden
-        data-reveal="fade"
-        className="text-wordmark leading-[0.85] whitespace-nowrap select-none"
-      >
-        Bocharov®
+      {/* Scroll-stretched wordmark: "Bocharov" grows taller, "®" keeps its shape and rides on top. */}
+      <p aria-hidden data-stretch className="text-wordmark flex leading-[0.85] whitespace-nowrap select-none">
+        <span data-stretch-word className="inline-block origin-[50%_92.8%] will-change-transform">
+          Bocharov
+        </span>
+        <span data-stretch-reg className="inline-block will-change-transform">
+          ®
+        </span>
       </p>
+      <FooterTheme />
 
       <div className="flex flex-wrap items-start justify-between gap-4 font-mono text-mono tracking-[0.02em] text-muted">
         <p>© 2026 Bocharov. All rights reserved.</p>

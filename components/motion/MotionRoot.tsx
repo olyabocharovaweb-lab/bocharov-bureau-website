@@ -118,6 +118,55 @@ function Reveals() {
         ),
       );
 
+      // Manifesto (Apple-style): words light up from grey to ink as you scroll through the block.
+      gsap.utils.toArray<HTMLElement>("[data-scrub-words]").forEach((el) =>
+        tasks.push(() =>
+          ctx.add(() => {
+            const split = SplitText.create(el, { type: "words", wordsClass: "scrub-word", aria: "none" });
+            gsap.fromTo(
+              split.words,
+              { color: "#b4b4ae" },
+              {
+                color: "#0a0a0a",
+                ease: "none",
+                stagger: 0.1,
+                scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: 0.4 },
+              },
+            );
+          }),
+        ),
+      );
+
+      // Footer wordmark: "Bocharov" stretches vertically with scroll; "®" keeps its size
+      // and rides up with the cap line (Inter cap height ≈ 0.727em).
+      gsap.utils.toArray<HTMLElement>("[data-stretch]").forEach((el) =>
+        tasks.push(() =>
+          ctx.add(() => {
+            const word = el.querySelector("[data-stretch-word]");
+            const reg = el.querySelector("[data-stretch-reg]");
+            const footer = el.closest("footer") ?? el;
+            if (!word || !reg) return;
+            const max = parseFloat(getComputedStyle(footer).getPropertyValue("--stretch-max")) || 1.8;
+            const capRise = () => -(max - 1) * 0.727 * parseFloat(getComputedStyle(el).fontSize);
+            const tl = gsap.timeline({
+              scrollTrigger: {
+                trigger: footer,
+                start: "top bottom",
+                end: "bottom bottom",
+                scrub: 0.6,
+                invalidateOnRefresh: true,
+              },
+            });
+            tl.fromTo(word, { scaleY: 1 }, { scaleY: max, ease: "none" }, 0).fromTo(
+              reg,
+              { y: 0 },
+              { y: capRise, ease: "none" },
+              0,
+            );
+          }),
+        ),
+      );
+
       // Media: clip from bottom, inner image settles from a slight zoom
       gsap.utils.toArray<HTMLElement>('[data-reveal="media"]').forEach((el) =>
         tasks.push(() =>

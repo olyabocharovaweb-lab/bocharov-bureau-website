@@ -205,6 +205,30 @@
   opacity: 0;
 }
 
+/* ---------- Footer: dark at the end of the page + stretched wordmark ---------- */
+.site-footer {
+  --stretch-max: 1.8; /* final vertical scale of "Bocharov" */
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  transition:
+    background-color 0.7s var(--ease-out-expo),
+    color 0.7s var(--ease-out-expo);
+}
+.site-footer[data-dark] {
+  --color-muted: #9d9d95; /* 7.4:1 on ink */
+  --color-ink: #ffffff;
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+.site-footer .label-mono,
+.site-footer .text-muted {
+  transition: color 0.7s var(--ease-out-expo);
+}
+/* Reserve the height the word grows into (cap height ≈ 0.727em), only when motion runs */
+.js .site-footer [data-stretch] {
+  padding-top: calc((var(--stretch-max) - 1) * 0.727em);
+}
+
 /* SplitText line masks: give descenders room without changing layout */
 .split-line-mask {
   padding-bottom: 0.12em;

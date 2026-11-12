@@ -7,7 +7,7 @@ export function Manifesto() {
       <SectionLabel as="h2" id="manifesto-label">
         {manifesto.label}
       </SectionLabel>
-      <p data-split className="text-manifesto font-medium tracking-snug">
+      <p data-scrub-words className="text-manifesto font-medium tracking-snug">
         {manifesto.text}
       </p>
     </section>
