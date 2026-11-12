@@ -64,6 +64,12 @@ export const services = {
       description:
         "Award-level websites, platforms and apps — designed and engineered in-house.",
       tags: ["Web design", "Development", "UI/UX", "E-commerce"],
+      image: {
+        src: "/media/graaho.webp",
+        width: 2720,
+        height: 1440,
+        alt: "Website design on desktop and mobile",
+      },
     },
     {
       index: "C /",
@@ -71,18 +77,36 @@ export const services = {
       description:
         "Photo, video, 3D and AI-generated imagery — campaign-ready, on brand, at volume.",
       tags: ["AI imagery", "Photo & video", "3D & motion", "Social content"],
+      image: {
+        src: "/media/hero-2.webp",
+        width: 960,
+        height: 1280,
+        alt: "AI-generated product shot of a chrome perfume bottle",
+      },
     },
     {
       index: "D /",
       title: "Growth & Marketing",
       description: "Performance, SMM and SEO that turn attention into revenue.",
       tags: ["Performance ads", "SMM", "SEO", "CRO & analytics"],
+      image: {
+        src: "/media/industrylens.webp",
+        width: 2400,
+        height: 1800,
+        alt: "Campaign poster on a city wall",
+      },
     },
     {
       index: "E /",
       title: "AI Systems",
       description: "Agents, automation and integrations that keep working after launch.",
       tags: ["AI agents", "Automation", "Integrations", "AI content pipelines"],
+      image: {
+        src: "/media/nova.webp",
+        width: 1614,
+        height: 974,
+        alt: "AI assistant app on a phone",
+      },
     },
   ] satisfies Service[],
 };
