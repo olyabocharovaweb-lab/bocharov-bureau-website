@@ -1,0 +1,20 @@
+/*
+ * Layout dimensions that appear in Figma as fixed frame sizes but have
+ * NO Figma variable. They are NOT design tokens — they are listed in
+ * docs/ds-gaps.md as a proposal to add to Figma (collection "Layout").
+ * Kept in one place so no component carries a raw px value.
+ */
+@theme {
+  /* Page frame */
+  --container-page: 1440px;
+  /* Section intro: label column (component description: "Label column (560)") */
+  --container-intro-label: 560px;
+  /* Index row columns (260:66 / 260:67 / 260:68 / 260:70) */
+  --container-index-year: 90px;
+  --container-index-client: 360px;
+  --container-index-industry: 220px;
+  --container-index-arrow: 40px;
+
+  /* Case card photo frame 674 × 760 (260:59) */
+  --aspect-case-card: 674 / 760;
+}

@@ -1,0 +1,118 @@
+/*
+ * Design tokens — 1:1 with Figma variables (file "bocharov-bureau-website",
+ * page "Design System"). Names = Figma code syntax (WEB).
+ *
+ * Collections:
+ *   Primitives  → raw colour values (never used directly in components)
+ *   Color       → semantic colours, alias Primitives exactly as in Figma
+ *   Spacing     → space/2 … space/200
+ *   Radius      → radius/xs … radius/full
+ */
+
+:root {
+  /* ── Primitives ─────────────────────────────────────────── */
+  --neutral-0: #ffffff;
+  --neutral-50: #f3f3f0;
+  --neutral-100: #e4e4e0;
+  --neutral-200: #cfcfca;
+  --neutral-400: #b4b4ae;
+  --neutral-600: #77776f;
+  --neutral-1000: #0a0a0a;
+  --cool-100: #eeeef0;
+  --yellow-300: #ffe97a;
+  --yellow-900: #3a3300;
+
+  /* ── Spacing ────────────────────────────────────────────── */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-72: 72px;
+  --space-120: 120px;
+  --space-160: 160px;
+  --space-180: 180px;
+  --space-200: 200px;
+}
+
+/*
+ * Tailwind theme. Default scales are reset, so only Figma tokens exist as
+ * utilities (p-24 = var(--space-24), rounded-md = var(--radius-md),
+ * text-text-primary = var(--color-text-primary) …).
+ */
+@theme {
+  --*: initial;
+
+  /* ── Color (semantic) → Primitives ─────────────────────── */
+  --color-text-primary: var(--neutral-1000);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-tertiary: var(--neutral-400);
+  --color-text-inverse: var(--neutral-0);
+  --color-text-note: var(--yellow-900);
+  --color-bg-page: var(--neutral-0);
+  --color-bg-surface: var(--neutral-50);
+  --color-bg-stage: var(--cool-100);
+  --color-bg-inverse: var(--neutral-1000);
+  --color-bg-note: var(--yellow-300);
+  --color-border-default: var(--neutral-100);
+  --color-border-strong: var(--neutral-200);
+  --color-border-inverse: var(--neutral-1000);
+  --color-transparent: transparent;
+
+  /* ── Radius ─────────────────────────────────────────────── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 24px;
+  --radius-full: 100px;
+
+  /* ── Fonts (next/font variables, see app/layout.tsx) ───── */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Breakpoints (see docs/responsive-decisions.md) */
+  --breakpoint-sm: 390px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+}
+
+@theme inline {
+  /* ── Spacing → Figma space/* ────────────────────────────── */
+  --spacing-0: 0px;
+  --spacing-2: var(--space-2);
+  --spacing-4: var(--space-4);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-10: var(--space-10);
+  --spacing-12: var(--space-12);
+  --spacing-14: var(--space-14);
+  --spacing-16: var(--space-16);
+  --spacing-20: var(--space-20);
+  --spacing-24: var(--space-24);
+  --spacing-28: var(--space-28);
+  --spacing-32: var(--space-32);
+  --spacing-40: var(--space-40);
+  --spacing-48: var(--space-48);
+  --spacing-56: var(--space-56);
+  --spacing-72: var(--space-72);
+  --spacing-120: var(--space-120);
+  --spacing-160: var(--space-160);
+  --spacing-180: var(--space-180);
+  --spacing-200: var(--space-200);
+}

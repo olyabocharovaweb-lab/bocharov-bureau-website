@@ -1,0 +1,363 @@
+/*
+ * Text styles — 1:1 with Figma local text styles (39).
+ * Class name = Figma style name, lowercased, '/' and spaces -> '-'.
+ * Generated from the Figma Plugin API dump; do not edit by hand.
+ *
+ * Line-height AUTO in Figma = the font's ascender + descender:
+ *   Inter 0.96875 + 0.2421875 ≈ 1.21, IBM Plex Mono 1.025 + 0.275 = 1.3.
+ * Figma rounds every line box to whole pixels, so line-height is stored as
+ * round(font-size × factor) px — this reproduces Figma text heights 1:1.
+ */
+
+/* Display/Wordmark — Inter Semi Bold 268 */
+@utility display-wordmark {
+  font-family: var(--font-sans);
+  font-size: 268px;
+  font-weight: 600;
+  line-height: 228px;
+  letter-spacing: -0.07em;
+}
+
+/* Display/XL — Inter Semi Bold 220 */
+@utility display-xl {
+  font-family: var(--font-sans);
+  font-size: 220px;
+  font-weight: 600;
+  line-height: 198px;
+  letter-spacing: -0.07em;
+}
+
+/* Display/L — Inter Semi Bold 160 */
+@utility display-l {
+  font-family: var(--font-sans);
+  font-size: 160px;
+  font-weight: 600;
+  line-height: 144px;
+  letter-spacing: -0.07em;
+}
+
+/* Display/M — Inter Semi Bold 120 */
+@utility display-m {
+  font-family: var(--font-sans);
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 108px;
+  letter-spacing: -0.06em;
+}
+
+/* Display/S — Inter Semi Bold 96 */
+@utility display-s {
+  font-family: var(--font-sans);
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 86px;
+  letter-spacing: -0.06em;
+}
+
+/* Heading/XL — Inter Medium 64 */
+@utility heading-xl {
+  font-family: var(--font-sans);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 64px;
+  letter-spacing: -0.03em;
+}
+
+/* Heading/H1 Large — Inter Medium 60 */
+@utility heading-h1-large {
+  font-family: var(--font-sans);
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 65px;
+  letter-spacing: -0.03em;
+}
+
+/* Heading/H1 — Inter Medium 56 */
+@utility heading-h1 {
+  font-family: var(--font-sans);
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 62px;
+  letter-spacing: -0.03em;
+}
+
+/* Heading/H2 — Inter Medium 40 */
+@utility heading-h2 {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 46px;
+  letter-spacing: -0.02em;
+}
+
+/* Heading/H3 — Inter Medium 36 */
+@utility heading-h3 {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+/* Heading/H4 — Inter Medium 32 */
+@utility heading-h4 {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+}
+
+/* Heading/H4 Small — Inter Medium 30 */
+@utility heading-h4-small {
+  font-family: var(--font-sans);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+
+/* Heading/H5 Large — Inter Medium 28 */
+@utility heading-h5-large {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: -0.02em;
+}
+
+/* Heading/H5 — Inter Medium 24 */
+@utility heading-h5 {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: -0.01em;
+}
+
+/* Heading/H6 — Inter Medium 20 */
+@utility heading-h6 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* Statement/L — Inter Regular 40 */
+@utility statement-l {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+}
+
+/* Numeral/L — Inter Semi Bold 64 */
+@utility numeral-l {
+  font-family: var(--font-sans);
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 64px;
+  letter-spacing: -0.04em;
+}
+
+/* Numeral/M — Inter Semi Bold 36 */
+@utility numeral-m {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+}
+
+/* Numeral/S — Inter Semi Bold 32 */
+@utility numeral-s {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: -0.03em;
+}
+
+/* Body/XL — Inter Regular 24 */
+@utility body-xl {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0;
+}
+
+/* Body/L — Inter Regular 20 */
+@utility body-l {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0;
+}
+
+/* Body/M — Inter Regular 18 */
+@utility body-m {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0;
+}
+
+/* Body/M Small — Inter Regular 17 */
+@utility body-m-small {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0;
+}
+
+/* Body/Base — Inter Regular 16 */
+@utility body-base {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0;
+}
+
+/* Body/S — Inter Regular 15 */
+@utility body-s {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+/* Body/XS — Inter Regular 14 */
+@utility body-xs {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+/* Body/2XS — Inter Regular 13 */
+@utility body-2xs {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+/* Body/3XS — Inter Regular 12 */
+@utility body-3xs {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0;
+}
+
+/* Label/L — Inter Medium 18 */
+@utility label-l {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+}
+
+/* Label/Base — Inter Medium 16 */
+@utility label-base {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0;
+}
+
+/* Label/M — Inter Medium 15 */
+@utility label-m {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+/* Label/S — Inter Medium 14 */
+@utility label-s {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+/* Mono/Clock — IBM Plex Mono Regular 64 */
+@utility mono-clock {
+  font-family: var(--font-mono);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -0.02em;
+}
+
+/* Mono/Body L — IBM Plex Mono Regular 14 */
+@utility mono-body-l {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+/* Mono/Body M — IBM Plex Mono Regular 13 */
+@utility mono-body-m {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0;
+}
+
+/* Mono/Body — IBM Plex Mono Regular 12 */
+@utility mono-body {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+}
+
+/* Mono/Label — IBM Plex Mono Medium 12 */
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Mono/Caption — IBM Plex Mono Regular 11 */
+@utility mono-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Mono/Micro — IBM Plex Mono Medium 10 */
+@utility mono-micro {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0.04em;
+}

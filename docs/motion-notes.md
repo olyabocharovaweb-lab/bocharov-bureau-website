@@ -1,0 +1,31 @@
+# Motion notes
+
+Annotations from the Figma component **Motion note** (`260:57`, "Yellow annotation
+for motion/dev notes"). They describe future animation and are **not rendered** on the
+site — iteration 1 is fully static.
+
+Source: page «Main direction» › section «2» (`256:68174`). Collected via the Plugin API
+(all instances of `260:57`), text copied verbatim.
+
+| Page | Block (Figma layer path) | Note | Figma node |
+|---|---|---|---|
+| Home (Homepage — Variant 1b (light)) | — | *No Motion note instances on this frame* | `256:68175` |
+| Work | Hero | фільтр перемикає кейси без перезавантаження: картки плавно перебудовуються (FLIP) | `262:5033` |
+| Work | Frame (case grid) | фото «відкриваються» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
+| Work | Index › Frame | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється | `262:5154` |
+| Studio / About | Hero | букви заголовка підіймаються по черзі; фото розкриваються з маски, ліве — повільний zoom | `262:5189` |
+| Studio / About | Manifesto | слова «засвічуються» з сірого в чорний у такт скролу | `262:5192` |
+| Studio / About | Principles | рядок, що в кадрі, стає чорним; на hover поруч випливає фото | `262:5195` |
+| Studio / About | In numbers | лічильники від 0, коли блок у кадрі | `262:5216` |
+| Studio / About | Team | на hover портрет змінюється на AI-версію тієї ж людини | `262:5219` |
+| Studio / About | Awards › Frame | на hover рядка фото проєкту випливає за курсором | `262:5222` |
+| Studio / About | Clients | логотипи по одному змінюються в комірках, як табло | `262:5225` |
+| Studio / About | Studios | годинники йдуть у реальному часі · двокрапка блимає раз на секунду · статус Open / Opens at рахується за місцевим часом | `262:5228` |
+| Case — NOVA | Product · Home & chat media | центральний Home анімований (поле вводу); мобільні екрани виїжджають знизу по черзі | `262:4322` |
+| Case — NOVA | Frame (stats) | лічильники від 0 | `262:4362` |
+| Case — IndustryLens | Frame (stats) | лічильники від 0 | `262:4539` |
+| Case — PulseFit | Frame (stats) | лічильники від 0 | `262:4716` |
+| Case — Graaho | Frame (stats) | лічильники від 0 | `262:4876` |
+
+Block names marked "Frame" are unnamed frames in Figma; the bracketed hint will be
+replaced with the exact section name once each page is built (step 3–4).

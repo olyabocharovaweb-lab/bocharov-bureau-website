@@ -1,70 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { MotionRoot } from "@/components/motion/MotionRoot";
-import { siteConfig } from "@/config/site";
+import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Self-hosted at build time by next/font (no runtime request to Google).
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+/**
+ * Inter 3.19 (self-hosted). Figma renders Inter 3.x: text widths in the
+ * design match 3.19 to <0.5px, while Inter 4 (Google Fonts) differs in
+ * glyph widths, default figures and arrows. See docs/ds-gaps.md.
+ */
+const inter = localFont({
+  src: [
+    { path: "./fonts/inter-3.19/Inter-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/inter-3.19/Inter-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/inter-3.19/Inter-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-inter",
   display: "swap",
 });
 
 const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500"],
   variable: "--font-plex-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    url: "/",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-  },
+  title: "Bocharov® Bureau",
+  description: "Bocharov® Bureau",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${plexMono.variable}`}>
-      <body>
-        <a
-          href="#main"
-          className="sr-only z-50 rounded-full bg-ink px-4 py-2 text-btn text-paper focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
-        >
-          Skip to content
-        </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <MotionRoot />
-      </body>
+      <body className="bg-bg-page text-text-primary">{children}</body>
     </html>
   );
 }

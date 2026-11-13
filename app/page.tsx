@@ -1,29 +1,12 @@
-import { BriefForm } from "@/components/home/BriefForm";
-import { Faq } from "@/components/home/Faq";
-import { Hero } from "@/components/home/Hero";
-import { Industries } from "@/components/home/Industries";
-import { Manifesto } from "@/components/home/Manifesto";
-import { Process } from "@/components/home/Process";
-import { SelectedWork } from "@/components/home/SelectedWork";
-import { Services } from "@/components/home/Services";
-import { Stats } from "@/components/home/Stats";
-import { Testimonials } from "@/components/home/Testimonials";
-import { siteConfig } from "@/config/site";
+import Link from "next/link";
 
-export default function HomePage() {
-  const { flags } = siteConfig;
+/** Placeholder until Step 3 (Home) is approved. */
+export default function Page() {
   return (
-    <>
-      <Hero />
-      <Manifesto />
-      <Services />
-      {flags.showStats && <Stats />}
-      <SelectedWork />
-      <Process />
-      {flags.showTestimonials && <Testimonials />}
-      <Industries />
-      <BriefForm />
-      <Faq />
-    </>
+    <main className="p-40">
+      <Link href="/styleguide" className="label-m">
+        /styleguide
+      </Link>
+    </main>
   );
 }
