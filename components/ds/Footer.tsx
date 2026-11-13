@@ -1,13 +1,13 @@
-import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-type FooterLink = { label: string; href?: string };
+/** Links are not clickable in iteration 1 (decision 2026-11-13). */
+type FooterLink = { label: string };
 
 const columns: Array<{ title: string; links: FooterLink[] }> = [
   { title: "Social", links: [{ label: "Instagram" }, { label: "LinkedIn" }, { label: "Behance" }, { label: "Clutch" }] },
   {
     title: "Studio",
-    links: [{ label: "Work", href: "/work" }, { label: "Services" }, { label: "AI Lab" }, { label: "Journal" }],
+    links: [{ label: "Work" }, { label: "Services" }, { label: "AI Lab" }, { label: "Journal" }],
   },
   { title: "Contact", links: [{ label: "hello@[domain]" }, { label: "Europe / US" }] },
 ];
@@ -20,17 +20,10 @@ export function Footer({ className }: { className?: string }) {
         {columns.map((col) => (
           <div key={col.title} className="flex min-w-0 flex-1 flex-col items-start gap-10">
             <p className="text-text-secondary mono-label">{col.title}</p>
-            {col.links.map((l) =>
-              l.href ? (
-                <Link key={l.label} href={l.href} className="text-text-primary body-base">
-                  {l.label}
-                </Link>
-              ) : (
-                <p key={l.label} className="text-text-primary body-base">
+            {col.links.map((l) => (<p key={l.label} className="text-text-primary body-base">
                   {l.label}
                 </p>
-              ),
-            )}
+            ))}
           </div>
         ))}
       </div>

@@ -15,15 +15,16 @@ export type ButtonProps = {
   className?: string;
 };
 
-const base = "inline-flex shrink-0 items-start whitespace-nowrap rounded-full";
+/** Fixed width as in Figma (FIXED sizing on each variant); content is left-aligned and clipped. */
+const base = "inline-flex shrink-0 items-start overflow-hidden whitespace-nowrap rounded-full";
 
 const variants: Record<ButtonStyle, string> = {
   // 260:75 — bg/inverse, px 24 py 14, gap 8, Label/M
-  Primary: "gap-8 bg-bg-inverse px-24 py-14 text-text-inverse label-m",
+  Primary: "w-button-primary gap-8 bg-bg-inverse px-24 py-14 text-text-inverse label-m",
   // 260:78 — 1px border/inverse, px 24 py 14, Label/M
-  Secondary: "border border-border-inverse px-24 py-14 text-text-primary label-m",
+  Secondary: "w-button-secondary border border-border-inverse px-24 py-14 text-text-primary label-m",
   // 260:82 — 1px border/inverse, px 22 (no token → space/20) py 12, gap 8, Label/S
-  Link: "gap-8 border border-border-inverse px-20 py-12 text-text-primary label-s",
+  Link: "w-button-link gap-8 border border-border-inverse px-20 py-12 text-text-primary label-s",
 };
 
 export function Button({ label = "Start a project", variant = "Primary", arrow = true, href, className }: ButtonProps) {

@@ -30,12 +30,13 @@ would break the layout (column widths), the value is kept in **one** file,
 | `w-intro-label` | 560 | Section intro label column (component description says "Label column (560)") |
 | `w-index-year` / `-client` / `-industry` / `-arrow` | 90 / 360 / 220 / 40 | Index row columns |
 | `aspect-case-card` | 674 / 760 | Case card photo frame |
+| `w-button-primary` / `-secondary` / `-link` | 174 / 184 / 157 | Button variants (FIXED width) |
 
 ## Component sizing in Figma that is not hug
 
 | Component | Figma | Code |
 |---|---|---|
-| Button · Primary / Secondary / Link | Width **FIXED** 174 / 184 / 157 (labels are hug inside) | Hug content. Secondary at 184 only matches the CTA label "Book a 30-min call"; with the default label Figma leaves 32px empty on the right. Link at 157 squeezes its right padding to 16. |
+| Button · Primary / Secondary / Link | Width **FIXED** 174 / 184 / 157 (labels are hug inside) | **As Figma** (decision 2026-11-13): fixed `w-button-primary/-secondary/-link`, content left-aligned, overflow clipped. |
 | Meta item | Width FIXED 176 | `w-full`, width comes from the parent grid |
 
 ## Font rendering
@@ -46,3 +47,11 @@ would break the layout (column widths), the value is kept in **one** file,
   IBM Plex Mono comes from `next/font/google` (widths match).
 * Figma rounds each line box to whole px. Text styles therefore store
   `line-height` as `round(size × factor)` px (AUTO = Inter 1.21, Plex Mono 1.3).
+
+## Decisions (2026-11-13)
+
+1. Layout sizes stay in `styles/layout.css` (named theme values, not Figma tokens) — the developer's call.
+2. Spacing substitutions above (30→28, 7→6, 22→20) stay — the developer's call.
+3. Buttons keep Figma's fixed widths.
+4. Nav / Footer links are plain text for now (not clickable).
+5. Nav wordmark stays `Heading/H6` + semibold.

@@ -15,6 +15,11 @@
   --container-index-industry: 220px;
   --container-index-arrow: 40px;
 
+  /* Button widths — Figma main components are FIXED width (260:75 / 260:78 / 260:82) */
+  --container-button-primary: 174px;
+  --container-button-secondary: 184px;
+  --container-button-link: 157px;
+
   /* Case card photo frame 674 × 760 (260:59) */
   --aspect-case-card: 674 / 760;
 }
