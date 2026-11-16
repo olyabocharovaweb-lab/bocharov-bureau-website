@@ -109,3 +109,25 @@
     margin-inline-end: 0.03em;
   }
 }
+
+/* Footer light → dark on scroll (components/ds/Footer.tsx). --dark: 0…1, set by JS.
+   The fill is a mix of two tokens and follows the scroll; the text flips at the halfway
+   point (data-surface="dark"), so it never fades into the same grey as the fill. */
+@layer components {
+  .footer-scroll {
+    --dark: 0;
+    background-color: color-mix(in srgb, var(--color-bg-inverse) calc(var(--dark) * 100%), var(--color-bg-page));
+  }
+  .footer-ink {
+    color: var(--color-text-primary);
+  }
+  .footer-muted {
+    color: var(--color-text-secondary);
+  }
+  .footer-scroll[data-surface="dark"] .footer-ink {
+    color: var(--color-text-inverse);
+  }
+  .footer-scroll[data-surface="dark"] .footer-muted {
+    color: var(--color-text-tertiary);
+  }
+}

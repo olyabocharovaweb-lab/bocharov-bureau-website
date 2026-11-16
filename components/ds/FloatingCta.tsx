@@ -8,9 +8,10 @@ import { Button } from "./Button";
  * Figma: «Floating CTA — Book a call» (314:5029 on every page) — Button Primary,
  * label «Book a call» + →. Fixed bottom-right: 40 / 40 (16 / 16 below md), above content.
  *
- * - Over a dark section (any element with data-surface="dark") it switches to the
- *   inverse tone: fill bg/page, label text/primary.
+ * - Over a dark surface (an element whose data-surface is "dark" — the Footer switches
+ *   itself to dark while scrolling in) it uses the inverse tone: bg/page fill, text/primary.
  * - Hidden while the Contact form (#contact) is in view, so it does not double the CTA.
+ * - Hidden when an element marked data-cta-avoid (the Footer legal line) reaches it.
  * - No animation: state changes are instant.
  *
  * Link: /#contact for now; to be replaced with Calendly.
@@ -18,41 +19,54 @@ import { Button } from "./Button";
 export function FloatingCta() {
   const ref = useRef<HTMLDivElement>(null);
   const [inverse, setInverse] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [contactInView, setContactInView] = useState(false);
+  const [avoid, setAvoid] = useState(false);
 
-  // Dark sections under the button: a thin observation band at the button's height.
+  // What is under the button: observe surfaces and avoid-zones in the strip it occupies.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const darks = Array.from(document.querySelectorAll<HTMLElement>('[data-surface="dark"]'));
-    if (darks.length === 0) return;
+    const surfaces = Array.from(document.querySelectorAll<HTMLElement>("[data-surface]"));
+    const avoids = Array.from(document.querySelectorAll<HTMLElement>("[data-cta-avoid]"));
+    if (surfaces.length === 0 && avoids.length === 0) return;
+
     const r = el.getBoundingClientRect();
-    const fromBottom = window.innerHeight - r.bottom;
-    // rootMargin shrinks the viewport to the strip the button occupies.
-    const over = new Set<Element>();
+    const rootMargin = `-${Math.round(r.top)}px 0px -${Math.round(window.innerHeight - r.bottom)}px 0px`;
+    const under = new Set<Element>();
+    const recompute = () => {
+      setInverse(surfaces.some((s) => under.has(s) && s.dataset.surface === "dark"));
+      setAvoid(avoids.some((a) => under.has(a)));
+    };
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) over.add(e.target);
-          else over.delete(e.target);
+          if (e.isIntersecting) under.add(e.target);
+          else under.delete(e.target);
         }
-        setInverse(over.size > 0);
+        recompute();
       },
-      { rootMargin: `-${Math.round(r.top)}px 0px -${Math.round(fromBottom)}px 0px`, threshold: 0 },
+      { rootMargin, threshold: 0 },
     );
-    darks.forEach((d) => io.observe(d));
-    return () => io.disconnect();
+    [...surfaces, ...avoids].forEach((n) => io.observe(n));
+    // A surface can turn dark while it stays under the button (the Footer does).
+    const mo = new MutationObserver(recompute);
+    surfaces.forEach((s) => mo.observe(s, { attributes: true, attributeFilter: ["data-surface"] }));
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, []);
 
   // Hide while the Contact form is visible.
   useEffect(() => {
     const contact = document.getElementById("contact");
     if (!contact) return;
-    const io = new IntersectionObserver(([e]) => setHidden(e.isIntersecting), { threshold: 0 });
+    const io = new IntersectionObserver(([e]) => setContactInView(e.isIntersecting), { threshold: 0 });
     io.observe(contact);
     return () => io.disconnect();
   }, []);
 
+  const hidden = contactInView || avoid;
   return (
     <div
       ref={ref}
