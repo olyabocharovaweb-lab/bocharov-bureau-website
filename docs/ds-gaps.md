@@ -101,3 +101,4 @@ would break the layout (column widths), the value is kept in **one** file,
     no dark section exists yet (Footer is white), mechanism verified with a test-only dark footer.
     Hidden while #contact is in view. No animation. Button gained `inverse` and `type` props (not Figma properties).
     Open: over the Footer the button covers «Privacy · Terms» at 1440×900.
+14. 2026-11-17 — In numbers: values from the client — 700+, 5.0, 93% (Figma still shows XX+ / 5.0 / XX%); count-up from 0.

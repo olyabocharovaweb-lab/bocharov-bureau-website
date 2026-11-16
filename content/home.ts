@@ -69,9 +69,10 @@ export const services = {
 export const numbers = {
   label: "( Bocharov® in numbers )",
   items: [
-    { value: "XX+", label: "Projects delivered", note: "Brands, platforms and campaigns across Europe and the US." },
-    { value: "5.0", label: "Rating on Clutch", note: "Verified client reviews. Placeholder until the profile is live." },
-    { value: "XX%", label: "Faster production", note: "How much sooner content ships with our AI pipeline vs. a classic studio." },
+    // Numbers from the client (2026-11-17); Figma still shows XX placeholders.
+    { to: 700, decimals: 0, suffix: "+", label: "Projects delivered", note: "Brands, platforms and campaigns across Europe and the US." },
+    { to: 5, decimals: 1, suffix: "", label: "Rating on Clutch", note: "Verified client reviews. Placeholder until the profile is live." },
+    { to: 93, decimals: 0, suffix: "%", label: "Faster production", note: "How much sooner content ships with our AI pipeline vs. a classic studio." },
   ],
 };
 
