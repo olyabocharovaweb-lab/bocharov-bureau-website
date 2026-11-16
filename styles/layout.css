@@ -21,6 +21,10 @@
   --container-button-secondary: 184px;
   --container-button-link: 157px;
 
+  /* Services hover photo frame «Photo U1» (307:8638): 220 × 290, rotated −3° in Figma */
+  --container-hover-photo: 220px;
+  --aspect-hover-photo: 220 / 290;
+
   /* Home hero lede text box (256:68186) */
   --container-hero-lede: 460px;
 }
@@ -29,4 +33,6 @@
   /* Section top padding used by most Home sections (Services, In numbers,
      Selected work, Process, Reviews, Industries, Contact, FAQ). No space/140 in Figma. */
   --spacing-section: 140px;
+  /* Services row: gap between the 560 label column and the 540 copy column (256:68206) */
+  --spacing-service-gap: 260px;
 }

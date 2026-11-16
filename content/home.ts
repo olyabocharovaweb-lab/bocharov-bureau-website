@@ -19,6 +19,10 @@ export const manifesto = {
   rest: "AI systems. Ideas move from concept to market faster, sharper and at a scale studios could not reach before.",
 };
 
+/**
+ * Hover photos: Figma has no service media yet, so the Hero photos stand in
+ * (E reuses P1). Replace when the real images exist.
+ */
 export const services = {
   title: "Ideas in motion.",
   label: "( Our services )",
@@ -29,30 +33,35 @@ export const services = {
       title: "Brand & Identity",
       body: "Strategy, naming, visual identity and guidelines — built to scale across every channel.",
       tags: ["Brand strategy", "Naming", "Visual identity", "Guidelines"],
+      photo: "/media/home-hero-1.webp",
     },
     {
       letter: "B /",
       title: "Websites & Digital Products",
       body: "Award-level websites, platforms and apps — designed and engineered in-house.",
       tags: ["Web design", "Development", "UI/UX", "E-commerce"],
+      photo: "/media/home-hero-4.webp",
     },
     {
       letter: "C /",
       title: "Content & Production",
       body: "Photo, video, 3D and AI-generated imagery — campaign-ready, on brand, at volume.",
       tags: ["AI imagery", "Photo & video", "3D & motion", "Social content"],
+      photo: "/media/home-hero-3.webp",
     },
     {
       letter: "D /",
       title: "Growth & Marketing",
       body: "Performance, SMM and SEO that turn attention into revenue.",
       tags: ["Performance ads", "SMM", "SEO", "CRO & analytics"],
+      photo: "/media/home-hero-2.webp",
     },
     {
       letter: "E /",
       title: "AI Systems",
       body: "Agents, automation and integrations that keep working after launch.",
       tags: ["AI agents", "Automation", "Integrations", "AI content pipelines"],
+      photo: "/media/home-hero-1.webp",
     },
   ],
 };

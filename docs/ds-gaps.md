@@ -77,3 +77,10 @@ would break the layout (column widths), the value is kept in **one** file,
 8. 2026-11-16 — First motion on the site, at the client's request (exception to the "iteration 1 static"
    rule): Home Manifesto text reveals with scroll. No library; one CSS variable per block. Static QA
    screenshots are taken with `prefers-reduced-motion: reduce`, which shows the final (Figma) state.
+9. 2026-11-16 — Manifesto: whole sentence `color/text/primary` (Figma keeps the second half grey). Reveal smoother
+   (eased) and quicker (finishes when the text bottom reaches 75% of the viewport).
+10. 2026-11-16 — Services hover (see docs/motion-notes.md). Figma has a hover photo only for row B («P4 red coat»);
+    rows A, C, D, E reuse the Hero photos (E repeats P1) until real service images exist.
+    Figma Services rows were updated: columns 560 + gap 260 + 540 → `gap-service-gap` (styles/layout.css).
+    Motion values live in `styles/motion.css` (not Figma variables). The global "no transitions" rule now
+    applies only under `prefers-reduced-motion: reduce`.

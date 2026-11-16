@@ -1,0 +1,9 @@
+/*
+ * Motion values. NOT Figma variables (Figma has none for motion) — named here so
+ * components carry no raw durations/curves. See docs/ds-gaps.md → Decisions.
+ */
+@theme {
+  --default-transition-duration: 250ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

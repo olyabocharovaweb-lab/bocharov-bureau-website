@@ -20,7 +20,7 @@ type RevealTextProps = {
  * (--reveal, 0…1) on the container, and every character computes its own opacity
  * from it in CSS. Without JS, or with prefers-reduced-motion, the text is fully shown.
  */
-export function RevealText({ segments, className, fade = 14 }: RevealTextProps) {
+export function RevealText({ segments, className, fade = 24 }: RevealTextProps) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   // Characters, grouped by word so words never break in the middle.
@@ -44,23 +44,33 @@ export function RevealText({ segments, className, fade = 14 }: RevealTextProps) 
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // Target follows scroll; the shown value eases toward it every frame (smooth catch-up).
+    let target = 0;
+    let shown = 0;
     let frame = 0;
-    const update = () => {
-      frame = 0;
+    const measure = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // 0 when the text's top reaches 85% of the viewport,
-      // 1 when the text's bottom reaches 55% of the viewport.
-      const start = vh * 0.85;
-      const end = vh * 0.55;
+      // 0 when the text's top reaches 90% of the viewport,
+      // 1 when the text's bottom reaches 75% of the viewport.
+      const start = vh * 0.9;
+      const end = vh * 0.75;
       const travel = start - end + rect.height;
-      const p = Math.min(1, Math.max(0, (start - rect.top) / travel));
-      el.style.setProperty("--reveal", p.toFixed(4));
+      target = Math.min(1, Math.max(0, (start - rect.top) / travel));
+    };
+    const tick = () => {
+      shown += (target - shown) * 0.12;
+      if (Math.abs(target - shown) < 0.0005) shown = target;
+      el.style.setProperty("--reveal", shown.toFixed(4));
+      frame = shown === target ? 0 : requestAnimationFrame(tick);
     };
     const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
+      measure();
+      if (!frame) frame = requestAnimationFrame(tick);
     };
-    update();
+    measure();
+    shown = target;
+    el.style.setProperty("--reveal", shown.toFixed(4));
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {

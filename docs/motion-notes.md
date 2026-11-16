@@ -10,7 +10,8 @@ Source: page «Main direction» › section «2» (`256:68174`). Collected via t
 | Page | Block (Figma layer path) | Note | Figma node |
 |---|---|---|---|
 | Home (Homepage — Variant 1b (light)) | — | *No Motion note instances on this frame* | `256:68175` |
-| Home | Manifesto | **Implemented (client request 2026-11-16, not a Figma note):** characters reveal one after another with scroll, soft gradient on the leading edge. `components/home/RevealText.tsx`; reduced motion / no JS → full text. | `256:68196` |
+| Home | Manifesto | **Implemented (client request 2026-11-16, not a Figma note):** characters reveal one after another with scroll, soft gradient on the leading edge (24 chars), eased catch-up; whole sentence black. `components/home/RevealText.tsx`; reduced motion / no JS → full text. | `256:68196` |
+| Home | Services | **Implemented (client request 2026-11-16):** hovered row turns grey (`bg/surface`), its photo appears in a 220×290 frame tilted 3° (Figma «Photo U1» `307:8638`) and follows the cursor with a little extra tilt; soft synthesized tick on hover (after the first click/tap — browser audio policy). Mouse/trackpad only; reduced motion → no follow/tilt animation, no transitions. `components/home/ServicesList.tsx`, `lib/hover-sound.ts` | `256:68199` |
 | Work | Hero | фільтр перемикає кейси без перезавантаження: картки плавно перебудовуються (FLIP) | `262:5033` |
 | Work | Frame (case grid) | фото «відкриваються» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
 | Work | Index › Frame | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється | `262:5154` |

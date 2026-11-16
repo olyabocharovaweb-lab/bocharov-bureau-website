@@ -2,6 +2,7 @@
 @import "../styles/tokens.css";
 @import "../styles/layout.css";
 @import "../styles/typography.css";
+@import "../styles/motion.css";
 
 @layer base {
   html {
@@ -13,7 +14,11 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Iteration 1: static. Kill every transition/animation, even UA ones. */
+}
+
+/* Motion is opt-in per component (Manifesto reveal, Services hover).
+   With reduced motion, every transition/animation is switched off. */
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
