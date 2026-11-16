@@ -74,3 +74,6 @@ would break the layout (column widths), the value is kept in **one** file,
 7. 2026-11-16 — Footer fills the viewport (`min-h-svh`): link columns at the top, wordmark and legal
    line pinned to the bottom. Not in Figma yet — the Figma Footer (260:33) is 656 tall; on a 900px
    viewport the code footer is 900. Spacing inside (pt 160, gap 40, pb 40) is unchanged.
+8. 2026-11-16 — First motion on the site, at the client's request (exception to the "iteration 1 static"
+   rule): Home Manifesto text reveals with scroll. No library; one CSS variable per block. Static QA
+   screenshots are taken with `prefers-reduced-motion: reduce`, which shows the final (Figma) state.

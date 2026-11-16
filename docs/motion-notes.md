@@ -10,6 +10,7 @@ Source: page «Main direction» › section «2» (`256:68174`). Collected via t
 | Page | Block (Figma layer path) | Note | Figma node |
 |---|---|---|---|
 | Home (Homepage — Variant 1b (light)) | — | *No Motion note instances on this frame* | `256:68175` |
+| Home | Manifesto | **Implemented (client request 2026-11-16, not a Figma note):** characters reveal one after another with scroll, soft gradient on the leading edge. `components/home/RevealText.tsx`; reduced motion / no JS → full text. | `256:68196` |
 | Work | Hero | фільтр перемикає кейси без перезавантаження: картки плавно перебудовуються (FLIP) | `262:5033` |
 | Work | Frame (case grid) | фото «відкриваються» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
 | Work | Index › Frame | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється | `262:5154` |

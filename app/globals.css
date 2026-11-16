@@ -22,3 +22,11 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Scroll-linked text reveal (components/home/RevealText.tsx).
+   Each character's opacity is derived from the container's --reveal (0…1). */
+@layer components {
+  .reveal-char {
+    opacity: clamp(0, calc((var(--reveal) * var(--reveal-total) - var(--i)) / var(--reveal-fade)), 1);
+  }
+}
