@@ -20,7 +20,7 @@ type RevealTextProps = {
  * (--reveal, 0…1) on the container, and every character computes its own opacity
  * from it in CSS. Without JS, or with prefers-reduced-motion, the text is fully shown.
  */
-export function RevealText({ segments, className, fade = 48 }: RevealTextProps) {
+export function RevealText({ segments, className, fade = 64 }: RevealTextProps) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   // Characters, grouped by word so words never break in the middle.
@@ -48,28 +48,18 @@ export function RevealText({ segments, className, fade = 48 }: RevealTextProps) 
     let target = 0;
     let shown = 0;
     let frame = 0;
-    // Pinned mode: the closest [data-reveal-track] is a tall section whose content is sticky;
-    // the reveal runs from when it is 40% in view until the pin releases.
-    const track = el.closest<HTMLElement>("[data-reveal-track]");
     const measure = () => {
-      const vh = window.innerHeight;
-      if (track) {
-        const r = track.getBoundingClientRect();
-        const lead = vh * 0.4;
-        const travel = lead + (r.height - vh);
-        target = Math.min(1, Math.max(0, (lead - r.top) / travel));
-        return;
-      }
       const rect = el.getBoundingClientRect();
-      // 0 when the text's top reaches 85% of the viewport,
-      // 1 when the text's bottom reaches 40% of the viewport.
-      const start = vh * 0.85;
-      const end = vh * 0.4;
+      const vh = window.innerHeight;
+      // No pin: the reveal uses the whole natural pass of the text through the viewport —
+      // 0 when its top enters at the bottom edge, 1 when its bottom reaches 30% from the top.
+      const start = vh;
+      const end = vh * 0.3;
       const travel = start - end + rect.height;
       target = Math.min(1, Math.max(0, (start - rect.top) / travel));
     };
     const tick = () => {
-      shown += (target - shown) * 0.08;
+      shown += (target - shown) * 0.06;
       if (Math.abs(target - shown) < 0.0005) shown = target;
       el.style.setProperty("--reveal", shown.toFixed(4));
       frame = shown === target ? 0 : requestAnimationFrame(tick);
