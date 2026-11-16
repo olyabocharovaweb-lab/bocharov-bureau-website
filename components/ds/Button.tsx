@@ -17,6 +17,13 @@ export type ButtonProps = {
    * on the pages is HUG. Default = hug; `fixedWidth` reproduces the main component.
    */
   fixedWidth?: boolean;
+  /**
+   * Not a Figma property: Primary on a dark surface (bg/page fill, text/primary label).
+   * Used by the floating «Book a call» over dark sections.
+   */
+  inverse?: boolean;
+  /** For a <button>: "submit" inside forms. */
+  type?: "button" | "submit";
   className?: string;
 };
 
@@ -30,7 +37,7 @@ const fixedWidths: Record<ButtonStyle, string> = {
 
 const variants: Record<ButtonStyle, string> = {
   // 260:75 — bg/inverse, px 24 py 14, gap 8, Label/M
-  Primary: "gap-8 bg-bg-inverse px-24 py-14 text-text-inverse label-m",
+  Primary: "gap-8 px-24 py-14 label-m",
   // 260:78 — 1px border/inverse, px 24 py 14, Label/M
   Secondary: "border border-border-inverse px-24 py-14 text-text-primary label-m",
   // 260:82 — 1px border/inverse, px 22 (no token → space/20) py 12, gap 8, Label/S
@@ -43,6 +50,8 @@ export function Button({
   arrow = true,
   href,
   fixedWidth = false,
+  inverse = false,
+  type = "button",
   className,
 }: ButtonProps) {
   const content = (
@@ -52,7 +61,9 @@ export function Button({
       {variant === "Link" && arrow && <span aria-hidden="true">↗</span>}
     </>
   );
-  const classes = cn(base, variants[variant], fixedWidth && fixedWidths[variant], className);
+  const tone =
+    variant === "Primary" ? (inverse ? "bg-bg-page text-text-primary" : "bg-bg-inverse text-text-inverse") : undefined;
+  const classes = cn(base, variants[variant], tone, fixedWidth && fixedWidths[variant], className);
   if (href) {
     return (
       <Link href={href} className={classes}>
@@ -61,7 +72,7 @@ export function Button({
     );
   }
   return (
-    <button type="button" className={classes}>
+    <button type={type} className={classes}>
       {content}
     </button>
   );

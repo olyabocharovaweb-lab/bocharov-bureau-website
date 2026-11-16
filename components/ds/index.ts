@@ -10,3 +10,4 @@ export { StatCard } from "./StatCard";
 export { CreditsRow } from "./CreditsRow";
 export { CaseCard } from "./CaseCard";
 export { IndexRow } from "./IndexRow";
+export { FloatingCta } from "./FloatingCta";

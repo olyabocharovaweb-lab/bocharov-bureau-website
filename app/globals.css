@@ -64,3 +64,48 @@
     visibility: hidden;
   }
 }
+
+/* Inline sentence-form field (components/home/ContactForm.tsx).
+   No border, underline, fill or outline; keyboard focus shows only the caret plus a
+   faint 1px underline (border/default) so focus is never fully invisible. */
+@layer components {
+  .inline-field {
+    position: relative;
+    cursor: text;
+  }
+  .inline-field input {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-text-primary);
+    caret-color: var(--color-text-primary);
+    border-radius: 0;
+    /* inputs never shrink below the font's natural line box; pin to the style's line-height */
+    height: 1lh;
+  }
+  .inline-field input::placeholder {
+    color: var(--color-text-tertiary);
+    opacity: 1;
+  }
+  .inline-field::after {
+    content: "";
+    position: absolute;
+    left: var(--space-16);
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid var(--color-border-default);
+    visibility: hidden;
+  }
+  .inline-field:has(input:focus-visible)::after {
+    visibility: visible;
+  }
+  /* Figma leaves the last glyph's letter-spacing (Heading/XL −3%) out of a text box's
+     width; the browser keeps it. Give it back so field and period sit where Figma has them. */
+  .sentence-line > label:first-child,
+  .inline-field > span {
+    margin-inline-end: 0.03em;
+  }
+}

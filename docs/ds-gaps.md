@@ -89,3 +89,15 @@ would break the layout (column widths), the value is kept in **one** file,
     (1px `border/default`, inset 24). Hover / focus-visible: `bg/surface`, own and next divider hidden, no transition.
     Rows are 182 / 156 tall vs Figma 184 / 158 because Tag is 30 (padding 7 → space/6, decision 2).
     Gap: «Content & Production» body text in Figma has raw #77776F (= text/secondary, not bound).
+12. 2026-11-17 — Contact form rebuilt to Figma «Sentence form» (256:68639): 3 lines, Heading/XL, gap space/12,
+    inline <input>s (no border/underline/fill/outline; placeholder text/tertiary, value + caret text/primary),
+    field pl space/16, period glued to the field, width follows placeholder/value (mirror text in the same grid cell).
+    Keyboard focus: caret + 1px underline border/default (kept so focus is never invisible). Validation: native
+    (name required, email type=email required); submission not wired. Old fields company/budget/timing removed.
+    Browser input boxes are pinned to `height: 1lh`; trailing letter-spacing compensated (+0.03em) because Figma
+    excludes it from text-box widths. Figma line 1 is drawn focused (56px caret, 69 tall) → code section 626 vs 631.
+13. 2026-11-17 — Floating CTA «Book a call» (Figma 314:5029, every page): Button Primary, fixed 40/40 (16/16 < md),
+    z-50, link /#contact (Calendly later). Over `[data-surface="dark"]` → Button `inverse` (bg/page, text/primary) —
+    no dark section exists yet (Footer is white), mechanism verified with a test-only dark footer.
+    Hidden while #contact is in view. No animation. Button gained `inverse` and `type` props (not Figma properties).
+    Open: over the Footer the button covers «Privacy · Terms» at 1440×900.

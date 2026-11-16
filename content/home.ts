@@ -155,23 +155,28 @@ export const industries = {
   text: "Beauty / Real Estate / Hospitality / Healthcare / E-commerce / Tech & SaaS",
 };
 
-/** Sentence form: text segments and fields, row by row. */
-export type FormPart = { text: string } | { field: string; dropdown?: boolean };
+/** Sentence form (Figma «Sentence form» 256:68639): text before the field, the field, text after. */
+export type SentenceLine = {
+  before: string;
+  field: { name: string; placeholder: string; type: "text" | "email"; required?: boolean; autoComplete?: string };
+  after: string;
+};
 
 export const contact = {
   title: "Let’s talk.",
-  rows: [
-    [{ text: "Hey Bocharov®, my name is " }, { field: "your name" }, { text: " and I’m writing from " }, { field: "company" }, { text: "." }],
-    [{ text: "I’d like to " }, { field: "build a brand / website / campaign" }, { text: "." }],
-    [
-      { text: "My budget is roughly " },
-      { field: "€10–25k", dropdown: true },
-      { text: " and I’d like to start " },
-      { field: "next month", dropdown: true },
-      { text: "." },
-    ],
-    [{ text: "You can reach me at " }, { field: "email" }, { text: ". Looking forward to it!" }],
-  ] as FormPart[][],
+  lines: [
+    {
+      before: "Hey Bocharov®, I’m",
+      field: { name: "name", placeholder: "your name", type: "text", required: true, autoComplete: "name" },
+      after: ".",
+    },
+    { before: "I need", field: { name: "project", placeholder: "a brand / website / campaign", type: "text" }, after: "." },
+    {
+      before: "Reach me at",
+      field: { name: "email", placeholder: "email", type: "email", required: true, autoComplete: "email" },
+      after: ".",
+    },
+  ] as SentenceLine[],
   cta: "Send the brief",
 };
 

@@ -27,3 +27,12 @@ Remaining per-glyph differences are anti-aliasing between Figma's and Chromium's
 Diff >40/255: 4.2%, all from text shifting 2px per row (Tag 30 vs 32). Sampled pixels — grey plate,
 plate edge, dividers above A/B/C, hidden dividers above D/E, 24px inset, no white strips — identical.
 `services-list/code-hover-growth-viewport.png` — the same hover with the floating photo, 1440×900.
+
+## Contact form (256:68637) and floating CTA (314:5029)
+
+`contact-cta/compare-figma-code-diff.png` — Figma | code (empty) | diff, code shifted 5px below the title to
+cancel the caret drawn into Figma line 1. Diff >40/255: 1.1% aligned (4.1% raw). Per block: title 0.1%,
+line 1 text 0.8%, line 2 2.5%, line 3 0.5%, button 0.2%. Field widths: 323 / 851 / 171 (Figma 328 incl. the
+drawn 3px caret + 2px gap / 851 / 171).
+Also: `form-typed.png`, `form-focus-visible@2x.png`, `cta-states.png` (top of Home · over Footer · over a
+test-only dark footer → inverse).

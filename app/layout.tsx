@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { FloatingCta } from "@/components/ds";
 import "./globals.css";
 
 /**
@@ -37,7 +38,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${plexMono.variable}`}>
-      <body className="bg-bg-page text-text-primary">{children}</body>
+      <body className="bg-bg-page text-text-primary">
+        {children}
+        <FloatingCta />
+      </body>
     </html>
   );
 }

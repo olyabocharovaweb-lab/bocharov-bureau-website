@@ -1,43 +1,76 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ds";
-import { contact } from "@/content/home";
+import { contact, type SentenceLine } from "@/content/home";
 
 /**
- * Figma: Contact form (256:68637) — pt 140, px 40, gap 40.
- * Iteration 1: static picture of the sentence form (fields are not interactive yet).
- * Rows: flex-wrap, gap 8 / 12, items-end; text Heading/H2, fields Statement/L tertiary + 1px border/inverse, pb 6.
- * Figma keeps a text box's leading space but drops trailing spaces from its hug width,
- * so trailing spaces are trimmed and a leading space is kept as a no-break space.
+ * Figma: Contact form (256:68637) — pt 140, px 40, gap 40; «Sentence form» (256:68639):
+ * 3 lines, Heading/XL, gap space/12; each line wraps (flex-wrap, baseline, row gap 8).
+ * Field = <input> inside the sentence: same type style, no border / underline / fill /
+ * outline; placeholder text/tertiary, value text/primary, caret text/primary; pl space/16;
+ * the period sits right after the field. Width follows the placeholder / typed value
+ * (an invisible mirror in the same grid cell sizes the input).
+ * Submission is not wired yet — client-side validation only (native constraints).
  */
-function segment(text: string) {
-  return text.trimEnd().replace(/^ /, "\u00a0");
-}
 export function ContactForm() {
+  const [values, setValues] = useState<Record<string, string>>({});
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+    // TODO: send the brief (endpoint not decided yet).
+  };
+
   return (
-    <section className="flex w-full flex-col items-start gap-40 px-40 pt-section">
+    <section id="contact" className="flex w-full flex-col items-start gap-40 px-40 pt-section">
       <h2 className="w-full text-text-primary display-l">{contact.title}</h2>
-      <div className="flex w-full flex-col items-start gap-8">
-        {contact.rows.map((row, i) => (
-          <div key={i} className="flex w-full flex-wrap content-end items-end gap-x-12 gap-y-8">
-            {row.map((part, j) =>
-              "text" in part ? (
-                <p key={j} className="whitespace-nowrap text-text-primary heading-h2">
-                  {segment(part.text)}
-                </p>
-              ) : (
-                <div key={j} className="flex items-center gap-8 border-b border-border-inverse pb-6">
-                  <span className="whitespace-nowrap text-text-tertiary statement-l">{part.field}</span>
-                  {part.dropdown && (
-                    <span className="text-text-secondary body-xl" aria-hidden="true">
-                      ▾
-                    </span>
-                  )}
-                </div>
-              ),
-            )}
-          </div>
-        ))}
-      </div>
-      <Button variant="Primary" label={contact.cta} />
+      <form onSubmit={onSubmit} className="flex w-full flex-col items-start gap-40">
+        <div className="flex w-full flex-col items-start gap-12">
+          {contact.lines.map((line) => (
+            <Line
+              key={line.field.name}
+              line={line}
+              value={values[line.field.name] ?? ""}
+              onChange={(v) => setValues((prev) => ({ ...prev, [line.field.name]: v }))}
+            />
+          ))}
+        </div>
+        <Button variant="Primary" type="submit" label={contact.cta} />
+      </form>
     </section>
+  );
+}
+
+function Line({ line, value, onChange }: { line: SentenceLine; value: string; onChange: (v: string) => void }) {
+  const id = `brief-${line.field.name}`;
+  return (
+    <div className="sentence-line flex w-full flex-wrap items-baseline gap-y-8 text-text-primary heading-xl">
+      <label htmlFor={id} className="whitespace-nowrap">
+        {line.before}
+      </label>
+      <span className="flex items-baseline whitespace-nowrap">
+        {/* Clicking anywhere on the hint (or the 16px before it) focuses the input. */}
+        <label htmlFor={id} className="inline-field inline-grid pl-16">
+          <span aria-hidden="true" className="invisible col-start-1 row-start-1 whitespace-pre">
+            {value || line.field.placeholder}
+          </span>
+          <input
+            id={id}
+            name={line.field.name}
+            type={line.field.type}
+            required={line.field.required}
+            autoComplete={line.field.autoComplete}
+            placeholder={line.field.placeholder}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            size={1}
+            className="col-start-1 row-start-1 w-0 min-w-full heading-xl"
+          />
+        </label>
+        <span aria-hidden="true">{line.after}</span>
+      </span>
+    </div>
   );
 }
