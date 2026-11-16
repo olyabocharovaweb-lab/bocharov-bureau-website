@@ -20,7 +20,7 @@ type RevealTextProps = {
  * (--reveal, 0…1) on the container, and every character computes its own opacity
  * from it in CSS. Without JS, or with prefers-reduced-motion, the text is fully shown.
  */
-export function RevealText({ segments, className, fade = 24 }: RevealTextProps) {
+export function RevealText({ segments, className, fade = 48 }: RevealTextProps) {
   const ref = useRef<HTMLParagraphElement>(null);
 
   // Characters, grouped by word so words never break in the middle.
@@ -51,15 +51,15 @@ export function RevealText({ segments, className, fade = 24 }: RevealTextProps) 
     const measure = () => {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // 0 when the text's top reaches 90% of the viewport,
-      // 1 when the text's bottom reaches 75% of the viewport.
-      const start = vh * 0.9;
-      const end = vh * 0.75;
+      // 0 when the text's top reaches 85% of the viewport,
+      // 1 when the text's bottom reaches 40% of the viewport — a long scroll, so it reads slowly.
+      const start = vh * 0.85;
+      const end = vh * 0.4;
       const travel = start - end + rect.height;
       target = Math.min(1, Math.max(0, (start - rect.top) / travel));
     };
     const tick = () => {
-      shown += (target - shown) * 0.12;
+      shown += (target - shown) * 0.06;
       if (Math.abs(target - shown) < 0.0005) shown = target;
       el.style.setProperty("--reveal", shown.toFixed(4));
       frame = shown === target ? 0 : requestAnimationFrame(tick);

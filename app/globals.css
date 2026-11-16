@@ -32,7 +32,12 @@
    Each character's opacity is derived from the container's --reveal (0…1). */
 @layer components {
   .reveal-char {
-    opacity: clamp(0, calc((var(--reveal) * var(--reveal-total) - var(--i)) / var(--reveal-fade)), 1);
+    /* Not-yet-revealed text sits at --reveal-base (a faint ghost), then fades up to full. */
+    --reveal-base: 0.12;
+    opacity: calc(
+      var(--reveal-base) + (1 - var(--reveal-base)) *
+        clamp(0, calc((var(--reveal) * var(--reveal-total) - var(--i)) / var(--reveal-fade)), 1)
+    );
   }
 }
 
