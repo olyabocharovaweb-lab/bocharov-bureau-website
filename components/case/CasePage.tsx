@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button, CreditsRow, Cta, Footer, MediaCaption, MetaItem, Nav, SectionIntro, StatCard, Tag } from "@/components/ds";
+import { RevealText } from "@/components/home/RevealText";
 import type { CaseData, CaseIntro } from "@/content/cases/types";
 
 /**
  * One template for every case page (Figma: «Case — PulseFit» 256:70753 as the reference).
  * Sections are composed from design-system components; client media are exported images.
- * Static: no animation (the Figma Motion note «лічильники від 0» is in docs/motion-notes.md).
+ * Motion: only the Challenge text reveal (as Home Manifesto, client request). The Figma Motion note
+ * «лічильники від 0» is in docs/motion-notes.md, not implemented.
  */
 
 /** Content column at 1440 = 1360 (px 40). */
@@ -71,13 +73,17 @@ export function CasePage({ data }: { data: CaseData }) {
           </div>
         </section>
 
-        {/* Challenge — 256:70805: pt 160, px 40, gap 32, Heading/H1 (lead primary, rest secondary) */}
+        {/* Challenge — 256:70805: pt 160, px 40, gap 32, Heading/H1.
+            Client 2026-11-16: whole text text/primary (Figma: rest secondary) + the same scroll reveal as Home Manifesto. */}
         <section className="flex w-full flex-col items-start gap-32 px-40 pt-160">
           <p className="whitespace-nowrap text-text-secondary mono-label">{challenge.label}</p>
-          <p className="w-full heading-h1">
-            <span className="text-text-primary">{challenge.lead}</span>
-            <span className="text-text-secondary">{challenge.rest}</span>
-          </p>
+          <RevealText
+            className="w-full heading-h1"
+            segments={[
+              { text: challenge.lead, className: "text-text-primary" },
+              { text: challenge.rest, className: "text-text-primary" },
+            ]}
+          />
         </section>
 
         {/* Intros + client media (each media frame: pt 72, px 40, gap 12) */}
