@@ -107,3 +107,4 @@ would break the layout (column widths), the value is kept in **one** file,
     primary → inverse, secondary → tertiary at the halfway point (data-surface="dark"), crossfading over --duration-surface 700ms (motion.css; 2026-11-16 client: the flip felt abrupt). Reduced motion → light.
     Floating CTA: inverse over the dark footer; hides when the footer legal line (data-cta-avoid) reaches it,
     so «Privacy · Terms» is never covered.
+16. 2026-11-16 — Home Manifesto pinned (client: reveal too fast; ref. outcrowd.io). Section = sticky block (min-height 100svh, content centred, replaces Figma pt 160) + spacer --spacing-manifesto-track 100svh (styles/layout.css). Adds ~900px of scroll at 1440. Reduced motion → Figma layout.

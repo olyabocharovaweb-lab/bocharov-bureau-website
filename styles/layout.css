@@ -35,4 +35,6 @@
   --spacing-section: 140px;
   /* Services row: gap between the 560 label column and the 540 copy column (256:68206) */
   --spacing-service-gap: 260px;
+  /* Manifesto pin: extra scroll while the text stays put and reveals (decision 2026-11-16). */
+  --spacing-manifesto-track: 100svh;
 }
