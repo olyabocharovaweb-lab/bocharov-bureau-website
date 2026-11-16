@@ -39,7 +39,6 @@ would break the layout (column widths), the value is kept in **one** file,
 | Section top padding — Services, In numbers, Selected work, Process, Reviews, Industries, Contact, FAQ | 140 (no `space/140`) | `pt-section` (`--spacing-section`, styles/layout.css) |
 | Manifesto, second half of the sentence | fill `#9B9B9B`, no variable | `color/text/tertiary` (#B4B4AE) — slightly lighter |
 | Manifesto, first half | `#0A0A0A` raw (not bound) | `color/text/primary` (same value) |
-| In numbers cards, Reviews cards | fill `#F9F9F9`, no variable | `color/bg/surface` (#F3F3F0) — slightly warmer |
 | In numbers cards | frames, **not** Stat card instances (Display/M · H6 · Body/S · gap 20) | built from tokens in place, Stat card not used |
 | Graaho card tags (256:68587), Reviews role lines | no text style, Plex Mono 12 / 4% / UPPER | `Mono/Body` + `uppercase` |
 | Graaho card | frame, not a Case card instance; photo frame fill `#F0EDFA` raw | whole photo frame exported as one image (2x) |
@@ -70,3 +69,5 @@ would break the layout (column widths), the value is kept in **one** file,
 3. Buttons as in Figma: main components FIXED (styleguide, `fixedWidth`), page instances HUG.
 4. Nav / Footer links are plain text for now (not clickable).
 5. Nav wordmark stays `Heading/H6` + semibold.
+6. 2026-11-16 — Figma primitive `neutral/50` changed #F3F3F0 → #F9F9F9. Updated in `styles/tokens.css`;
+   `color/bg/surface` still aliases `neutral/50`. The In numbers / Reviews card gap (#F9F9F9 without variable) is closed.

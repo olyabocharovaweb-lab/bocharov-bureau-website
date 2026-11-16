@@ -3,7 +3,7 @@ import { reviews } from "@/content/home";
 
 /**
  * Figma: Reviews (256:68612) — pt 140, px 40, gap 48; cards gap 12, p 24, gap 20.
- * Card fill #F9F9F9 has no variable → color/bg/surface; role line = Mono/Body + UPPER (see ds-gaps).
+ * Card fill = color/bg/surface (neutral/50); role line = Mono/Body + UPPER (see ds-gaps).
  */
 export function Reviews() {
   return (

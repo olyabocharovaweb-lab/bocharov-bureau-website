@@ -3,7 +3,7 @@ import { numbers } from "@/content/home";
 /**
  * Figma: In numbers (256:68281) — pt 140, px 40, gap 48; three cards gap 12.
  * Cards are frames, not «Stat card» instances (Display/M, H6, Body/S, gap 20).
- * Card fill #F9F9F9 has no variable → color/bg/surface (see ds-gaps).
+ * Card fill = color/bg/surface (neutral/50).
  */
 export function InNumbers() {
   return (
