@@ -84,6 +84,7 @@ export const selectedWork = {
     number: "01",
     tags: "Health & fitness · AI app · iOS · Apple Watch",
     image: { src: "/media/case-pulsefit-wide.webp", alt: "Athlete stretching against a green background", width: 2720, height: 1520 },
+    href: "/work/pulsefit",
   },
   pair: [
     {

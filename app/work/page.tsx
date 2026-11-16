@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { CaseCard, Footer, Nav } from "@/components/ds";
+import { selectedWork } from "@/content/home";
+
+export const metadata: Metadata = { title: "Work | Bocharov Bureau" };
+
+/**
+ * STUB (2026-11-16): the Work page (Figma «Work») is not laid out yet. It exists so that
+ * «← All work» on case pages leads somewhere; it shows the PulseFit card linking to its case.
+ * The real page (cards + Index rows linking to /work/<slug>) comes in its own iteration.
+ */
+export default function WorkPage() {
+  return (
+    <div className="mx-auto w-full max-w-page">
+      <Nav />
+      <main className="flex w-full flex-col items-start gap-48 px-40 pt-72">
+        <h1 className="whitespace-nowrap text-text-primary display-s">Work</h1>
+        <CaseCard className="w-full" {...selectedWork.featured} sizes="(min-width: 1440px) 1360px, 100vw" />
+      </main>
+      <Footer />
+    </div>
+  );
+}

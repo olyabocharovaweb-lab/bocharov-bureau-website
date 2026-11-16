@@ -107,3 +107,13 @@ would break the layout (column widths), the value is kept in **one** file,
     primary → inverse, secondary → tertiary at the halfway point (data-surface="dark"), crossfading over --duration-surface 700ms (motion.css; 2026-11-16 client: the flip felt abrupt). Reduced motion → light.
     Floating CTA: inverse over the dark footer; hides when the footer legal line (data-cta-avoid) reaches it,
     so «Privacy · Terms» is never covered.
+16. 2026-11-16 — Case template (`app/work/[slug]`, `components/case/CasePage.tsx`, data in `content/cases/*.ts`).
+    Sections composed from DS components (Section intro, Media caption, Stat card, Credits row, Tag, Meta item, CTA, Button).
+    Client media (Behance-style cards) = Figma «Card» frames exported 2x → WebP in /public/media/cases/<slug>/.
+    «Next project» (not a DS component) is a block inside the template, approved by the client; it shows the next
+    case by number (PulseFit → Graaho 04, title/tags/photo from the Home card) instead of Figma's Solis Residences.
+    Photo ratio token --aspect-next-photo 1360/620 (styles/layout.css). Figma's title box is fixed 105 high; code uses the
+    Display/S line box → block 19px shorter. «App Store · soon» = Button Link, arrow off, disabled (new `disabled` prop).
+    Project footnote: Mono/Caption without uppercase (Figma layer overrides the style's case).
+    /work and /work/graaho are stubs until those pages are laid out. With Cache Components `dynamicParams` is not
+    available, so unknown slugs call notFound() (rendered with noindex; HTTP status stays 200 once streaming started).

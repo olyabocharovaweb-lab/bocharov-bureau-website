@@ -24,6 +24,8 @@ export type ButtonProps = {
   inverse?: boolean;
   /** For a <button>: "submit" inside forms. */
   type?: "button" | "submit";
+  /** Inactive button without a link (e.g. «App Store · soon»). Renders a disabled <button>. */
+  disabled?: boolean;
   className?: string;
 };
 
@@ -52,6 +54,7 @@ export function Button({
   fixedWidth = false,
   inverse = false,
   type = "button",
+  disabled = false,
   className,
 }: ButtonProps) {
   const content = (
@@ -64,7 +67,7 @@ export function Button({
   const tone =
     variant === "Primary" ? (inverse ? "bg-bg-page text-text-primary" : "bg-bg-inverse text-text-inverse") : undefined;
   const classes = cn(base, variants[variant], tone, fixedWidth && fixedWidths[variant], className);
-  if (href) {
+  if (href && !disabled) {
     return (
       <Link href={href} className={classes}>
         {content}
@@ -72,7 +75,7 @@ export function Button({
     );
   }
   return (
-    <button type={type} className={classes}>
+    <button type={type} disabled={disabled || undefined} className={cn(classes, disabled && "cursor-default")}>
       {content}
     </button>
   );

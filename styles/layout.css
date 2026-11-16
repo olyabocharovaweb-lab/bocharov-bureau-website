@@ -24,6 +24,8 @@
   /* Services hover photo frame «Photo U1» (307:8638): 220 × 290, rotated −3° in Figma */
   --container-hover-photo: 220px;
   --aspect-hover-photo: 220 / 290;
+  /* Case page → «Next project» photo: 1360 × 620 frame, image FILL (crop) — 256:71988 */
+  --aspect-next-photo: 1360 / 620;
 
   /* Home hero lede text box (256:68186) */
   --container-hero-lede: 460px;

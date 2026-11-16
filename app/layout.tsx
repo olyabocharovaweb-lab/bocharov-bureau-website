@@ -26,7 +26,13 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+/** Absolute base for Open Graph image URLs: the Vercel production domain, localhost in dev. */
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Bocharov® Bureau",
   description: "Bocharov® Bureau",
 };
