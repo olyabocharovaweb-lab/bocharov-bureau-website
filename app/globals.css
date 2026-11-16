@@ -124,6 +124,14 @@
   .footer-muted {
     color: var(--color-text-secondary);
   }
+  /* The fill follows the scroll; the text crossfades over --duration-surface when it flips. */
+  .footer-ink,
+  .footer-muted,
+  .surface-fade {
+    transition:
+      color var(--duration-surface) var(--ease-out),
+      background-color var(--duration-surface) var(--ease-out);
+  }
   .footer-scroll[data-surface="dark"] .footer-ink {
     color: var(--color-text-inverse);
   }

@@ -6,4 +6,6 @@
   --default-transition-duration: 250ms;
   --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Footer text crossfade light ↔ dark (decision 2026-11-16). */
+  --duration-surface: 700ms;
 }

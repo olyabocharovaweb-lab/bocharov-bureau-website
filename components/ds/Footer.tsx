@@ -23,7 +23,7 @@ const columns: Array<{ title: string; links: FooterLink[] }> = [
  * - 2026-11-17: top padding 160 → 72 (columns sit higher); while the footer scrolls in,
  *   the fill follows the scroll from bg/page to bg/inverse (color-mix of the two tokens,
  *   JS writes --dark 0…1); at the halfway point the text flips text/primary → text/inverse
- *   (secondary → tertiary) via data-surface="dark", which also inverts the floating CTA.
+ *   (secondary → tertiary) via data-surface="dark" — a 700ms crossfade, not a jump — which also inverts the floating CTA.
  *   Reduced motion → stays light (Figma).
  */
 export function Footer({ className }: { className?: string }) {

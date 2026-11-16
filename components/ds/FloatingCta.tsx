@@ -12,7 +12,8 @@ import { Button } from "./Button";
  *   itself to dark while scrolling in) it uses the inverse tone: bg/page fill, text/primary.
  * - Hidden while the Contact form (#contact) is in view, so it does not double the CTA.
  * - Hidden when an element marked data-cta-avoid (the Footer legal line) reaches it.
- * - No animation: state changes are instant.
+ * - Switching to/from the inverse tone crossfades over --duration-surface (as the Footer text);
+ *   show/hide stays instant.
  *
  * Link: /#contact for now; to be replaced with Calendly.
  */
@@ -73,7 +74,7 @@ export function FloatingCta() {
       className={cn("fixed right-16 bottom-16 z-50 md:right-40 md:bottom-40", hidden && "invisible")}
       aria-hidden={hidden || undefined}
     >
-      <Button variant="Primary" label="Book a call" href="/#contact" inverse={inverse} />
+      <Button variant="Primary" label="Book a call" href="/#contact" inverse={inverse} className="surface-fade" />
     </div>
   );
 }

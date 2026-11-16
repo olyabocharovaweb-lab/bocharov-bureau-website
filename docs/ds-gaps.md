@@ -104,6 +104,6 @@ would break the layout (column widths), the value is kept in **one** file,
 14. 2026-11-17 — In numbers: values from the client — 700+, 5.0, 93% (Figma still shows XX+ / 5.0 / XX%); count-up from 0.
 15. 2026-11-17 — Footer: top padding 160 → 72. Scroll-linked light → dark: fill follows scroll from bg/page to
     bg/inverse (color-mix of the tokens, --dark 0…1 from footer top at 75% → 15% of the viewport); text flips
-    primary → inverse, secondary → tertiary at the halfway point (data-surface="dark"). Reduced motion → light.
+    primary → inverse, secondary → tertiary at the halfway point (data-surface="dark"), crossfading over --duration-surface 700ms (motion.css; 2026-11-16 client: the flip felt abrupt). Reduced motion → light.
     Floating CTA: inverse over the dark footer; hides when the footer legal line (data-cta-avoid) reaches it,
     so «Privacy · Terms» is never covered.
