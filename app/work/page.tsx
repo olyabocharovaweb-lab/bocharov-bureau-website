@@ -11,13 +11,16 @@ export const metadata: Metadata = { title: "Work | Bocharov Bureau" };
  */
 export default function WorkPage() {
   return (
-    <div className="mx-auto w-full max-w-page">
-      <Nav />
-      <main className="flex w-full flex-col items-start gap-48 px-40 pt-72">
-        <h1 className="whitespace-nowrap text-text-primary display-s">Work</h1>
-        <CaseCard className="w-full" {...selectedWork.featured} sizes="(min-width: 1440px) 1360px, 100vw" />
-      </main>
+    <>
+      <div className="mx-auto w-full max-w-page">
+        <Nav />
+        <main className="flex w-full flex-col items-start gap-48 px-40 pt-72">
+          <h1 className="whitespace-nowrap text-text-primary display-s">Work</h1>
+          <CaseCard className="w-full" {...selectedWork.featured} sizes="(min-width: 1440px) 1360px, 100vw" />
+        </main>
+      </div>
+      {/* Footer is full-bleed (its fill spans wider screens); its content stays 1440 inside. */}
       <Footer />
-    </div>
+    </>
   );
 }

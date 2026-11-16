@@ -117,3 +117,4 @@ would break the layout (column widths), the value is kept in **one** file,
     Project footnote: Mono/Caption without uppercase (Figma layer overrides the style's case).
     /work and /work/graaho are stubs until those pages are laid out. With Cache Components `dynamicParams` is not
     available, so unknown slugs call notFound() (rendered with noindex; HTTP status stays 200 once streaming started).
+17. 2026-11-16 — Footer full-bleed on screens wider than 1440 (client: no white edges). The footer sits outside the page container; its fill spans the viewport, its content stays in max-w-page (1440, px 40).

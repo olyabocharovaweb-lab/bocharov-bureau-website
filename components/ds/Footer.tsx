@@ -61,29 +61,29 @@ export function Footer({ className }: { className?: string }) {
     <footer
       ref={ref}
       data-surface="light"
-      className={cn(
-        "footer-scroll flex min-h-svh w-full flex-col items-start justify-between gap-40 px-40 pt-72 pb-40",
-        className,
-      )}
+      className={cn("footer-scroll w-full", className)}
     >
-      <div className="flex w-full items-start gap-40">
-        {columns.map((col) => (
-          <div key={col.title} className="flex min-w-0 flex-1 flex-col items-start gap-10">
-            <p className="footer-muted mono-label">{col.title}</p>
-            {col.links.map((l) => (
-              <p key={l.label} className="footer-ink body-base">
-                {l.label}
-              </p>
-            ))}
+      {/* The fill spans the whole viewport width; the content is capped at the 1440 page container. */}
+      <div className="mx-auto flex min-h-svh w-full max-w-page flex-col items-start justify-between gap-40 px-40 pt-72 pb-40">
+        <div className="flex w-full items-start gap-40">
+          {columns.map((col) => (
+            <div key={col.title} className="flex min-w-0 flex-1 flex-col items-start gap-10">
+              <p className="footer-muted mono-label">{col.title}</p>
+              {col.links.map((l) => (
+                <p key={l.label} className="footer-ink body-base">
+                  {l.label}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="flex w-full flex-col items-start gap-40">
+          <p className="footer-ink w-full display-wordmark">Bocharov®</p>
+          {/* data-cta-avoid: the floating «Book a call» hides when this row reaches it. */}
+          <div data-cta-avoid="" className="footer-muted flex w-full items-start justify-between mono-body">
+            <p>© 2026 Bocharov. All rights reserved.</p>
+            <p>Privacy · Terms</p>
           </div>
-        ))}
-      </div>
-      <div className="flex w-full flex-col items-start gap-40">
-        <p className="footer-ink w-full display-wordmark">Bocharov®</p>
-        {/* data-cta-avoid: the floating «Book a call» hides when this row reaches it. */}
-        <div data-cta-avoid="" className="footer-muted flex w-full items-start justify-between mono-body">
-          <p>© 2026 Bocharov. All rights reserved.</p>
-          <p>Privacy · Terms</p>
         </div>
       </div>
     </footer>

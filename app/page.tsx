@@ -13,21 +13,24 @@ import { Services } from "@/components/home/Services";
 /** Home — Figma «Homepage — Variant 1b (light)» (256:68176). */
 export default function HomePage() {
   return (
-    <div className="mx-auto w-full max-w-page">
-      <Nav />
-      <main>
-        <Hero />
-        <Manifesto />
-        <Services />
-        <InNumbers />
-        <SelectedWork />
-        <Process />
-        <Reviews />
-        <Industries />
-        <ContactForm />
-        <Faq />
-      </main>
+    <>
+      <div className="mx-auto w-full max-w-page">
+        <Nav />
+        <main>
+          <Hero />
+          <Manifesto />
+          <Services />
+          <InNumbers />
+          <SelectedWork />
+          <Process />
+          <Reviews />
+          <Industries />
+          <ContactForm />
+          <Faq />
+        </main>
+      </div>
+      {/* Footer is full-bleed (its fill spans wider screens); its content stays 1440 inside. */}
       <Footer />
-    </div>
+    </>
   );
 }
