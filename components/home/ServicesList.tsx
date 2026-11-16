@@ -12,10 +12,10 @@ const BASE_TILT = 3;
 export type ServiceItem = { letter: string; title: string; body: string; tags: string[]; photo: string };
 
 /**
- * Figma: Services rows (256:68206 …) — border-t default, py 32; label column 560,
- * gap 260, copy column fill (540). Hover (decision 2026-11-16): the row turns grey
- * (color/bg/surface), the row's photo appears and follows the cursor, and a soft tick
- * plays. Photo frame per Figma «Photo U1» (307:8638): 220 × 290, tilted 3° clockwise
+ * Figma: «Services list» (312:5004) — rows flush, px 24 / py 40, radius/lg, transparent;
+ * label column 560, gap 260, copy column fill (540). Divider = .service-row::before
+ * (globals.css). Hover: row → color/bg/surface, its own and the next row's divider hidden
+ * (no transition). The row's photo appears and follows the cursor, and a soft tick plays. Photo frame per Figma «Photo U1» (307:8638): 220 × 290, tilted 3° clockwise
  * (Figma rotation −3°); movement adds a little extra tilt. Only on devices with a real
  * pointer; with reduced motion the photo is shown without following/tilting.
  */
@@ -83,21 +83,18 @@ export function ServicesList({ items }: { items: ServiceItem[] }) {
   };
 
   return (
-    <div ref={listRef} className="relative flex w-full flex-col items-start gap-48" onPointerLeave={() => setActive(-1)}>
+    // «Services list» (312:5004): 24 wider than the content on each side, rows flush (no gap).
+    <div
+      ref={listRef}
+      className="relative -mx-24 flex flex-col items-stretch self-stretch"
+      onPointerLeave={() => setActive(-1)}
+    >
       {items.map((s, i) => (
         <div
           key={s.title}
           onPointerEnter={() => enter(i)}
-          className="relative isolate flex w-full items-start gap-service-gap border-t border-border-default py-32"
+          className="service-row relative flex items-start gap-service-gap rounded-lg px-24 py-40"
         >
-          {/* Grey highlight of the hovered row */}
-          <div
-            aria-hidden="true"
-            className={cn(
-              "absolute inset-y-0 -inset-x-24 -z-10 rounded-md bg-bg-surface opacity-0 transition-opacity",
-              active === i && "opacity-100",
-            )}
-          />
           <div className="flex w-intro-label shrink-0 items-start gap-24">
             <p className="whitespace-nowrap text-text-secondary mono-body-l">{s.letter}</p>
             <h3 className="min-w-0 flex-1 text-text-primary heading-h3">{s.title}</h3>

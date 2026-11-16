@@ -35,3 +35,32 @@
     opacity: clamp(0, calc((var(--reveal) * var(--reveal-total) - var(--i)) / var(--reveal-fade)), 1);
   }
 }
+
+/* Services rows (components/home/ServicesList.tsx, Figma «Services list» 312:5004).
+   Divider is a separate 1px layer at the top of each row, inset 24 left/right
+   (Figma «Divider»), so it never shows around the grey hover plate. No transitions. */
+@layer components {
+  .service-row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline: var(--space-24);
+    border-top: 1px solid var(--color-border-default);
+  }
+  @media (hover: hover) {
+    .service-row:hover {
+      background-color: var(--color-bg-surface);
+    }
+    .service-row:hover::before,
+    .service-row:hover + .service-row::before {
+      visibility: hidden;
+    }
+  }
+  .service-row:focus-visible {
+    background-color: var(--color-bg-surface);
+  }
+  .service-row:focus-visible::before,
+  .service-row:focus-visible + .service-row::before {
+    visibility: hidden;
+  }
+}

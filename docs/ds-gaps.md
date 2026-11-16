@@ -84,3 +84,8 @@ would break the layout (column widths), the value is kept in **one** file,
     Figma Services rows were updated: columns 560 + gap 260 + 540 → `gap-service-gap` (styles/layout.css).
     Motion values live in `styles/motion.css` (not Figma variables). The global "no transitions" rule now
     applies only under `prefers-reduced-motion: reduce`.
+11. 2026-11-17 — Services rows rebuilt to Figma «Services list» (312:5004): rows flush (no gap), px 24 / py 40,
+    `radius/lg`, transparent; list −24 wider than content each side; divider = `.service-row::before`
+    (1px `border/default`, inset 24). Hover / focus-visible: `bg/surface`, own and next divider hidden, no transition.
+    Rows are 182 / 156 tall vs Figma 184 / 158 because Tag is 30 (padding 7 → space/6, decision 2).
+    Gap: «Content & Production» body text in Figma has raw #77776F (= text/secondary, not bound).

@@ -20,3 +20,10 @@
 | Footer | 656 | 900 | — | fills the viewport by decision (Figma 656) |
 
 Remaining per-glyph differences are anti-aliasing between Figma's and Chromium's text rasterisers.
+
+## Services list — hover state (312:5004)
+
+`services-list/compare-figma-code-diff.png` — Figma | code (hover on «Growth & Marketing», floating photo hidden) | diff.
+Diff >40/255: 4.2%, all from text shifting 2px per row (Tag 30 vs 32). Sampled pixels — grey plate,
+plate edge, dividers above A/B/C, hidden dividers above D/E, 24px inset, no white strips — identical.
+`services-list/code-hover-growth-viewport.png` — the same hover with the floating photo, 1440×900.
