@@ -9,15 +9,18 @@ export type CaseCardProps = {
   number?: string;
   /** Figma text property `Tags` */
   tags?: string;
-  /** Photo — Figma "override fill" of layer `Photo P3` */
-  image: { src: string; alt: string };
+  /**
+   * Photo — Figma "override fill" of layer `Photo P3` (frame height 760, width fill).
+   * width/height = the exported image size, so the ratio equals the Figma frame.
+   */
+  image: { src: string; alt: string; width: number; height: number };
   href?: string;
   className?: string;
   /** Image `sizes` hint for next/image */
   sizes?: string;
 };
 
-/** Figma: Case card (260:64) — photo 674×760 radius/sm, gap 14, title Heading/H6, number + tags Mono/Body. */
+/** Figma: Case card (260:64) — photo (h 760, w fill) radius/sm, gap 14, title Heading/H6, number + tags Mono/Body. */
 export function CaseCard({
   title = "IndustryLens — look closer",
   number = "02",
@@ -29,9 +32,14 @@ export function CaseCard({
 }: CaseCardProps) {
   const body = (
     <>
-      <div className="relative aspect-case-card w-full overflow-hidden rounded-sm">
-        <Image src={image.src} alt={image.alt} fill sizes={sizes} className="object-cover" />
-      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        sizes={sizes}
+        className="h-auto w-full rounded-sm"
+      />
       <div className="flex w-full items-start justify-between">
         <p className="text-text-primary heading-h6">{title}</p>
         <p className="whitespace-nowrap text-text-secondary mono-body">{number}</p>

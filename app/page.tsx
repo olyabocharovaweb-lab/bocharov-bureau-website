@@ -1,12 +1,33 @@
-import Link from "next/link";
+import { Footer, Nav } from "@/components/ds";
+import { ContactForm } from "@/components/home/ContactForm";
+import { Faq } from "@/components/home/Faq";
+import { Hero } from "@/components/home/Hero";
+import { Industries } from "@/components/home/Industries";
+import { InNumbers } from "@/components/home/InNumbers";
+import { Manifesto } from "@/components/home/Manifesto";
+import { Process } from "@/components/home/Process";
+import { Reviews } from "@/components/home/Reviews";
+import { SelectedWork } from "@/components/home/SelectedWork";
+import { Services } from "@/components/home/Services";
 
-/** Placeholder until Step 3 (Home) is approved. */
-export default function Page() {
+/** Home — Figma «Homepage — Variant 1b (light)» (256:68176). */
+export default function HomePage() {
   return (
-    <main className="p-40">
-      <Link href="/styleguide" className="label-m">
-        /styleguide
-      </Link>
-    </main>
+    <div className="mx-auto w-full max-w-page">
+      <Nav />
+      <main>
+        <Hero />
+        <Manifesto />
+        <Services />
+        <InNumbers />
+        <SelectedWork />
+        <Process />
+        <Reviews />
+        <Industries />
+        <ContactForm />
+        <Faq />
+      </main>
+      <Footer />
+    </div>
   );
 }

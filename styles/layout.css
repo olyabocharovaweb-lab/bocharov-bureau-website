@@ -15,11 +15,18 @@
   --container-index-industry: 220px;
   --container-index-arrow: 40px;
 
-  /* Button widths — Figma main components are FIXED width (260:75 / 260:78 / 260:82) */
+  /* Button main-component widths (FIXED in Figma 260:75 / 260:78 / 260:82).
+     Instances on pages are HUG, so these are used only by the styleguide specimen. */
   --container-button-primary: 174px;
   --container-button-secondary: 184px;
   --container-button-link: 157px;
 
-  /* Case card photo frame 674 × 760 (260:59) */
-  --aspect-case-card: 674 / 760;
+  /* Home hero lede text box (256:68186) */
+  --container-hero-lede: 460px;
+}
+
+@theme inline {
+  /* Section top padding used by most Home sections (Services, In numbers,
+     Selected work, Process, Reviews, Industries, Contact, FAQ). No space/140 in Figma. */
+  --spacing-section: 140px;
 }

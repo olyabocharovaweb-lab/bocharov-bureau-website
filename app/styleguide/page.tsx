@@ -136,16 +136,16 @@ export default function StyleguidePage() {
           <p className="text-text-secondary mono-caption">Button · 260:83 — Style=Primary / Secondary / Link · Arrow=true / false</p>
           <div className="flex items-start gap-24">
             <div data-specimen="button-primary" className="inline-flex">
-              <Button variant="Primary" />
+              <Button variant="Primary" fixedWidth />
             </div>
             <div data-specimen="button-secondary" className="inline-flex">
-              <Button variant="Secondary" />
+              <Button variant="Secondary" fixedWidth />
             </div>
             <div data-specimen="button-link" className="inline-flex">
-              <Button variant="Link" />
+              <Button variant="Link" fixedWidth />
             </div>
             <div data-specimen="button-link-noarrow" className="inline-flex">
-              <Button variant="Link" arrow={false} />
+              <Button variant="Link" arrow={false} fixedWidth />
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function StyleguidePage() {
           <p className="text-text-secondary mono-caption">Case card · 260:64</p>
           <div className="grid grid-cols-2 gap-12">
             <div data-specimen="case-card">
-              <CaseCard image={{ src: "/media/industrylens-card.webp", alt: "IndustryLens poster on a city wall" }} />
+              <CaseCard image={{ src: "/media/industrylens-card.webp", alt: "IndustryLens poster on a city wall", width: 1348, height: 1520 }} />
             </div>
           </div>
         </div>

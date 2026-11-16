@@ -32,6 +32,21 @@ would break the layout (column widths), the value is kept in **one** file,
 | `aspect-case-card` | 674 / 760 | Case card photo frame |
 | `w-button-primary` / `-secondary` / `-link` | 174 / 184 / 157 | Button variants (FIXED width) |
 
+## Home (256:68176)
+
+| Where | Figma | Code |
+|---|---|---|
+| Section top padding — Services, In numbers, Selected work, Process, Reviews, Industries, Contact, FAQ | 140 (no `space/140`) | `pt-section` (`--spacing-section`, styles/layout.css) |
+| Manifesto, second half of the sentence | fill `#9B9B9B`, no variable | `color/text/tertiary` (#B4B4AE) — slightly lighter |
+| Manifesto, first half | `#0A0A0A` raw (not bound) | `color/text/primary` (same value) |
+| In numbers cards, Reviews cards | fill `#F9F9F9`, no variable | `color/bg/surface` (#F3F3F0) — slightly warmer |
+| In numbers cards | frames, **not** Stat card instances (Display/M · H6 · Body/S · gap 20) | built from tokens in place, Stat card not used |
+| Graaho card tags (256:68587), Reviews role lines | no text style, Plex Mono 12 / 4% / UPPER | `Mono/Body` + `uppercase` |
+| Graaho card | frame, not a Case card instance; photo frame fill `#F0EDFA` raw | whole photo frame exported as one image (2x) |
+| Hero lede text box | width 460 | `w-hero-lede` (styles/layout.css) |
+| Footnote «Назви клієнтів і кейсів — умовні» (256:68588) | Ukrainian note under Selected work, no text style | **not rendered** — looks like a designer annotation (open question) |
+| Button instances on pages | **HUG** (Get started 132, All projects 131, Send the brief 173) | Button hugs by default; `fixedWidth` reproduces the FIXED main component (styleguide) |
+
 ## Component sizing in Figma that is not hug
 
 | Component | Figma | Code |
@@ -52,6 +67,6 @@ would break the layout (column widths), the value is kept in **one** file,
 
 1. Layout sizes stay in `styles/layout.css` (named theme values, not Figma tokens) — the developer's call.
 2. Spacing substitutions above (30→28, 7→6, 22→20) stay — the developer's call.
-3. Buttons keep Figma's fixed widths.
+3. Buttons as in Figma: main components FIXED (styleguide, `fixedWidth`), page instances HUG.
 4. Nav / Footer links are plain text for now (not clickable).
 5. Nav wordmark stays `Heading/H6` + semibold.
