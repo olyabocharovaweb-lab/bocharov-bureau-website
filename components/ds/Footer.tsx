@@ -12,25 +12,33 @@ const columns: Array<{ title: string; links: FooterLink[] }> = [
   { title: "Contact", links: [{ label: "hello@[domain]" }, { label: "Europe / US" }] },
 ];
 
-/** Figma: Footer (260:33) — pt 160, pb 40, px 40, gap 40; Display/Wordmark. */
+/**
+ * Figma: Footer (260:33) — pt 160, pb 40, px 40, gap 40; Display/Wordmark.
+ * Decision 2026-11-16 (not in Figma yet): the footer fills the viewport
+ * (min-height 100svh) — link columns at the top, wordmark + legal line
+ * pinned to the bottom.
+ */
 export function Footer({ className }: { className?: string }) {
   return (
-    <footer className={cn("flex w-full flex-col items-start gap-40 px-40 pt-160 pb-40", className)}>
+    <footer className={cn("flex min-h-svh w-full flex-col items-start justify-between gap-40 px-40 pt-160 pb-40", className)}>
       <div className="flex w-full items-start gap-40">
         {columns.map((col) => (
           <div key={col.title} className="flex min-w-0 flex-1 flex-col items-start gap-10">
             <p className="text-text-secondary mono-label">{col.title}</p>
-            {col.links.map((l) => (<p key={l.label} className="text-text-primary body-base">
-                  {l.label}
-                </p>
+            {col.links.map((l) => (
+              <p key={l.label} className="text-text-primary body-base">
+                {l.label}
+              </p>
             ))}
           </div>
         ))}
       </div>
-      <p className="w-full text-text-primary display-wordmark">Bocharov®</p>
-      <div className="flex w-full items-start justify-between text-text-secondary mono-body">
-        <p>© 2026 Bocharov. All rights reserved.</p>
-        <p>Privacy · Terms</p>
+      <div className="flex w-full flex-col items-start gap-40">
+        <p className="w-full text-text-primary display-wordmark">Bocharov®</p>
+        <div className="flex w-full items-start justify-between text-text-secondary mono-body">
+          <p>© 2026 Bocharov. All rights reserved.</p>
+          <p>Privacy · Terms</p>
+        </div>
       </div>
     </footer>
   );

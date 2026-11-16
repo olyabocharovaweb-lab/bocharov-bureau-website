@@ -71,3 +71,6 @@ would break the layout (column widths), the value is kept in **one** file,
 5. Nav wordmark stays `Heading/H6` + semibold.
 6. 2026-11-16 — Figma primitive `neutral/50` changed #F3F3F0 → #F9F9F9. Updated in `styles/tokens.css`;
    `color/bg/surface` still aliases `neutral/50`. The In numbers / Reviews card gap (#F9F9F9 without variable) is closed.
+7. 2026-11-16 — Footer fills the viewport (`min-h-svh`): link columns at the top, wordmark and legal
+   line pinned to the bottom. Not in Figma yet — the Figma Footer (260:33) is 656 tall; on a 900px
+   viewport the code footer is 900. Spacing inside (pt 160, gap 40, pb 40) is unchanged.
