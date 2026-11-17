@@ -25,7 +25,7 @@ function Links() {
  *
  * Desktop «scrolled» pill (client request 2026-11-17, no Figma frame — mirrors Nav / Mobile «Scrolled» 328:11):
  * once the header has scrolled out of view, a fixed pill appears centred 12 from the top — wordmark + links,
- * gap 48, padding 14 / 24, radius/full, .glass (bg/glass 80% + blur 16, shadow). The header itself stays in
+ * gap 72, padding 20 / 40 (client: taller and a bit wider), radius/full, .glass (bg/glass 80% + blur 16, shadow). The header itself stays in
  * the flow (no layout shift); an IntersectionObserver on it switches the pill — no scroll listener, no animation.
  */
 export function Nav({ className }: { className?: string }) {
@@ -53,7 +53,7 @@ export function Nav({ className }: { className?: string }) {
       </header>
       {scrolled && (
         <div className="fixed inset-x-0 top-0 z-40 hidden justify-center p-12 lg:flex">
-          <div className="glass flex items-center gap-48 rounded-full px-24 py-14 text-text-primary">
+          <div className="glass flex items-center gap-72 rounded-full px-40 py-20 text-text-primary">
             <p className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</p>
             <Links />
           </div>
