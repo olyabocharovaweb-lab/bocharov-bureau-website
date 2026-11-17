@@ -118,3 +118,14 @@ would break the layout (column widths), the value is kept in **one** file,
     /work and /work/graaho are stubs until those pages are laid out. With Cache Components `dynamicParams` is not
     available, so unknown slugs call notFound() (rendered with noindex; HTTP status stays 200 once streaming started).
 17. 2026-11-16 — Footer full-bleed on screens wider than 1440 (client: no white edges). The footer sits outside the page container; its fill spans the viewport, its content stays in max-w-page (1440, px 40).
+18. 2026-11-17 — Mobile Home (322:5634). New tokens from Figma: text style Display/Wordmark S (72 / 85% / −7%),
+    color/bg/glass → neutral/100, effect shadow-glass (0 8 24 rgba(0,0,0,.08)). New DS components in code:
+    Nav / Mobile (328:16), Icon / Toggle (327:13). Layout sizes without Figma variables (styles/layout.css):
+    nav-mobile 76, hit 44, hero-photo 264 (3:4 → 264/352), review-card 296, review-photo 64 / 96 (4:5),
+    case-mobile 4:5. Wordmark styles scale with the viewport below their design width (see responsive-decisions.md).
+    Figma mobile Manifesto keeps the second half grey; code keeps the client decision (all black + reveal).
+    Figma mobile shows the footnote «Назви клієнтів і кейсів — умовні» (Selected work) — still omitted, as on desktop.
+    In numbers keeps the client numbers 700+ / 5.0 / 93% (Figma mobile still has XX placeholders).
+    Inter 3.19 files subset to Latin, Latin Ext-A, Cyrillic, punctuation, arrows, ★ (311 → 95 KB) for mobile LCP.
+    Contrast: text/secondary (#77776F) on bg/surface (#F9F9F9) is 4.3:1 — below WCAG AA 4.5 for the In numbers
+    notes and review roles (Lighthouse flags it). Token change is a design decision → proposed, not applied.

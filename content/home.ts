@@ -85,6 +85,8 @@ export const selectedWork = {
     tags: "Health & fitness · AI app · iOS · Apple Watch",
     image: { src: "/media/case-pulsefit-wide.webp", alt: "Athlete stretching against a green background", width: 2720, height: 1520 },
     href: "/work/pulsefit",
+    // Mobile card (324:5128) frames the athlete differently from the wide desktop photo.
+    mobileImage: { src: "/media/case-pulsefit-mobile.webp", width: 700, height: 876 },
   },
   pair: [
     {
@@ -141,6 +143,14 @@ export const process = {
 const quote =
   "“Real client quote from Clutch goes here — one or two lines about results and how it felt to work together.”";
 
+/**
+ * Home sections that can be switched off without touching the layout.
+ * Reviews hold placeholder quotes until real Clutch reviews arrive — set `reviews: false` to hide.
+ */
+export const homeSections = {
+  reviews: true,
+};
+
 export const reviews = {
   title: "Client reflections",
   rating: "5.0 ★★★★★",
@@ -159,8 +169,15 @@ export const industries = {
 
 /** Sentence form (Figma «Sentence form» 256:68639): text before the field, the field, text after. */
 export type SentenceLine = {
-  before: string;
-  field: { name: string; placeholder: string; type: "text" | "email"; required?: boolean; autoComplete?: string };
+  /** Text before the field; `mobile` (< 1024, Figma 322:6062) differs where the layout is shorter. */
+  before: { desktop: string; mobile?: string };
+  field: {
+    name: string;
+    placeholder: { desktop: string; mobile?: string };
+    type: "text" | "email";
+    required?: boolean;
+    autoComplete?: string;
+  };
   after: string;
 };
 
@@ -168,14 +185,22 @@ export const contact = {
   title: "Let’s talk.",
   lines: [
     {
-      before: "Hey Bocharov®, I’m",
-      field: { name: "name", placeholder: "your name", type: "text", required: true, autoComplete: "name" },
+      before: { desktop: "Hey Bocharov®, I’m", mobile: "Hi, I’m" },
+      field: { name: "name", placeholder: { desktop: "your name" }, type: "text", required: true, autoComplete: "name" },
       after: ".",
     },
-    { before: "I need", field: { name: "project", placeholder: "a brand / website / campaign", type: "text" }, after: "." },
     {
-      before: "Reach me at",
-      field: { name: "email", placeholder: "email", type: "email", required: true, autoComplete: "email" },
+      before: { desktop: "I need" },
+      field: {
+        name: "project",
+        placeholder: { desktop: "a brand / website / campaign", mobile: "brand / website / ads" },
+        type: "text",
+      },
+      after: ".",
+    },
+    {
+      before: { desktop: "Reach me at" },
+      field: { name: "email", placeholder: { desktop: "email" }, type: "email", required: true, autoComplete: "email" },
       after: ".",
     },
   ] as SentenceLine[],

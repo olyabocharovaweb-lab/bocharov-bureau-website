@@ -64,6 +64,8 @@
   --color-bg-stage: var(--cool-100);
   --color-bg-inverse: var(--neutral-1000);
   --color-bg-note: var(--yellow-300);
+  /* Figma color/bg/glass (2026-11-17) — Nav / Mobile «Scrolled» pill */
+  --color-bg-glass: var(--neutral-100);
   --color-border-default: var(--neutral-100);
   --color-border-strong: var(--neutral-200);
   --color-border-inverse: var(--neutral-1000);
@@ -76,6 +78,10 @@
   --radius-lg: 12px;
   --radius-xl: 24px;
   --radius-full: 100px;
+
+  /* ── Effects ────────────────────────────────────────────── */
+  /* Nav / Mobile «Scrolled» pill (328:11): drop shadow 0 8 24 rgba(0,0,0,0.08) */
+  --shadow-glass: 0 8px 24px rgb(0 0 0 / 0.08);
 
   /* ── Fonts (next/font variables, see app/layout.tsx) ───── */
   --font-sans: var(--font-inter);

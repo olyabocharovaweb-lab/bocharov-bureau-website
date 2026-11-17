@@ -25,6 +25,7 @@ export const semanticColors = [
   { name: "color/bg/stage", cssVar: "--color-bg-stage", alias: "cool/100", swatch: "bg-bg-stage" },
   { name: "color/bg/inverse", cssVar: "--color-bg-inverse", alias: "neutral/1000", swatch: "bg-bg-inverse" },
   { name: "color/bg/note", cssVar: "--color-bg-note", alias: "yellow/300", swatch: "bg-bg-note" },
+  { name: "color/bg/glass", cssVar: "--color-bg-glass", alias: "neutral/100", swatch: "bg-bg-glass" },
   { name: "color/border/default", cssVar: "--color-border-default", alias: "neutral/100", swatch: "bg-border-default" },
   { name: "color/border/strong", cssVar: "--color-border-strong", alias: "neutral/200", swatch: "bg-border-strong" },
   { name: "color/border/inverse", cssVar: "--color-border-inverse", alias: "neutral/1000", swatch: "bg-border-inverse" },

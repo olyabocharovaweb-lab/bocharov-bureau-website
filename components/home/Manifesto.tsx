@@ -8,10 +8,11 @@ import { RevealText } from "./RevealText";
  */
 export function Manifesto() {
   return (
-    <section className="flex w-full flex-col items-start gap-32 px-40 pt-160">
+    // Mobile 322:5648: pt 72, px 20, gap 20, Heading/H5 Large (28). Desktop: pt 160, px 40, gap 32, Heading/H1 Large.
+    <section className="flex w-full flex-col items-start gap-20 px-20 pt-72 md:px-32 lg:gap-32 lg:px-40 lg:pt-160">
       <p className="whitespace-nowrap text-text-secondary mono-label">{manifesto.label}</p>
       <RevealText
-        className="w-full heading-h1-large"
+        className="w-full heading-h5-large lg:heading-h1-large"
         segments={[
           { text: manifesto.lead, className: "text-text-primary" },
           { text: manifesto.rest, className: "text-text-primary" },

@@ -1,6 +1,7 @@
 /** Figma text styles, used by /styleguide. Mirrors styles/typography.css. */
 export const textStyles = [
   { name: "Display/Wordmark", className: "display-wordmark", spec: "Inter Semi Bold · 268 / 85% / -7%" },
+  { name: "Display/Wordmark S", className: "display-wordmark-s", spec: "Inter Semi Bold · 72 / 85% / -7%" },
   { name: "Display/XL", className: "display-xl", spec: "Inter Semi Bold · 220 / 90% / -7%" },
   { name: "Display/L", className: "display-l", spec: "Inter Semi Bold · 160 / 90% / -7%" },
   { name: "Display/M", className: "display-m", spec: "Inter Semi Bold · 120 / 90% / -6%" },

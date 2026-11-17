@@ -9,12 +9,14 @@ import { CountUp } from "./CountUp";
  */
 export function InNumbers() {
   return (
-    <section className="flex w-full flex-col items-start gap-48 px-40 pt-section">
+    // Mobile 322:5720: pt 72, px 20, gap 24; cards stacked gap 12, p 24, gap 12, number Numeral/L.
+    // Tablet: 2 columns. Desktop: 3 in a row, p 28, gap 20, Display/M.
+    <section className="flex w-full flex-col items-start gap-24 px-20 pt-72 md:px-32 lg:gap-48 lg:px-40 lg:pt-section">
       <p className="whitespace-nowrap text-text-secondary mono-label">{numbers.label}</p>
-      <div className="flex w-full items-stretch gap-12">
+      <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {numbers.items.map((n) => (
-          <div key={n.label} className="flex min-w-0 flex-1 flex-col items-start gap-20 rounded-md bg-bg-surface p-28">
-            <p className="w-full text-text-primary display-m">
+          <div key={n.label} className="flex min-w-0 flex-col items-start gap-12 rounded-md bg-bg-surface p-24 lg:gap-20 lg:p-28">
+            <p className="w-full text-text-primary numeral-l lg:display-m">
               <CountUp to={n.to} decimals={n.decimals} suffix={n.suffix} />
             </p>
             <p className="w-full text-text-primary heading-h6">{n.label}</p>

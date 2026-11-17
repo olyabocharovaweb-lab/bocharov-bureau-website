@@ -86,8 +86,9 @@ export function RevealText({ segments, className, fade = 64 }: RevealTextProps) 
       className={className}
       // Fully revealed by default (SSR, no JS, reduced motion).
       style={{ ["--reveal" as string]: 1, ["--reveal-total" as string]: total + fade, ["--reveal-fade" as string]: fade }}
-      aria-label={segments.map((s) => s.text).join("")}
     >
+      {/* Screen readers get the sentence once (aria-label is not allowed on <p>). */}
+      <span className="sr-only">{segments.map((s) => s.text).join("")}</span>
       {words.map((w, wi) => (
         <span key={wi} aria-hidden="true" className={cn(!w.space && "whitespace-nowrap", w.className)}>
           {w.chars.map(({ ch, i }) => (

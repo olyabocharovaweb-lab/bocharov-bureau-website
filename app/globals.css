@@ -49,10 +49,17 @@
     content: "";
     position: absolute;
     top: 0;
-    inset-inline: var(--space-24);
+    /* mobile/tablet: full-width line (322:5669); desktop: inset 24 (312:5004) */
+    inset-inline: 0;
     border-top: 1px solid var(--color-border-default);
   }
-  @media (hover: hover) {
+  @media (min-width: 1024px) {
+    .service-row::before {
+      inset-inline: var(--space-24);
+    }
+  }
+  /* Grey plate only on desktop with a real hover (none on touch / mobile layout). */
+  @media (hover: hover) and (min-width: 1024px) {
     .service-row:hover {
       background-color: var(--color-bg-surface);
     }
@@ -61,12 +68,58 @@
       visibility: hidden;
     }
   }
-  .service-row:focus-visible {
-    background-color: var(--color-bg-surface);
+  @media (min-width: 1024px) {
+    .service-row:focus-visible {
+      background-color: var(--color-bg-surface);
+    }
+    .service-row:focus-visible::before,
+    .service-row:focus-visible + .service-row::before {
+      visibility: hidden;
+    }
   }
-  .service-row:focus-visible::before,
-  .service-row:focus-visible + .service-row::before {
-    visibility: hidden;
+}
+
+/* Native horizontal carousel (mobile Hero photos, Reviews): scroll-snap, no scrollbar, no JS.
+   Use with a breakpoint variant, e.g. `max-lg:carousel`. */
+@utility carousel {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+/* Nav / Mobile «Scrolled» pill (328:11): color/bg/glass at 80% + 16px blur; solid glass without backdrop-filter. */
+@layer components {
+  .glass {
+    background-color: var(--color-bg-glass);
+    box-shadow: var(--shadow-glass);
+  }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background-color: color-mix(in srgb, var(--color-bg-glass) 80%, transparent);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
+  }
+}
+
+/* Floating «Book a call»: 16 from the edges on mobile (+ iOS home-indicator inset), 40 from md. */
+@layer components {
+  .floating-cta {
+    right: var(--space-16);
+    bottom: calc(var(--space-16) + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 768px) {
+    .floating-cta {
+      right: var(--space-40);
+      bottom: calc(var(--space-40) + env(safe-area-inset-bottom));
+    }
   }
 }
 
@@ -74,9 +127,22 @@
    No border, underline, fill or outline; keyboard focus shows only the caret plus a
    faint 1px underline (border/default) so focus is never fully invisible. */
 @layer components {
+  /* --field-gap: space before the field (mobile space/8, desktop space/16);
+     --ls-fix: the last glyph's letter-spacing Figma leaves out (Heading/H5 −1%, Heading/XL −3%). */
+  .sentence-line {
+    --field-gap: var(--space-8);
+    --ls-fix: 0.01em;
+  }
+  @media (min-width: 1024px) {
+    .sentence-line {
+      --field-gap: var(--space-16);
+      --ls-fix: 0.03em;
+    }
+  }
   .inline-field {
     position: relative;
     cursor: text;
+    padding-inline-start: var(--field-gap);
   }
   .inline-field input {
     appearance: none;
@@ -91,14 +157,22 @@
     /* inputs never shrink below the font's natural line box; pin to the style's line-height */
     height: 1lh;
   }
+  /* The visible hint is a text span (mobile / desktop wording); the native placeholder stays
+     for assistive tech and autofill heuristics but is not painted. */
   .inline-field input::placeholder {
-    color: var(--color-text-tertiary);
-    opacity: 1;
+    color: transparent;
+  }
+  /* Tap area ≥ 44px: the label (which focuses the input) reaches 8px above and below the line. */
+  .inline-field::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block: calc(var(--space-8) * -1);
   }
   .inline-field::after {
     content: "";
     position: absolute;
-    left: var(--space-16);
+    left: var(--field-gap);
     right: 0;
     bottom: 0;
     border-bottom: 1px solid var(--color-border-default);
@@ -111,7 +185,7 @@
      width; the browser keeps it. Give it back so field and period sit where Figma has them. */
   .sentence-line > label:first-child,
   .inline-field > span {
-    margin-inline-end: 0.03em;
+    margin-inline-end: var(--ls-fix);
   }
 }
 
@@ -142,5 +216,17 @@
   }
   .footer-scroll[data-surface="dark"] .footer-muted {
     color: var(--color-text-tertiary);
+  }
+  /* Mobile / tablet footer (322:6139): always black, no scroll transition. */
+  @media (max-width: 1023.98px) {
+    .footer-scroll {
+      background-color: var(--color-bg-inverse);
+    }
+    .footer-scroll .footer-ink {
+      color: var(--color-text-inverse);
+    }
+    .footer-scroll .footer-muted {
+      color: var(--color-text-tertiary);
+    }
   }
 }

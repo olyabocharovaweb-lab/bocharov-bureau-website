@@ -26,7 +26,8 @@ export function ServicesList({ items }: { items: ServiceItem[] }) {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    // Desktop layout with a real pointer only — no hover photo on touch / mobile.
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 1024px)");
     const update = () => setEnabled(mq.matches);
     update();
     mq.addEventListener("change", update);
@@ -84,20 +85,25 @@ export function ServicesList({ items }: { items: ServiceItem[] }) {
 
   return (
     // «Services list» (312:5004): 24 wider than the content on each side, rows flush (no gap).
+    // Mobile (322:5657): content width, rows stacked; desktop: 24 wider each side.
     <div
       ref={listRef}
-      className="relative -mx-24 flex flex-col items-stretch self-stretch"
+      className="relative flex flex-col items-stretch self-stretch lg:-mx-24"
       onPointerLeave={() => setActive(-1)}
     >
       {items.map((s, i) => (
-        <div
+        // Whole row is one link (service pages don't exist yet → anchor to itself as a stub).
+        // Mobile (322:5658): py 24, gap 16, letter + Heading/H5 on a baseline; desktop: two columns.
+        <a
           key={s.title}
+          id={`service-${s.letter.charAt(0).toLowerCase()}`}
+          href={`#service-${s.letter.charAt(0).toLowerCase()}`}
           onPointerEnter={() => enter(i)}
-          className="service-row relative flex items-start gap-service-gap rounded-lg px-24 py-40"
+          className="service-row relative flex flex-col items-start gap-16 py-24 lg:flex-row lg:gap-service-gap lg:rounded-lg lg:px-24 lg:py-40"
         >
-          <div className="flex w-intro-label shrink-0 items-start gap-24">
+          <div className="flex w-full items-baseline gap-12 lg:w-intro-label lg:shrink-0 lg:items-start lg:gap-24">
             <p className="whitespace-nowrap text-text-secondary mono-body-l">{s.letter}</p>
-            <h3 className="min-w-0 flex-1 text-text-primary heading-h3">{s.title}</h3>
+            <h3 className="min-w-0 flex-1 text-text-primary heading-h5 lg:heading-h3">{s.title}</h3>
           </div>
           <div className="flex min-w-0 flex-1 flex-col items-start gap-20">
             <p className="w-full text-text-secondary body-m">{s.body}</p>
@@ -107,7 +113,7 @@ export function ServicesList({ items }: { items: ServiceItem[] }) {
               ))}
             </div>
           </div>
-        </div>
+        </a>
       ))}
 
       {/* Floating photo that follows the cursor */}

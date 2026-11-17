@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { NavMobile } from "./NavMobile";
 
 /** Links are not clickable in iteration 1 (decision 2026-11-13). */
 const links = ["Work", "Services", "Awards", "Contact"];
@@ -9,15 +10,21 @@ const links = ["Work", "Services", "Awards", "Contact"];
  */
 export function Nav({ className }: { className?: string }) {
   return (
-    <header className={cn("flex w-full items-center justify-between px-40 py-28 text-text-primary", className)}>
-      <p className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</p>
-      <nav aria-label="Primary">
-        <ul className="flex items-start gap-32 label-m">
-          {links.map((l) => (
-            <li key={l}>{l}</li>
-          ))}
-        </ul>
-      </nav>
-    </header>
+    <>
+      {/* Below 1024: Nav / Mobile (328:16) */}
+      <NavMobile className="lg:hidden" />
+      <header
+        className={cn("hidden w-full items-center justify-between px-40 py-28 text-text-primary lg:flex", className)}
+      >
+        <p className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</p>
+        <nav aria-label="Primary">
+          <ul className="flex items-start gap-32 label-m">
+            {links.map((l) => (
+              <li key={l}>{l}</li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 }

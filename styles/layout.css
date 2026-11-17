@@ -29,6 +29,18 @@
 
   /* Home hero lede text box (256:68186) */
   --container-hero-lede: 460px;
+
+  /* ── Mobile Home (322:5634, 390) ── */
+  /* Hero carousel photo 264 × 352 (322:5644) */
+  --container-hero-photo: 264px;
+  --aspect-hero-photo: 264 / 352;
+  /* Reviews carousel card 296 (322:6042); photo 64 × 80 (desktop 96 × 120), both 4:5 */
+  --container-review-card: 296px;
+  --container-review-photo: 64px;
+  --container-review-photo-lg: 96px;
+  --aspect-review-photo: 4 / 5;
+  /* Mobile case card photo 350 × 438 → 4:5, object-fit cover (324:5128) */
+  --aspect-case-mobile: 4 / 5;
 }
 
 @theme inline {
@@ -37,4 +49,8 @@
   --spacing-section: 140px;
   /* Services row: gap between the 560 label column and the 540 copy column (256:68206) */
   --spacing-service-gap: 260px;
+  /* Nav / Mobile height (328:16) — fixed header, the page reserves this space (no CLS) */
+  --spacing-nav-mobile: 76px;
+  /* Hit area for icon buttons (menu, FAQ toggle row min) — 44 × 44 */
+  --spacing-hit: 44px;
 }

@@ -12,6 +12,8 @@ import { Button } from "./Button";
  *   itself to dark while scrolling in) it uses the inverse tone: bg/page fill, text/primary.
  * - Hidden while the Contact form (#contact) is in view, so it does not double the CTA.
  * - Hidden when an element marked data-cta-avoid (the Footer legal line) reaches it.
+ * - Below 1024 (mobile / tablet) also hidden as soon as the Footer is in view (322:6139 — black footer
+ *   with its own «Back to top»). Position: 16 / 16 + safe-area inset on mobile, 40 / 40 from md (.floating-cta).
  * - Switching to/from the inverse tone crossfades over --duration-surface (as the Footer text);
  *   show/hide stays instant.
  *
@@ -22,6 +24,7 @@ export function FloatingCta() {
   const [inverse, setInverse] = useState(false);
   const [contactInView, setContactInView] = useState(false);
   const [avoid, setAvoid] = useState(false);
+  const [footerInView, setFooterInView] = useState(false);
 
   // What is under the button: observe surfaces and avoid-zones in the strip it occupies.
   useEffect(() => {
@@ -67,11 +70,20 @@ export function FloatingCta() {
     return () => io.disconnect();
   }, []);
 
+  // Mobile / tablet: hide while the Footer is visible.
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const io = new IntersectionObserver(([e]) => setFooterInView(e.isIntersecting), { threshold: 0 });
+    io.observe(footer);
+    return () => io.disconnect();
+  }, []);
+
   const hidden = contactInView || avoid;
   return (
     <div
       ref={ref}
-      className={cn("fixed right-16 bottom-16 z-50 md:right-40 md:bottom-40", hidden && "invisible")}
+      className={cn("floating-cta fixed z-50", hidden && "invisible", !hidden && footerInView && "max-lg:invisible")}
       aria-hidden={hidden || undefined}
     >
       <Button variant="Primary" label="Book a call" href="/#contact" inverse={inverse} className="surface-fade" />

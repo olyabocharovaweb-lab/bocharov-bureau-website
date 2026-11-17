@@ -13,6 +13,7 @@ import {
   SectionIntro,
   StatCard,
   Tag,
+  IconToggle,
 } from "@/components/ds";
 import { radii, semanticColors, spacing } from "@/content/tokens";
 import { textStyles } from "@/content/text-styles";
@@ -158,6 +159,18 @@ export default function StyleguidePage() {
             </div>
             <div data-specimen="meta-item" className="inline-flex">
               <MetaItem />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-12 px-40">
+          <p className="text-text-secondary mono-caption">Icon / Toggle · 327:13 · State=Closed / Open</p>
+          <div className="flex items-start gap-24">
+            <div data-specimen="icon-toggle-closed" className="inline-flex">
+              <IconToggle />
+            </div>
+            <div data-specimen="icon-toggle-open" className="inline-flex">
+              <IconToggle open />
             </div>
           </div>
         </div>

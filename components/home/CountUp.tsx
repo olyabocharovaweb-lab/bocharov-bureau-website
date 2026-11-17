@@ -61,7 +61,8 @@ export function CountUp({ to, decimals = 0, suffix = "", duration = 1600, classN
   const finalText = to.toFixed(decimals) + suffix;
 
   return (
-    <span ref={ref} className={`inline-grid ${className ?? ""}`} aria-label={finalText}>
+    <span ref={ref} className={`inline-grid ${className ?? ""}`}>
+      <span className="sr-only">{finalText}</span>
       <span aria-hidden="true" className="invisible col-start-1 row-start-1">
         {finalText}
       </span>

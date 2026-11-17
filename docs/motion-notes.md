@@ -34,3 +34,4 @@ Source: page «Main direction» › section «2» (`256:68174`). Collected via t
 
 Block names marked "Frame" are unnamed frames in Figma; the bracketed hint will be
 replaced with the exact section name once each page is built (step 3–4).
+| Home (mobile) | Footer «Back to top» | **Implemented (client brief 2026-11-17):** smooth scroll to the top; instant with prefers-reduced-motion. `components/ds/Footer.tsx` | `325:5114` |

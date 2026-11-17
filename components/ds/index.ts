@@ -11,3 +11,5 @@ export { CreditsRow } from "./CreditsRow";
 export { CaseCard } from "./CaseCard";
 export { IndexRow } from "./IndexRow";
 export { FloatingCta } from "./FloatingCta";
+export * from "./IconToggle";
+export * from "./NavMobile";
