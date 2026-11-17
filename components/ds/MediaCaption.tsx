@@ -15,9 +15,10 @@ export function MediaCaption({
   className,
 }: MediaCaptionProps) {
   return (
-    <div className={cn("flex w-full items-start justify-between text-text-secondary mono-caption", className)}>
-      <p>{caption}</p>
-      <p className="whitespace-nowrap">{number}</p>
+    <div className={cn("flex w-full items-start justify-between gap-4 text-text-secondary mono-caption", className)}>
+      {/* Caption wraps on narrow screens; the number stays on its line. */}
+      <p className="min-w-0">{caption}</p>
+      <p className="shrink-0 whitespace-nowrap">{number}</p>
     </div>
   );
 }

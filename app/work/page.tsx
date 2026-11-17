@@ -14,8 +14,8 @@ export default function WorkPage() {
     <>
       <div className="mx-auto w-full max-w-page">
         <Nav />
-        <main className="flex w-full flex-col items-start gap-48 px-40 pt-72">
-          <h1 className="whitespace-nowrap text-text-primary display-s">Work</h1>
+        <main className="flex w-full flex-col items-start gap-40 px-20 pt-32 md:px-32 lg:gap-48 lg:px-40 lg:pt-72">
+          <h1 className="text-text-primary heading-h2 lg:display-s">Work</h1>
           <CaseCard className="w-full" {...selectedWork.featured} sizes="(min-width: 1440px) 1360px, 100vw" />
         </main>
       </div>

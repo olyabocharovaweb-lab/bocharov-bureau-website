@@ -27,6 +27,11 @@ export type CaseIntro = {
 export type CaseMedia = {
   kind: "media";
   image: CaseImage;
+  /**
+   * Optional phone version (≤ 767px), e.g. /media/cases/<slug>/mobile/<same name>.webp — 1170px wide,
+   * any height (see that folder's README). Without it the desktop image scales down (no crop).
+   */
+  mobile?: Omit<CaseImage, "alt">;
   caption: string;
   number: string;
 };
@@ -46,7 +51,15 @@ export type CaseData = {
     /** «Next →» → next.href */
     nextLabel: string;
     title: string;
+    /**
+     * Width of the title in em of its own font (Inter Semi Bold, −7%). Below 1024 the title is sized
+     * to fit one line: min(72, content / titleEms) on phones, clamp(72, content / titleEms, 220) on
+     * tablets. Measured for each case; when missing, estimated as 0.62 em per character.
+     */
+    titleEms?: number;
     image: CaseImage;
+    /** Optional phone crop (≤ 767px, 4:5) — same mechanism as CaseMedia.mobile. */
+    mobile?: Omit<CaseImage, "alt">;
   };
   overview: {
     label: string;

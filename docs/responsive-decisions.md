@@ -53,3 +53,47 @@ mobile/desktop text differences (contact sentence form) are separate `<span>`s f
 ## Floating «Book a call»
 - Mobile: 16 from the right and `16 + env(safe-area-inset-bottom)` from the bottom; from md: 40 / 40.
 - Hidden while the Contact form is in view; below 1024 also while the footer is in view.
+
+---
+
+# Responsive decisions — Case template (`components/case/CasePage.tsx`)
+
+Source of truth: «Case — PulseFit · Mobile 390» (331:5241); desktop «Case — PulseFit» (256:70753) unchanged.
+One template → every case in `content/cases/*.ts` (today PulseFit; NOVA, IndustryLens and Graaho will be data only).
+
+## What made the page wider than the screen (390)
+| Block | Cause |
+|---|---|
+| Hero | `h1` Display/XL 220px fixed → «PulseFit» 730px wide |
+| Overview, Credits, every Section intro | label column `w-intro-label` (560px, shrink-0) in a row → content column squeezed to 0, text overflowing |
+| Overview facts | 4 Meta items in one row, no wrap |
+| Delivered | 4 Stat cards in one row (69px each) with Display/S 96 values, `white-space: nowrap` |
+| CTA | Display/M 120 heading + two fixed buttons side by side (870px) |
+| Next project | «Next project.» Display/S 96 `nowrap`; title + tags row `nowrap` |
+| Graaho stub | Display/S 96 title |
+Fixed in the shared components (Section intro, Stat card, Credits row, Media caption, CTA) and the template — not per case.
+
+## Mobile (≤ 767)
+- Padding 20; section top 72 (space/72); media blocks pt 40, caption gap 12 (as in 331:5275).
+- Hero: breadcrumb + case index stacked left (gap 8). «Next →» is not in the mobile layout → shown from 1024 only
+  (the Next project block covers it). Title one line: `min(72px, (100vw − 40px) / titleEms)` — Display/Wordmark S
+  at most; `titleEms` = measured title width in em (PulseFit 3.36), estimated 0.62 em/char when missing.
+  Hero photo 4:5 cover; PulseFit has its own mobile crop from Figma (art direction).
+- Overview: label → lead Heading/H5 → tags (wrap) → facts grid 2 × 2 (gap 20) → «App Store · soon» full width.
+- Challenge: Heading/H5 Large; first sentence primary, the rest secondary (as in 331:5271). Desktop keeps the client
+  decision (all primary). The scroll reveal stays on both.
+- Section intro: label above body (gap 16), pt 72 for Section and Subsection.
+- Media: desktop image scaled to the width (no crop). Optional `mobile` per media item swaps in at ≤ 767px via
+  `<picture>`; files in `/public/media/cases/<slug>/mobile/` (README there: 1170px wide, same names).
+- Delivered: Stat cards 2 × 2, gap 12, p 20, value Numeral/M.
+- Credits: label above rows; name may wrap.
+- CTA: Heading/H2 → buttons full width stacked (gap 12) → note left; gap 40 under the heading.
+- Next project: Heading/H2, counter on the right, photo 4:5 cover, title and tags stacked. Next = next case by
+  number from content (PulseFit → Graaho 04), never Figma's Solis Residences.
+
+## Tablet (768–1023) — my decisions
+- Mobile structure, padding 32.
+- Title: `clamp(72px, (100vw − 64px) / titleEms, 220px)` → «PulseFit» ≈ 210px at 768, one line.
+- Hero photo, media and Next photo at full content width with their own ratio (Next: 1360 / 620 crop as desktop).
+- Overview facts: 4 in a row. Delivered: 4 in a row (≈ 167px each fits at 768).
+- NOVA sticky section index: not built yet; when it is, hide it below 1024.

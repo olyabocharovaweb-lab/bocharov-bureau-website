@@ -79,6 +79,31 @@
   }
 }
 
+/* Case title below 1024 (components/case/CasePage.tsx): one line, as large as fits.
+   Phone: Display/Wordmark S (72) at most; tablet: between 72 and Display/XL (220). --title-ems = title width in em.
+   From 1024 the h1 uses Display/XL (utility wins over this component class). */
+@layer components {
+  .case-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.07em;
+    line-height: 0.85;
+    white-space: nowrap;
+    font-size: min(72px, calc((100vw - 2 * var(--space-20)) / var(--title-ems)));
+  }
+  @media (min-width: 768px) {
+    .case-title {
+      line-height: 0.9;
+      font-size: clamp(72px, calc((100vw - 2 * var(--space-32)) / var(--title-ems)), 220px);
+    }
+  }
+  @media (min-width: 1024px) {
+    .case-title {
+      white-space: normal;
+    }
+  }
+}
+
 /* Native horizontal carousel (mobile Hero photos, Reviews): scroll-snap, no scrollbar, no JS.
    Use with a breakpoint variant, e.g. `max-lg:carousel`. */
 @utility carousel {

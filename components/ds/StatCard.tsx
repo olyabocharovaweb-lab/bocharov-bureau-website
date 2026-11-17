@@ -10,7 +10,10 @@ export type StatCardProps = {
   className?: string;
 };
 
-/** Figma: Stat card (260:49) — bg/surface, p 28, gap 14, radius/md. */
+/**
+ * Figma: Stat card (260:49) — bg/surface, p 28, gap 14, radius/md, value Display/S.
+ * Mobile / tablet (331:6331): p 20, value Numeral/M (36).
+ */
 export function StatCard({
   value = "160+",
   label = "Screens",
@@ -18,8 +21,8 @@ export function StatCard({
   className,
 }: StatCardProps) {
   return (
-    <div className={cn("flex flex-col items-start gap-14 rounded-md bg-bg-surface p-28", className)}>
-      <p className="whitespace-nowrap text-text-primary display-s">{value}</p>
+    <div className={cn("flex flex-col items-start gap-14 rounded-md bg-bg-surface p-20 lg:p-28", className)}>
+      <p className="whitespace-nowrap text-text-primary numeral-m lg:display-s">{value}</p>
       <p className="whitespace-nowrap text-text-primary label-l">{label}</p>
       <p className="w-full text-text-secondary body-xs">{note}</p>
     </div>

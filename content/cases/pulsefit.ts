@@ -35,7 +35,10 @@ export const pulsefit: CaseData = {
     index: "’26 · Case 03 / 12",
     nextLabel: "Next →",
     title: "PulseFit",
+    titleEms: 3.36, // measured: 730px at 220px (+1% margin)
     image: img("hero", 1640, "Athlete stretching against a green background"),
+    // Mobile crop from Figma «Case — PulseFit · Mobile 390» → Hero — photo (331:5252), 3x.
+    mobile: { src: `${dir}/mobile/hero.webp`, width: 1050, height: 1314 },
   },
   overview: {
     label: "( Overview )",

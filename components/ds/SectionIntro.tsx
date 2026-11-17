@@ -16,11 +16,21 @@ export type SectionIntroProps = {
   className?: string;
 };
 
-/** Figma: Section intro (260:96) — label column 560 + body column (fill), gap 24, px 40. */
+/**
+ * Figma: Section intro (260:96) — desktop: label column 560 + body column (fill), gap 24, px 40.
+ * Mobile «Section intro — mobile» (331:6442): label above the body, gap 16, pt 72 for both spacings, px 20
+ * (32 on tablet).
+ */
 export function SectionIntro({ label = "/ 1   Section", body = "Body copy", spacing = "Section", children, className }: SectionIntroProps) {
   return (
-    <div className={cn("flex w-full items-start gap-24 px-40", spacing === "Section" ? "pt-180" : "pt-120", className)}>
-      <div className="flex w-intro-label shrink-0 flex-col items-start">
+    <div
+      className={cn(
+        "flex w-full flex-col items-start gap-16 px-20 pt-72 md:px-32 lg:flex-row lg:gap-24 lg:px-40",
+        spacing === "Section" ? "lg:pt-180" : "lg:pt-120",
+        className,
+      )}
+    >
+      <div className="flex w-full flex-col items-start lg:w-intro-label lg:shrink-0">
         <p className="whitespace-pre text-text-secondary mono-label">{label}</p>
       </div>
       <div className="flex min-w-0 flex-1 flex-col items-start gap-28">

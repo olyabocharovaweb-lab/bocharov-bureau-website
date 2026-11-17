@@ -129,3 +129,10 @@ would break the layout (column widths), the value is kept in **one** file,
     Inter 3.19 files subset to Latin, Latin Ext-A, Cyrillic, punctuation, arrows, ★ (311 → 95 KB) for mobile LCP.
     Contrast: text/secondary (#77776F) on bg/surface (#F9F9F9) is 4.3:1 — below WCAG AA 4.5 for the In numbers
     notes and review roles (Lighthouse flags it). Token change is a design decision → proposed, not applied.
+19. 2026-11-17 — Case template responsive (331:5241). Shared components became mobile-first: Section intro (label above,
+    pt 72), Stat card (p 20, Numeral/M), Credits row (name wraps), Media caption (caption wraps, gap 4), CTA (stacked,
+    Heading/H2). New data: `hero.titleEms`, `hero.mobile`, `media.mobile` (art direction). Case title below 1024 is
+    sized to fit one line (`.case-title`, between Display/Wordmark S and Display/XL). Figma mobile Next project title box
+    is fixed 105 high (line box 46) → block 55px shorter; its «( 02 / 12 )» counter is pushed off the frame in Figma —
+    code shows the counter. Figma mobile media 06/07/09/10 use 340-high crops; code scales the desktop images until
+    mobile versions arrive. Contrast: footnote text/tertiary on white is 2.1:1 (Figma), Stat card notes 4.3:1 — flagged.
