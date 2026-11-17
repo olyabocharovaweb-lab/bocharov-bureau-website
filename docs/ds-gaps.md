@@ -136,3 +136,6 @@ would break the layout (column widths), the value is kept in **one** file,
     is fixed 105 high (line box 46) → block 55px shorter; its «( 02 / 12 )» counter is pushed off the frame in Figma —
     code shows the counter. Figma mobile media 06/07/09/10 use 340-high crops; code scales the desktop images until
     mobile versions arrive. Contrast: footnote text/tertiary on white is 2.1:1 (Figma), Stat card notes 4.3:1 — flagged.
+20. 2026-11-17 — Desktop Nav «scrolled» pill (client request; no Figma frame). Mirrors Nav / Mobile «Scrolled»:
+    fixed, centred 12 from the top, .glass (bg/glass 80% + blur 16 + shadow-glass), radius/full, padding 14 / 24,
+    gap 48 between wordmark and links. Appears once the desktop header is out of view (IntersectionObserver).
