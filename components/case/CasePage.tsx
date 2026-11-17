@@ -195,7 +195,8 @@ export function CasePage({ data }: { data: CaseData }) {
 
           {/* Next project — desktop 256:71984 (pt 200, gap 14, Display/S, photo 1360 × 620);
               mobile 331:6361 (pt 72, gap 14, Heading/H2, photo 4:5, title and tags stacked). One link. */}
-          <section className={`w-full pt-72 lg:pt-200 ${PX}`}>
+          {/* pb 72 below 1024: white space before the black mobile footer (section spacing); desktop as Figma (0). */}
+          <section className={`w-full pt-72 pb-72 lg:pt-200 lg:pb-0 ${PX}`}>
             <Link href={next.href} className="flex w-full flex-col items-start gap-14">
               <div className="flex w-full items-end justify-between gap-16">
                 <h2 className="text-text-primary heading-h2 lg:whitespace-nowrap lg:display-s">{next.heading}</h2>

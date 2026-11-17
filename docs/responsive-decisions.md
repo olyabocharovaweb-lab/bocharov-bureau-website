@@ -90,6 +90,7 @@ Fixed in the shared components (Section intro, Stat card, Credits row, Media cap
 - CTA: Heading/H2 → buttons full width stacked (gap 12) → note left; gap 40 under the heading.
 - Next project: Heading/H2, counter on the right, photo 4:5 cover, title and tags stacked. Next = next case by
   number from content (PulseFit → Graaho 04), never Figma's Solis Residences.
+  72px white space under it before the black footer (client 2026-11-17; Figma has 20).
 
 ## Tablet (768–1023) — my decisions
 - Mobile structure, padding 32.
