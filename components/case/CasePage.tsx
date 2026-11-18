@@ -193,7 +193,11 @@ export function CasePage({ data }: { data: CaseData }) {
                 ))}
               </div>
               {overview.action && (
-                <Button variant="Link" arrow={false} label={overview.action} disabled className="w-full lg:w-auto" />
+                overview.actionHref ? (
+                  <Button variant="Link" label={overview.action} href={overview.actionHref} className="w-full lg:w-auto" />
+                ) : (
+                  <Button variant="Link" arrow={false} label={overview.action} disabled className="w-full lg:w-auto" />
+                )
               )}
             </div>
           </section>

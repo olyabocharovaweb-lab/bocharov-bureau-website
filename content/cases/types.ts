@@ -68,8 +68,10 @@ export type CaseData = {
     lead: string;
     tags: string[];
     facts: Array<{ label: string; value: string }>;
-    /** Inactive button, no link (e.g. «App Store · soon»). */
+    /** Button label (Button Style=Link). Without `actionHref` it is inactive (e.g. «App Store · soon»). */
     action?: string;
+    /** External link for the button, opens in a new tab (e.g. https://industry-lens.com). */
+    actionHref?: string;
   };
   challenge: {
     label: string;

@@ -11,6 +11,7 @@ export type ButtonProps = {
   variant?: ButtonStyle;
   /** Figma boolean `Arrow` — in Figma it toggles only the ↗ of Style=Link. */
   arrow?: boolean;
+  /** Internal path → next/link; http(s) → new tab (noopener noreferrer); mailto: → plain link. */
   href?: string;
   /**
    * Main components in Figma are FIXED width (174 / 184 / 157); every instance
@@ -73,6 +74,19 @@ export function Button({
   const tone =
     variant === "Primary" ? (inverse ? "bg-bg-page text-text-primary" : "bg-bg-inverse text-text-inverse") : undefined;
   const classes = cn(base, variants[variant], tone, fixedWidth && fixedWidths[variant], className);
+  // External links (http…, mailto:) are plain <a>; http opens in a new tab.
+  if (href && !disabled && /^(https?:|mailto:)/.test(href)) {
+    const external = href.startsWith("http");
+    return (
+      <a
+        href={href}
+        className={classes}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {content}
+      </a>
+    );
+  }
   if (href && !disabled) {
     return (
       <Link href={href} className={classes}>

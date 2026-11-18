@@ -1,4 +1,5 @@
 import { selectedWork } from "@/content/home";
+import { industrylens } from "./industrylens";
 import { nova } from "./nova";
 import { pulsefit } from "./pulsefit";
 import type { CaseData, CaseImage } from "./types";
@@ -74,6 +75,7 @@ export const workEntries: WorkEntry[] = [
       image: { src: "/media/industrylens-card.webp", alt: "IndustryLens poster on a city wall", width: 1348, height: 1520 },
     },
     index: { year: "2026", client: "IndustryLens", industry: "B2B SaaS", services: "Brand identity, guidelines, social" },
+    page: industrylens,
   },
   {
     slug: "pulsefit",
