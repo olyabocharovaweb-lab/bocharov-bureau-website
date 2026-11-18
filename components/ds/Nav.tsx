@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { NavMobile } from "./NavMobile";
 
@@ -48,13 +49,13 @@ export function Nav({ className }: { className?: string }) {
         ref={headerRef}
         className={cn("hidden w-full items-center justify-between px-40 py-28 text-text-primary lg:flex", className)}
       >
-        <p className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</p>
+        <Link href="/" className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</Link>
         <Links />
       </header>
       {scrolled && (
         <div className="fixed inset-x-0 top-0 z-40 hidden justify-center p-12 lg:flex">
           <div className="glass flex items-center gap-72 rounded-full px-40 py-20 text-text-primary">
-            <p className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</p>
+            <Link href="/" className="whitespace-nowrap heading-h6 font-semibold">Bocharov®Bureau</Link>
             <Links />
           </div>
         </div>

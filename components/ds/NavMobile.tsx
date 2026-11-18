@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 /**
@@ -40,7 +41,7 @@ export function NavMobile({ className }: { className?: string }) {
             scrolled ? "glass gap-48 rounded-full py-4 pr-6 pl-20" : "w-full justify-between",
           )}
         >
-          <p className="whitespace-nowrap text-text-primary heading-h6 font-semibold">Bocharov®Bureau</p>
+          <Link href="/" className="whitespace-nowrap text-text-primary heading-h6 font-semibold">Bocharov®Bureau</Link>
           <button
             type="button"
             aria-label="Open menu"
