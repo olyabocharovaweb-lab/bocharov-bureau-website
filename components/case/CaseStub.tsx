@@ -1,18 +1,14 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Footer, Nav } from "@/components/ds";
-import { selectedWork } from "@/content/home";
-
-export const metadata: Metadata = { title: "Graaho | Bocharov Bureau" };
+import type { WorkEntry } from "@/content/cases";
 
 /**
- * STUB (2026-11-16): Case 04 Graaho is not laid out yet — «Next →» on PulseFit leads here.
- * Shows only the Graaho title and photo from the Home card. Will be replaced by
- * content/cases/graaho.ts rendered through app/work/[slug] (then delete this file).
+ * STUB for a case whose page isn't laid out yet (no `page` in content/cases/work.ts): «← All work», the Work
+ * card title and photo. Replaced automatically once the case gets its CaseData.
  */
-export default function GraahoStub() {
-  const { title, image } = selectedWork.graaho;
+export function CaseStub({ entry }: { entry: WorkEntry }) {
+  const { title, image } = entry.workCard;
   return (
     <>
       <div className="mx-auto w-full max-w-page">
@@ -33,7 +29,6 @@ export default function GraahoStub() {
           />
         </main>
       </div>
-      {/* Footer is full-bleed (its fill spans wider screens); its content stays 1440 inside. */}
       <Footer />
     </>
   );

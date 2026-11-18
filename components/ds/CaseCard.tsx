@@ -1,5 +1,6 @@
 import Image, { getImageProps } from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/cn";
 
 export type CaseCardProps = {
@@ -19,8 +20,12 @@ export type CaseCardProps = {
    * 4:5 crop of `image` (art direction via <picture>, e.g. PulseFit 324:5128).
    */
   mobileImage?: { src: string; width: number; height: number };
+  /** Keep the image's own ratio on phones too (no 4:5 crop) — e.g. Graaho's screens. */
+  natural?: boolean;
   href?: string;
   className?: string;
+  /** Inline style for the card root (e.g. CSS `order` in the Work grid) */
+  style?: CSSProperties;
   /** Image `sizes` hint for next/image */
   sizes?: string;
 };
@@ -32,8 +37,10 @@ export function CaseCard({
   tags = "B2B SaaS · Brand identity · Guidelines",
   image,
   mobileImage,
+  natural = false,
   href,
   className,
+  style,
   sizes = "(min-width: 1024px) 50vw, 100vw",
 }: CaseCardProps) {
   const body = (
@@ -47,8 +54,8 @@ export function CaseCard({
           width={image.width}
           height={image.height}
           sizes={sizes}
-          // Mobile (324:5128): 4:5 crop, object-fit cover. From md: the image's own ratio.
-          className="aspect-case-mobile w-full rounded-sm object-cover md:aspect-auto md:h-auto"
+          // Mobile (324:5128): 4:5 crop, object-fit cover. From md (or with `natural`): the image's own ratio.
+          className={natural ? "h-auto w-full rounded-sm" : "aspect-case-mobile w-full rounded-sm object-cover md:aspect-auto md:h-auto"}
         />
       )}
       <div className="flex w-full items-start justify-between">
@@ -61,11 +68,13 @@ export function CaseCard({
   );
   const classes = cn("flex flex-col items-start gap-14", className);
   return href ? (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} style={style}>
       {body}
     </Link>
   ) : (
-    <div className={classes}>{body}</div>
+    <div className={classes} style={style}>
+      {body}
+    </div>
   );
 }
 

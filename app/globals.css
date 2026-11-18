@@ -104,6 +104,15 @@
   }
 }
 
+/* Work → Index rows: grey plate on hover, desktop only (as Services rows on Home). No transition. */
+@layer components {
+  @media (hover: hover) and (min-width: 1024px) {
+    .index-row:hover {
+      background-color: var(--color-bg-surface);
+    }
+  }
+}
+
 /* Native horizontal carousel (mobile Hero photos, Reviews): scroll-snap, no scrollbar, no JS.
    Use with a breakpoint variant, e.g. `max-lg:carousel`. */
 @utility carousel {

@@ -15,6 +15,7 @@ import {
   Tag,
   IconToggle,
 } from "@/components/ds";
+import { workEntries } from "@/content/cases";
 import { radii, semanticColors, spacing } from "@/content/tokens";
 import { textStyles } from "@/content/text-styles";
 
@@ -209,7 +210,7 @@ export default function StyleguidePage() {
         <div className="flex flex-col gap-12 px-40">
           <p className="text-text-secondary mono-caption">Index row · 260:71</p>
           <div data-specimen="index-row">
-            <IndexRow />
+            <IndexRow {...workEntries[2].index} />
           </div>
         </div>
       </div>

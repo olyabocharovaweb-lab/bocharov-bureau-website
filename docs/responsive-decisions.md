@@ -98,3 +98,31 @@ Fixed in the shared components (Section intro, Stat card, Credits row, Media cap
 - Hero photo, media and Next photo at full content width with their own ratio (Next: 1360 / 620 crop as desktop).
 - Overview facts: 4 in a row. Delivered: 4 in a row (≈ 167px each fits at 768).
 - NOVA sticky section index: not built yet; when it is, hide it below 1024.
+
+---
+
+# Responsive decisions — Work (`/work`, `components/work/WorkView.tsx`)
+
+Source of truth: desktop «Work — Variant 1b (light)» (256:68713), mobile «Work — Mobile 390» (378:11795 — the brief
+said 381:6071, which is not in the file). Data only from `content/cases/work.ts`.
+
+## Mobile (≤ 767)
+- Hero: lede + «© 2018—26 / N selected projects» stacked left; «Work®» Display/Wordmark S. Filters: one swipeable
+  row (native scroll-snap, no scrollbar, buttons 46–48 high), bleeding to the right edge. Grid / List hidden.
+- Cards: one column by number (PulseFit 01 → LINQUE 05), gap 40. Featured PulseFit = ordinary card (Figma mobile
+  crop, no metric). Photos 4:5 cover; Graaho keeps its ratio; LINQUE uses its own whole mobile picture.
+- Index: no column labels; client (Heading/H5) over industry, year and ↗ on the right; whole row is a link (84 high).
+  No services, no hover preview.
+- CTA: Heading/H2 → «Start a project» full width → note left.
+
+## Tablet (768–1023) — my decisions
+- Mobile structure, padding 32; filters still a swipe row (fits without scrolling at 768).
+- Featured full width with the desktop photo ratio; the other cards in 2 columns without the offset (IndustryLens 02,
+  NOVA 03 / Graaho 04, LINQUE 05 — numeric order).
+- Index: mobile row + the Services column.
+
+## Desktop (≥ 1024)
+- As Figma: featured wide, two-column grid with the right column 200 lower (02/04 left, 03/05 right), Index table with
+  labels, hover = grey plate + case photo 98 above the row, 279 from the left, rotated 4° (no animation).
+- Filtering keeps the alternation: the filtered cards are split left/right by number.
+- Grid / List: List hides the featured card and the grid (desktop only), leaving the Index.

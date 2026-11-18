@@ -11,7 +11,7 @@
   --container-intro-label: 560px;
   /* Index row columns (260:66 / 260:67 / 260:68 / 260:70) */
   --container-index-year: 90px;
-  --container-index-client: 360px;
+  --container-index-client: 450px; /* Figma Index row instances on Work (256:68949) — was 360 */
   --container-index-industry: 220px;
   --container-index-arrow: 40px;
 
@@ -39,6 +39,10 @@
   --container-review-photo: 64px;
   --container-review-photo-lg: 96px;
   --aspect-review-photo: 4 / 5;
+  /* Work → Index hover preview (256:69016): 220 × 280, rotated 4°, 279 from the list's left, 98 above the row */
+  --container-index-preview: 220px;
+  --aspect-index-preview: 220 / 280;
+
   /* Mobile case card photo 350 × 438 → 4:5, object-fit cover (324:5128) */
   --aspect-case-mobile: 4 / 5;
 }
@@ -53,4 +57,8 @@
   --spacing-nav-mobile: 76px;
   /* Hit area for icon buttons (menu, FAQ toggle row min) — 44 × 44 */
   --spacing-hit: 44px;
+  /* Work → Index hover preview offsets (256:69016) */
+  --spacing-index-preview-x: 279px;
+  --spacing-index-preview-y: 98px;
+
 }

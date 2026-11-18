@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CasePage } from "@/components/case/CasePage";
-import { cases, getCase } from "@/content/cases";
+import { CaseStub } from "@/components/case/CaseStub";
+import { getWorkEntry, workEntries } from "@/content/cases";
 
 /**
- * Case pages: /work/<slug>. Only slugs in content/cases are prerendered; any other slug → 404.
- * (`dynamicParams` is not available with Cache Components, so unknown slugs call notFound().)
+ * Case pages: /work/<slug> for every entry in content/cases/work.ts. Entries with `page` use the case template;
+ * the others show a stub until their page is laid out. Any other slug → 404 (notFound(); `dynamicParams` is not
+ * available with Cache Components).
  */
 export function generateStaticParams() {
-  return cases.map((c) => ({ slug: c.slug }));
+  return workEntries.map((e) => ({ slug: e.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const data = getCase(slug);
-  if (!data) return {};
-  const { seo, hero } = data;
+  const entry = getWorkEntry(slug);
+  if (!entry) return {};
+  if (!entry.page) return { title: `${entry.index.client} | Bocharov Bureau` };
+  const { seo, hero } = entry.page;
   return {
     title: seo.title,
     description: seo.description,
@@ -30,7 +33,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
 
 export default async function Page({ params }: PageProps<"/work/[slug]">) {
   const { slug } = await params;
-  const data = getCase(slug);
-  if (!data) notFound();
-  return <CasePage data={data} />;
+  const entry = getWorkEntry(slug);
+  if (!entry) notFound();
+  return entry.page ? <CasePage data={entry.page} /> : <CaseStub entry={entry} />;
 }

@@ -139,3 +139,11 @@ would break the layout (column widths), the value is kept in **one** file,
 20. 2026-11-17 — Desktop Nav «scrolled» pill (client request; no Figma frame). Mirrors Nav / Mobile «Scrolled»:
     fixed, centred 12 from the top, .glass (bg/glass 80% + blur 16 + shadow-glass), radius/full, padding 20 / 40,
     gap 72 between wordmark and links (client: taller and a bit wider than the first 14 / 24, gap 48). Appears once the desktop header is out of view (IntersectionObserver).
+21. 2026-11-18 — Work page. Index row client column 360 → 450 (Figma instances on Work); Index row is mobile-first
+    (info block `display: contents` from 1024). CTA gained `primary`, `secondary` (null hides it) and `spacing`
+    ("200" for the Work CTA). Button gained `onClick` / `pressed` for the filters. Case card gained `natural`
+    (no 4:5 crop on phones) and `style`. Grid / List toggle = two Tag-styled buttons in a border/strong pill; the
+    active one gets bg/surface (Figma shows no active state). Filter counts and «N selected projects» are counted
+    from content/cases. Layer names in Figma still say Hotel Aurelia etc.; the rendered texts are the real cases.
+    Cases without a page yet (NOVA, IndustryLens, Graaho, LINQUE) open a stub (title + photo + «← All work»).
+    Figma's "Selected from 120+ projects…" sits in content/work.ts → `selectedFrom` (number to be confirmed).

@@ -26,6 +26,10 @@ export type ButtonProps = {
   type?: "button" | "submit";
   /** Inactive button without a link (e.g. «App Store · soon»). Renders a disabled <button>. */
   disabled?: boolean;
+  /** For a <button>: click handler (e.g. Work filters). */
+  onClick?: () => void;
+  /** For a toggle <button>: aria-pressed. */
+  pressed?: boolean;
   className?: string;
 };
 
@@ -55,6 +59,8 @@ export function Button({
   inverse = false,
   type = "button",
   disabled = false,
+  onClick,
+  pressed,
   className,
 }: ButtonProps) {
   const content = (
@@ -75,7 +81,13 @@ export function Button({
     );
   }
   return (
-    <button type={type} disabled={disabled || undefined} className={cn(classes, disabled && "cursor-default")}>
+    <button
+      type={type}
+      disabled={disabled || undefined}
+      aria-pressed={pressed}
+      onClick={onClick}
+      className={cn(classes, disabled && "cursor-default")}
+    >
       {content}
     </button>
   );

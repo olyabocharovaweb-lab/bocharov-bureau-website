@@ -35,3 +35,6 @@ Source: page «Main direction» › section «2» (`256:68174`). Collected via t
 Block names marked "Frame" are unnamed frames in Figma; the bracketed hint will be
 replaced with the exact section name once each page is built (step 3–4).
 | Home (mobile) | Footer «Back to top» | **Implemented (client brief 2026-11-17):** smooth scroll to the top; instant with prefers-reduced-motion. `components/ds/Footer.tsx` | `325:5114` |
+| Work | Hero / filters | фільтр перемикає кейси без перезавантаження: картки плавно перебудовуються (FLIP) — **filtering implemented without animation** | `262:5033` |
+| Work | Case grid | фото «відкривається» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
+| Work | Index | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється — **plate + static tilted photo implemented; follow / fade not** | `262:5154` |
