@@ -36,6 +36,8 @@ export type CaseMedia = {
   number: string;
   /** Desktop space above the media: 72 (default, PulseFit) or 48 (most NOVA media). Phones: always 40. */
   gap?: "72" | "48";
+  /** true → no corner radius in the layout: the image already has its own (LINQUE slides, radius 6 baked in). */
+  plain?: boolean;
 };
 
 export type CaseSection = CaseIntro | CaseMedia;

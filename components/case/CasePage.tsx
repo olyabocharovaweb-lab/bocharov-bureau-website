@@ -118,7 +118,7 @@ function ArtImage({ image, mobile, className, priority = false }: ArtImageProps)
 
 /** Client media: the desktop image scales down; an optional `mobile` version replaces it at ≤ 767px. */
 function Media({ media }: { media: CaseMedia }) {
-  return <ArtImage image={media.image} mobile={media.mobile} className="h-auto w-full rounded-sm" />;
+  return <ArtImage image={media.image} mobile={media.mobile} className={media.plain ? "h-auto w-full" : "h-auto w-full rounded-sm"} />;
 }
 
 export function CasePage({ data }: { data: CaseData }) {

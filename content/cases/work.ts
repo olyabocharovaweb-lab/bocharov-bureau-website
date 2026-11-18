@@ -1,6 +1,7 @@
 import { selectedWork } from "@/content/home";
 import { graaho } from "./graaho";
 import { industrylens } from "./industrylens";
+import { linque } from "./linque";
 import { nova } from "./nova";
 import { pulsefit } from "./pulsefit";
 import type { CaseData, CaseImage } from "./types";
@@ -125,6 +126,7 @@ export const workEntries: WorkEntry[] = [
       mobileImage: { src: "/media/work/work-linque-mobile.webp", width: 700, height: 876 },
     },
     index: { year: "2025", client: "LINQUE", industry: "Dating · Community", services: "UX research, product design, web & mobile, admin panel" },
+    page: linque,
   },
 ];
 

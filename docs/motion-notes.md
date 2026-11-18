@@ -38,3 +38,4 @@ replaced with the exact section name once each page is built (step 3–4).
 | Work | Hero / filters | фільтр перемикає кейси без перезавантаження: картки плавно перебудовуються (FLIP) — **filtering implemented without animation** | `262:5033` |
 | Work | Case grid | фото «відкривається» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
 | Work | Index | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється — **plate + static tilted photo implemented; follow / fade not** | `262:5154` |
+| Case — LINQUE | Frame (stats) | лічильники від 0 | `344:7089` |
