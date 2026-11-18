@@ -1,4 +1,5 @@
 import { selectedWork } from "@/content/home";
+import { graaho } from "./graaho";
 import { industrylens } from "./industrylens";
 import { nova } from "./nova";
 import { pulsefit } from "./pulsefit";
@@ -108,6 +109,7 @@ export const workEntries: WorkEntry[] = [
       natural: true,
     },
     index: { year: "2026", client: "Graaho", industry: "Enterprise AI & cloud", services: "Website design, UX, responsive" },
+    page: graaho,
   },
   {
     slug: "linque",

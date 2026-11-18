@@ -62,6 +62,8 @@ export type CaseData = {
     image: CaseImage;
     /** Optional phone crop (≤ 767px, 4:5) — same mechanism as CaseMedia.mobile. */
     mobile?: Omit<CaseImage, "alt">;
+    /** true → on phones the hero keeps its own ratio (no 4:5 crop), e.g. Graaho's site screens. */
+    natural?: boolean;
   };
   overview: {
     label: string;

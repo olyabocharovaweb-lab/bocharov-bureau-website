@@ -170,7 +170,11 @@ export function CasePage({ data }: { data: CaseData }) {
               image={hero.image}
               mobile={hero.mobile}
               priority
-              className="aspect-case-mobile w-full rounded-sm object-cover object-center md:aspect-auto md:h-auto"
+              className={
+                hero.natural
+                  ? "h-auto w-full rounded-sm"
+                  : "aspect-case-mobile w-full rounded-sm object-cover object-center md:aspect-auto md:h-auto"
+              }
             />
           </section>
 
