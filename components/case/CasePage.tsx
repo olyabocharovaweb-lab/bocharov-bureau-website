@@ -3,7 +3,8 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Button, CreditsRow, Cta, Footer, MediaCaption, MetaItem, Nav, SectionIntro, StatCard, Tag } from "@/components/ds";
 import { RevealText } from "@/components/home/RevealText";
-import type { CaseData, CaseImage, CaseIntro, CaseMedia } from "@/content/cases/types";
+import { caseChain, getNextEntry, getWorkEntry, twoDigits } from "@/content/cases/work";
+import type { CaseData, CaseImage, CaseIntro, CaseMedia, CaseSection } from "@/content/cases/types";
 
 /**
  * One template for every case page.
@@ -21,8 +22,54 @@ const CONTENT_SIZES =
 /** Page padding per breakpoint. */
 const PX = "px-20 md:px-32 lg:px-40";
 
-function Intro({ intro }: { intro: CaseIntro }) {
-  return <SectionIntro label={intro.label} body={intro.body} spacing={intro.spacing} />;
+/** Figma placeholders («[юр. назва]», «Name Surname») are kept in the data but never rendered. */
+const isPlaceholder = (v: string) => /\[[^\]]*\]|Name Surname/.test(v);
+
+function Intro({ intro, labelClassName }: { intro: CaseIntro; labelClassName?: string }) {
+  return <SectionIntro label={intro.label} body={intro.body} spacing={intro.spacing} labelClassName={labelClassName} />;
+}
+
+function MediaFigure({ media }: { media: CaseMedia }) {
+  return (
+    <figure className={`flex w-full flex-col items-start gap-12 pt-40 ${media.gap === "48" ? "lg:pt-48" : "lg:pt-72"} ${PX}`}>
+      <Media media={media} />
+      <figcaption className="w-full">
+        <MediaCaption caption={media.caption} number={media.number} />
+      </figcaption>
+    </figure>
+  );
+}
+
+/** Splits the sections into runs that start at an intro (media before the first intro form their own run). */
+function groupByIntro(sections: CaseSection[]) {
+  const groups: Array<{ intro?: CaseIntro; media: CaseMedia[] }> = [];
+  for (const s of sections) {
+    if (s.kind === "intro") groups.push({ intro: s, media: [] });
+    else if (groups.length === 0) groups.push({ media: [s] });
+    else groups[groups.length - 1].media.push(s);
+  }
+  return groups;
+}
+
+/**
+ * `stickyLabels`, desktop only: the intro label is copied into a layer that spans the whole run (intro + media)
+ * and is position: sticky inside it, 120 below the top (under the scrolled nav pill). The intro's own label is
+ * hidden from 1024 so the text isn't doubled; below 1024 the layer is not shown.
+ */
+function StickyRun({ intro, media }: { intro: CaseIntro; media: CaseMedia[] }) {
+  return (
+    <div className="relative w-full">
+      <div
+        className={`pointer-events-none absolute inset-0 z-10 hidden lg:block lg:px-40 ${intro.spacing === "Section" ? "lg:pt-180" : "lg:pt-120"}`}
+      >
+        <p className="sticky top-120 whitespace-pre text-text-secondary mono-label">{intro.label}</p>
+      </div>
+      <Intro intro={intro} labelClassName="lg:invisible" />
+      {media.map((m, i) => (
+        <MediaFigure key={i} media={m} />
+      ))}
+    </div>
+  );
 }
 
 type ArtImageProps = {
@@ -75,8 +122,21 @@ function Media({ media }: { media: CaseMedia }) {
 }
 
 export function CasePage({ data }: { data: CaseData }) {
-  const { hero, overview, challenge, sections, delivered, credits, cta, next } = data;
+  const { hero, overview, challenge, sections, delivered, credits, cta, stickyLabels } = data;
   const titleEms = hero.titleEms ?? hero.title.length * 0.62;
+  // Number, total and the Next case come from content/cases/work.ts (published cases, by case number).
+  const total = caseChain.length;
+  const caseNumber = getWorkEntry(data.slug)?.caseNumber ?? 0;
+  const nextEntry = getNextEntry(data.slug);
+  const next = {
+    href: `/work/${nextEntry.slug}`,
+    heading: data.next.heading,
+    counter: `( ${twoDigits(nextEntry.caseNumber)} / ${total} )`,
+    title: nextEntry.workCard.title,
+    tags: `${nextEntry.workCard.tags}  →`,
+    // the next case's hero when it has a page, otherwise its Work card photo
+    image: nextEntry.page?.hero.image ?? nextEntry.workCard.image,
+  };
   return (
     <>
       <div className="mx-auto w-full max-w-page">
@@ -94,7 +154,7 @@ export function CasePage({ data }: { data: CaseData }) {
                 <p className="whitespace-pre text-text-secondary body-s">{hero.category}</p>
               </div>
               <div className="flex flex-col items-start gap-6 whitespace-nowrap mono-body lg:items-end">
-                <p className="text-text-secondary">{hero.index}</p>
+                <p className="text-text-secondary">{`${hero.year} · Case ${twoDigits(caseNumber)} / ${total}`}</p>
                 <Link href={next.href} className="text-text-primary max-lg:hidden">
                   {hero.nextLabel}
                 </Link>
@@ -128,7 +188,7 @@ export function CasePage({ data }: { data: CaseData }) {
                 ))}
               </div>
               <div className="grid w-full grid-cols-2 gap-20 md:grid-cols-4 lg:flex lg:items-start lg:gap-24">
-                {overview.facts.map((f) => (
+                {overview.facts.filter((f) => !isPlaceholder(f.value)).map((f) => (
                   <MetaItem key={f.label} label={f.label} value={f.value} className="min-w-0 lg:flex-1" />
                 ))}
               </div>
@@ -151,19 +211,16 @@ export function CasePage({ data }: { data: CaseData }) {
             />
           </section>
 
-          {/* Intros + client media. Media frame: desktop pt 72 / gap 12; mobile 331:5275 pt 40 / gap 12. */}
-          {sections.map((s, i) =>
-            s.kind === "intro" ? (
-              <Intro key={i} intro={s} />
-            ) : (
-              <figure key={i} className={`flex w-full flex-col items-start gap-12 pt-40 lg:pt-72 ${PX}`}>
-                <Media media={s} />
-                <figcaption className="w-full">
-                  <MediaCaption caption={s.caption} number={s.number} />
-                </figcaption>
-              </figure>
-            ),
-          )}
+          {/* Intros + client media (media: desktop pt 72 or 48, gap 12; mobile 331:5275 pt 40). */}
+          {stickyLabels
+            ? groupByIntro(sections).map((g, i) =>
+                g.intro ? (
+                  <StickyRun key={i} intro={g.intro} media={g.media} />
+                ) : (
+                  g.media.map((m, j) => <MediaFigure key={`${i}-${j}`} media={m} />)
+                ),
+              )
+            : sections.map((s, i) => (s.kind === "intro" ? <Intro key={i} intro={s} /> : <MediaFigure key={i} media={s} />))}
 
           {/* Delivered — Section intro + Result cards. Desktop 256:71916: 4 in a row, gap 12, pt 32;
               mobile 331:6330: 2 × 2, gap 12, pt 32; tablet: 4 in a row. */}
@@ -185,7 +242,7 @@ export function CasePage({ data }: { data: CaseData }) {
               <p className="whitespace-nowrap text-text-secondary mono-label">{credits.label}</p>
             </div>
             <div className="flex w-full min-w-0 flex-col items-start lg:flex-1">
-              {credits.rows.map((r) => (
+              {credits.rows.filter((r) => !isPlaceholder(r.name)).map((r) => (
                 <CreditsRow key={r.role} role={r.role} name={r.name} />
               ))}
             </div>

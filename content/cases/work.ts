@@ -1,4 +1,5 @@
 import { selectedWork } from "@/content/home";
+import { nova } from "./nova";
 import { pulsefit } from "./pulsefit";
 import type { CaseData, CaseImage } from "./types";
 
@@ -39,6 +40,11 @@ export type WorkEntry = {
   metric?: string;
   index: { year: string; client: string; industry: string; services: string };
   page?: CaseData;
+  /**
+   * Default true. An unpublished case is left out of Home, Work and the Next chain, but its page still opens
+   * by direct link (with noindex).
+   */
+  published?: boolean;
 };
 
 const graahoHome = selectedWork.graaho;
@@ -55,6 +61,7 @@ export const workEntries: WorkEntry[] = [
       image: { src: "/media/case-nova-card.webp", alt: "NOVA app on a phone next to an iridescent orb", width: 1348, height: 1520 },
     },
     index: { year: "2026", client: "NOVA", industry: "AI · Productivity", services: "Product strategy, UX/UI, brand" },
+    page: nova,
   },
   {
     slug: "industrylens",
@@ -118,3 +125,18 @@ export const workEntries: WorkEntry[] = [
 ];
 
 export const getWorkEntry = (slug: string) => workEntries.find((e) => e.slug === slug);
+
+export const isPublished = (e: WorkEntry) => e.published !== false;
+
+/** Published cases by case number: the Next chain (01 → 02 → … → last → 01) and the «/ N» total. */
+export const caseChain: WorkEntry[] = workEntries.filter(isPublished).sort((a, b) => a.caseNumber - b.caseNumber);
+
+/** The case after `slug` in the chain, wrapping around; an unpublished case points at the next published one. */
+export function getNextEntry(slug: string): WorkEntry {
+  const i = caseChain.findIndex((e) => e.slug === slug);
+  if (i !== -1) return caseChain[(i + 1) % caseChain.length];
+  const current = getWorkEntry(slug);
+  return caseChain.find((e) => current && e.caseNumber > current.caseNumber) ?? caseChain[0];
+}
+
+export const twoDigits = (n: number) => String(n).padStart(2, "0");

@@ -1,4 +1,3 @@
-import { selectedWork } from "@/content/home";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /** Figma: Main direction → «Case — PulseFit» (256:70753). Texts verbatim. */
@@ -20,8 +19,6 @@ const media = (number: string, caption: string, image: CaseImage): CaseMedia => 
   image,
 });
 
-const graaho = selectedWork.graaho;
-
 export const pulsefit: CaseData = {
   slug: "pulsefit",
   seo: {
@@ -32,7 +29,7 @@ export const pulsefit: CaseData = {
   hero: {
     back: "← All work",
     category: "/  Product design",
-    index: "’26 · Case 03 / 12",
+    year: "’26",
     nextLabel: "Next →",
     title: "PulseFit",
     titleEms: 3.36, // measured: 730px at 220px (+1% margin)
@@ -135,14 +132,6 @@ export const pulsefit: CaseData = {
     ],
   },
   cta: { heading: "Building a\nproduct?" },
-  // Figma shows Solis Residences here; per the client (2026-11-16) Next = Case 04 Graaho,
-  // with title / tags / photo from the Graaho card on Home.
-  next: {
-    href: "/work/graaho",
-    heading: "Next project.",
-    counter: `( ${graaho.number} / 12 )`,
-    title: graaho.title,
-    tags: `${graaho.tags}  →`,
-    image: graaho.image,
-  },
+  // Figma shows Solis Residences here; Next is the next case in the chain (content/cases/work.ts).
+  next: { heading: "Next project." },
 };

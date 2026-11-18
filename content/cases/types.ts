@@ -34,6 +34,8 @@ export type CaseMedia = {
   mobile?: Omit<CaseImage, "alt">;
   caption: string;
   number: string;
+  /** Desktop space above the media: 72 (default, PulseFit) or 48 (most NOVA media). Phones: always 40. */
+  gap?: "72" | "48";
 };
 
 export type CaseSection = CaseIntro | CaseMedia;
@@ -46,9 +48,9 @@ export type CaseData = {
     back: string;
     /** «/  Product design» (whitespace preserved) */
     category: string;
-    /** «’26 · Case 03 / 12» */
-    index: string;
-    /** «Next →» → next.href */
+    /** «’26» — the hero index line is built as «’26 · Case 03 / N» (number and total from content/cases/work.ts). */
+    year: string;
+    /** «Next →» → the next published case (content/cases/work.ts) */
     nextLabel: string;
     title: string;
     /**
@@ -85,14 +87,14 @@ export type CaseData = {
   };
   credits: { label: string; rows: Array<{ role: string; name: string }> };
   cta: { heading: string };
-  next: {
-    href: string;
-    heading: string;
-    /** «( 04 / 12 )» */
-    counter: string;
-    title: string;
-    /** Mono/Caption line, e.g. «Enterprise AI & cloud · Web design  →» */
-    tags: string;
-    image: CaseImage;
-  };
+  /**
+   * Next project block. Only the heading is per case — href, counter «( 04 / N )», title, tags and photo come
+   * from the next published case in content/cases/work.ts (by case number, wrapping around).
+   */
+  next: { heading: string };
+  /**
+   * Desktop only: each Section intro label stays pinned (position: sticky) while its section — the intro and
+   * the media under it — scrolls past. No highlight. Off by default.
+   */
+  stickyLabels?: boolean;
 };
