@@ -5,15 +5,20 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { NavMobile } from "./NavMobile";
 
-/** Links are not clickable in iteration 1 (decision 2026-11-13). */
-const links = ["Work", "Services", "Awards", "Contact"];
+/** Only pages that exist are links (Work → /work, client request 2026-11-18); the rest stay plain text for now. */
+const links: Array<{ label: string; href?: string }> = [
+  { label: "Work", href: "/work" },
+  { label: "Services" },
+  { label: "Awards" },
+  { label: "Contact" },
+];
 
 function Links() {
   return (
     <nav aria-label="Primary">
       <ul className="flex items-start gap-32 label-m">
         {links.map((l) => (
-          <li key={l}>{l}</li>
+          <li key={l.label}>{l.href ? <Link href={l.href}>{l.label}</Link> : l.label}</li>
         ))}
       </ul>
     </nav>
