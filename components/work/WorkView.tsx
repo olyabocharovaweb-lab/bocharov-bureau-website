@@ -198,7 +198,8 @@ function FeaturedImage({ entry }: { entry: WorkEntry }) {
 
 /**
  * Index — desktop 256:68938 (pt 160; «Index» Display/S + «( All projects )»; column labels; rows; hover → grey plate
- * and the case photo next to the row, rotated 4°); mobile 378:12028 (pt 72; Heading/H2; no labels, no preview).
+ * and the case photo next to the row, rotated 4°). Hidden below 1024 (client request 2026-11-18: phones and tablets
+ * show only the case cards; Figma mobile 378:12028 has the Index).
  */
 function IndexSection({ rows }: { rows: WorkEntry[] }) {
   const [hover, setHover] = useState<string | null>(null);
@@ -216,7 +217,7 @@ function IndexSection({ rows }: { rows: WorkEntry[] }) {
   const activeIndex = active ? rows.indexOf(active) : -1;
 
   return (
-    <section className={`flex w-full flex-col items-start pt-72 lg:pt-160 ${PX}`}>
+    <section className={`hidden w-full flex-col items-start lg:flex lg:pt-160 ${PX}`}>
       <div className="flex w-full items-baseline justify-between pb-32 lg:items-end">
         <h2 className="whitespace-nowrap text-text-primary heading-h2 lg:display-s">{work.index.title}</h2>
         <p className="whitespace-nowrap text-text-secondary mono-label">{work.index.label}</p>

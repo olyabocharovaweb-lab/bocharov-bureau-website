@@ -111,7 +111,7 @@ said 381:6071, which is not in the file). Data only from `content/cases/work.ts`
   row (native scroll-snap, no scrollbar, buttons 46–48 high), bleeding to the right edge. Grid / List hidden.
 - Cards: one column by number (PulseFit 01 → LINQUE 05), gap 40. Featured PulseFit = ordinary card (Figma mobile
   crop, no metric). Photos 4:5 cover; Graaho keeps its ratio; LINQUE uses its own whole mobile picture.
-- Index: no column labels; client (Heading/H5) over industry, year and ↗ on the right; whole row is a link (84 high).
+- Index: not shown on phones (client request 2026-11-18) — only the case cards; the Figma frame has it.
   No services, no hover preview.
 - CTA: Heading/H2 → «Start a project» full width → note left.
 
@@ -119,7 +119,7 @@ said 381:6071, which is not in the file). Data only from `content/cases/work.ts`
 - Mobile structure, padding 32; filters still a swipe row (fits without scrolling at 768).
 - Featured full width with the desktop photo ratio; the other cards in 2 columns without the offset (IndustryLens 02,
   NOVA 03 / Graaho 04, LINQUE 05 — numeric order).
-- Index: mobile row + the Services column.
+- Index: not shown, as on phones.
 
 ## Desktop (≥ 1024)
 - As Figma: featured wide, two-column grid with the right column 200 lower (02/04 left, 03/05 right), Index table with
