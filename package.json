@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
-    "test:overflow": "node tests/no-horizontal-scroll.mjs"
+    "test:overflow": "node tests/no-horizontal-scroll.mjs",
+    "test:links": "node tests/links.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

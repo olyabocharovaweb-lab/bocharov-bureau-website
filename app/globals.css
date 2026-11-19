@@ -264,3 +264,24 @@
     }
   }
 }
+
+/* About hero title (421:6188 / 424:6365). Phones: Heading/H2 (40) — `.about-title` only stops words from breaking
+   («development.» stays whole). From 768: Display/S, sized so the longer line («Design meets development.») fits one
+   line, up to 96px — `md:about-title-fluid lg:about-title-fluid-lg` (--title-ems = that line's width in em). */
+@layer components {
+  .about-title {
+    hyphens: manual;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+@utility about-title-fluid {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  font-size: min(96px, calc((100vw - 2 * var(--space-32)) / var(--title-ems)));
+}
+@utility about-title-fluid-lg {
+  font-size: min(96px, calc((min(100vw, 1440px) - 2 * var(--space-40)) / var(--title-ems)));
+}

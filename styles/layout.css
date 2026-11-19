@@ -29,6 +29,8 @@
 
   /* Home hero lede text box (256:68186) */
   --container-hero-lede: 460px;
+  /* About hero lede text box (421:6184) */
+  --container-about-lede: 480px;
 
   /* ── Mobile Home (322:5634, 390) ── */
   /* Hero carousel photo 264 × 352 (322:5644) */

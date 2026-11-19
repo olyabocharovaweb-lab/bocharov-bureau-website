@@ -2,23 +2,37 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import { NavMobile } from "./NavMobile";
 
-/** Only pages that exist are links (Work → /work, client request 2026-11-18); the rest stay plain text for now. */
+/**
+ * Only pages that exist are links (Work → /work, client request 2026-11-18); the rest stay plain text for now.
+ * «Awards» (Figma) → «About» → /about (client, 2026-11-19: there is no Awards page). Active page: aria-current.
+ */
 const links: Array<{ label: string; href?: string }> = [
   { label: "Work", href: "/work" },
   { label: "Services" },
-  { label: "Awards" },
+  { label: "About", href: "/about" },
   { label: "Contact" },
 ];
 
 function Links() {
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   return (
     <nav aria-label="Primary">
       <ul className="flex items-start gap-32 label-m">
         {links.map((l) => (
-          <li key={l.label}>{l.href ? <Link href={l.href}>{l.label}</Link> : l.label}</li>
+          <li key={l.label}>
+            {l.href ? (
+              <Link href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>
+                {l.label}
+              </Link>
+            ) : (
+              l.label
+            )}
+          </li>
         ))}
       </ul>
     </nav>

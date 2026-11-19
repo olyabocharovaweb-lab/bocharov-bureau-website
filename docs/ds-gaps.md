@@ -147,3 +147,10 @@ would break the layout (column widths), the value is kept in **one** file,
     from content/cases. Layer names in Figma still say Hotel Aurelia etc.; the rendered texts are the real cases.
     Cases without a page yet (NOVA, IndustryLens, Graaho, LINQUE) open a stub (title + photo + «← All work»).
     Figma's "Selected from 120+ projects…" sits in content/work.ts → `selectedFrom` (number to be confirmed).
+22. 2026-11-19 — About page (421:6180 / 424:6357). New in shared components: Stat card `size="l"` (Numeral/L → Display/M,
+    label Heading/H6, note Body/S — the About cards are frames, not Stat card instances); CTA two-tone heading
+    ({ primary, secondary }), `headingStyle="display-s"`, `note`, `primaryHref` / `secondaryHref`, mobile `gap="32"`.
+    Footer links can carry an href (About → /about); Nav «Awards» → «About» (client) with aria-current.
+    Capability rows: Figma gap 18 has no token → space/20 (as Home Services). Layout size about-lede 480.
+    Figma About footer shows different social links and contact details than the Footer component — not applied
+    (Footer stays the DS component until the contacts are confirmed).

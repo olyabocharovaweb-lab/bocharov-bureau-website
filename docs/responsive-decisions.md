@@ -126,3 +126,22 @@ said 381:6071, which is not in the file). Data only from `content/cases/work.ts`
   labels, hover = grey plate + case photo 98 above the row, 279 from the left, rotated 4° (no animation).
 - Filtering keeps the alternation: the filtered cards are split left/right by number.
 - Grid / List: List hides the featured card and the grid (desktop only), leaving the Index.
+
+# About (`/about`)
+
+Figma: desktop «About — B · No photos» (421:6180), mobile «About — Mobile 390» (424:6357). Texts: content/about.ts.
+
+## Phone (≤ 767)
+- As «About — Mobile 390»: padding 20, 72 between sections; hero lede and Mono lines stacked; title Heading/H2 (40),
+  two-tone; words never break (`.about-title`, «development.» checked at 360).
+- Statements («Who we are», «Idea to launch»): Heading/H5 Large, two-tone. What we do: Heading/H2 + label under it,
+  rows stacked (py 24, gap 16, gap 32 between rows). In numbers: cards stacked, Numeral/L. CTA: Heading/H2, gap 32,
+  full-width buttons, note left.
+
+## Tablet (768–1023)
+- Mobile structure, padding 32. Hero title switches to Display/S, sized so «Design meets development.» fits one line
+  (58px at 768, up to 96). In numbers: three cards in a row (they fit: labels wrap if needed).
+
+## Desktop (≥ 1024)
+- As Figma. Hero title stays one line per phrase (fluid below 1440: 77px at 1024). CTA heading: Display/S from 1440;
+  Heading/H1 at 1024–1439 — Display/S wrapped into four lines next to the buttons there.

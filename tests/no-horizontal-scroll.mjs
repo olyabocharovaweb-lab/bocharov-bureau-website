@@ -16,7 +16,7 @@ const WIDTHS = [360, 390, 768, 1024];
 // Home, Work and every case slug listed in content/cases/work.ts (slug: "…").
 const workData = readFileSync(new URL("../content/cases/work.ts", import.meta.url), "utf8");
 const slugs = [...workData.matchAll(/slug: "([a-z0-9-]+)"/g)].map((m) => m[1]);
-const paths = ["/", "/work", ...slugs.map((s) => `/work/${s}`)];
+const paths = ["/", "/work", "/about", ...slugs.map((s) => `/work/${s}`)];
 const WIDTHS_ALL = [...WIDTHS, 1440];
 
 const browser = await chromium.launch();

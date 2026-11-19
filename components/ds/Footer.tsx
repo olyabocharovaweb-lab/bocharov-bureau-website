@@ -1,16 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
 
-/** Links are not clickable in iteration 1 (decision 2026-11-13). */
-type FooterLink = { label: string };
+/** Only pages that exist are links (About → /about, 2026-11-19); the rest stay plain text for now. */
+type FooterLink = { label: string; href?: string };
 
 const columns: Array<{ title: string; links: FooterLink[] }> = [
   { title: "Social", links: [{ label: "Instagram" }, { label: "LinkedIn" }, { label: "Behance" }, { label: "Clutch" }] },
   {
     title: "Studio",
-    links: [{ label: "Work" }, { label: "Services" }, { label: "AI Lab" }, { label: "Journal" }],
+    links: [{ label: "Work" }, { label: "Services" }, { label: "About", href: "/about" }, { label: "AI Lab" }, { label: "Journal" }],
   },
   { title: "Contact", links: [{ label: "hello@[domain]" }, { label: "Europe / US" }] },
 ];
@@ -75,11 +76,17 @@ export function Footer({ className }: { className?: string }) {
           {columns.map((col) => (
             <div key={col.title} className="flex min-w-0 flex-col items-start gap-12 lg:flex-1 lg:gap-10">
               <p className="footer-muted mono-label">{col.title}</p>
-              {col.links.map((l) => (
-                <p key={l.label} className="footer-ink body-l lg:body-base">
-                  {l.label}
-                </p>
-              ))}
+              {col.links.map((l) =>
+                l.href ? (
+                  <Link key={l.label} href={l.href} className="footer-ink body-l lg:body-base">
+                    {l.label}
+                  </Link>
+                ) : (
+                  <p key={l.label} className="footer-ink body-l lg:body-base">
+                    {l.label}
+                  </p>
+                ),
+              )}
             </div>
           ))}
         </div>
