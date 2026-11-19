@@ -154,3 +154,8 @@ would break the layout (column widths), the value is kept in **one** file,
     Capability rows: Figma gap 18 has no token → space/20 (as Home Services). Layout size about-lede 480.
     Figma About footer shows different social links and contact details than the Footer component — not applied
     (Footer stays the DS component until the contacts are confirmed).
+23. 2026-11-19 — Real contacts (client; Figma Footer and mobile footers updated the same way). All links live in
+    lib/config.ts (`contacts`, `social`); Footer reads them, empty entries are not rendered. Social: Behance, LinkedIn,
+    Dribbble; Contact: e-mail (mailto:) and «WhatsApp +380 73 721 83 82» (wa.me). Instagram, Clutch, «hello@[domain]»
+    and «Europe / US» removed. Below 1024 the Contact column spans both grid columns (the e-mail is wider than half).
+    Home has JSON-LD Organization (name, email, sameAs from the same config).

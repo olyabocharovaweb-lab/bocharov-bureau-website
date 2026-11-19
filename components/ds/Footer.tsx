@@ -3,18 +3,48 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
+import { contactLinks, isExternal, socialLinks } from "@/lib/config";
 
 /** Only pages that exist are links (About → /about, 2026-11-19); the rest stay plain text for now. */
 type FooterLink = { label: string; href?: string };
 
+/**
+ * Social and Contact come from lib/config.ts (contacts updated 2026-11-19; Figma Footer and mobile footers updated
+ * the same way): Behance, LinkedIn, Dribbble; e-mail (mailto:) and WhatsApp. Empty entries there are not rendered.
+ */
 const columns: Array<{ title: string; links: FooterLink[] }> = [
-  { title: "Social", links: [{ label: "Instagram" }, { label: "LinkedIn" }, { label: "Behance" }, { label: "Clutch" }] },
+  { title: "Social", links: socialLinks },
   {
     title: "Studio",
     links: [{ label: "Work" }, { label: "Services" }, { label: "About", href: "/about" }, { label: "AI Lab" }, { label: "Journal" }],
   },
-  { title: "Contact", links: [{ label: "hello@[domain]" }, { label: "Europe / US" }] },
+  { title: "Contact", links: contactLinks },
 ];
+
+function FooterItem({ link }: { link: FooterLink }) {
+  const cls = "footer-ink body-l lg:body-base";
+  const { label, href } = link;
+  if (!href) return <p className={cls}>{label}</p>;
+  if (isExternal(href)) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
+        {label}
+      </a>
+    );
+  }
+  if (href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={cls}>
+        {label}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={cls}>
+      {label}
+    </Link>
+  );
+}
 
 /**
  * Figma: Footer (260:33) — pb 40, px 40, gap 40; Display/Wordmark.
@@ -74,19 +104,18 @@ export function Footer({ className }: { className?: string }) {
       <div className="mx-auto flex min-h-svh w-full max-w-page flex-col items-start justify-between gap-40 px-20 py-40 md:px-32 lg:px-40 lg:pt-72 lg:pb-40">
         <div className="grid w-full grid-cols-2 gap-x-20 gap-y-32 lg:flex lg:items-start lg:gap-40">
           {columns.map((col) => (
-            <div key={col.title} className="flex min-w-0 flex-col items-start gap-12 lg:flex-1 lg:gap-10">
-              <p className="footer-muted mono-label">{col.title}</p>
-              {col.links.map((l) =>
-                l.href ? (
-                  <Link key={l.label} href={l.href} className="footer-ink body-l lg:body-base">
-                    {l.label}
-                  </Link>
-                ) : (
-                  <p key={l.label} className="footer-ink body-l lg:body-base">
-                    {l.label}
-                  </p>
-                ),
+            // Below 1024 Contact takes the whole second row (the e-mail is wider than a half column)
+            <div
+              key={col.title}
+              className={cn(
+                "flex min-w-0 flex-col items-start gap-12 lg:flex-1 lg:gap-10",
+                col.title === "Contact" && "col-span-2 lg:col-span-1",
               )}
+            >
+              <p className="footer-muted mono-label">{col.title}</p>
+              {col.links.map((l) => (
+                <FooterItem key={l.label} link={l} />
+              ))}
             </div>
           ))}
         </div>

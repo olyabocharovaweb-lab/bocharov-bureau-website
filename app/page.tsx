@@ -9,11 +9,25 @@ import { Process } from "@/components/home/Process";
 import { Reviews } from "@/components/home/Reviews";
 import { SelectedWork } from "@/components/home/SelectedWork";
 import { Services } from "@/components/home/Services";
+import { config, socialLinks } from "@/lib/config";
+
+/** JSON-LD Organization (schema.org) — name, e-mail and social profiles from lib/config.ts. */
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: config.name,
+  ...(config.contacts.email ? { email: config.contacts.email } : {}),
+  sameAs: socialLinks.map((l) => l.href),
+};
 
 /** Home — Figma «Homepage — Variant 1b (light)» (256:68176). */
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization).replace(/</g, "\\u003c") }}
+      />
       <div className="mx-auto w-full max-w-page">
         <Nav />
         <main>
