@@ -1,3 +1,4 @@
+import { mobileMedia } from "./mobile";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /**
@@ -9,6 +10,24 @@ import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 const dir = "/media/cases/industrylens";
 const W = 2720; // 1360 × 2
+
+/**
+ * Media number → Figma section slug (desktop section name in kebab-case) for the phone images
+ * (Figma «Mobile media — industrylens», content/cases/mobile.ts).
+ */
+const mobileSection: Record<string, string> = {
+  "02": "logo-construction",
+  "03": "logo-versions",
+  "04": "logo-clear-space",
+  "05": "logo-scale",
+  "06": "system-chart",
+  "08": "type-hierarchy",
+  "10": "in-use-dashboard",
+  "11": "in-use-instagram",
+  "12": "in-use-line",
+  "13": "in-use-audit",
+  "14": "in-use-cards",
+};
 
 const img = (file: string, height: number, alt: string): CaseImage => ({
   src: `${dir}/${file}.webp`,
@@ -22,6 +41,7 @@ const media = (number: string, caption: string, image: CaseImage): CaseMedia => 
   number,
   caption,
   image,
+  mobile: mobileMedia("industrylens", mobileSection[number]),
 });
 
 export const industrylens: CaseData = {

@@ -1,3 +1,4 @@
+import { mobileMedia } from "./mobile";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /**
@@ -9,6 +10,26 @@ import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 const dir = "/media/cases/linque";
 const W = 2720; // 1360 × 2
+
+/**
+ * Media number → Figma section slug (desktop section name in kebab-case) for the phone images
+ * (Figma «Mobile media — linque», content/cases/mobile.ts).
+ */
+const mobileSection: Record<string, string> = {
+  "01": "problem",
+  "02": "product-preference-filters",
+  "03": "product-show-me-later",
+  "04": "product-match-and-icebreakers",
+  "05": "product-meet-up",
+  "06": "safety-by-design",
+  "07": "safety-moderation",
+  "08": "onboarding-tour",
+  "09": "mobile-flows",
+  "10": "system-decisions",
+  "11": "system-architecture",
+  "12": "system-typography",
+  "13": "system-colour",
+};
 
 const img = (file: string, height: number, alt: string): CaseImage => ({
   src: `${dir}/${file}.webp`,
@@ -22,6 +43,7 @@ const media = (number: string, caption: string, image: CaseImage): CaseMedia => 
   number,
   caption,
   image,
+  mobile: mobileMedia("linque", mobileSection[number]),
   plain: true,
 });
 

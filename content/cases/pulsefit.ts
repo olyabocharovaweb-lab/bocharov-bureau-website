@@ -1,9 +1,29 @@
+import { mobileMedia } from "./mobile";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /** Figma: Main direction → «Case — PulseFit» (256:70753). Texts verbatim. */
 
 const dir = "/media/cases/pulsefit";
 const W = 2720; // 1360 × 2
+
+/**
+ * Media number → Figma section slug (desktop section name in kebab-case) for the phone images
+ * (Figma «Mobile media — pulsefit», content/cases/mobile.ts).
+ */
+const mobileSection: Record<string, string> = {
+  "01": "brand-logo",
+  "02": "brand-type-and-colour",
+  "03": "product-flow",
+  "04": "product-app",
+  "05": "product-features",
+  "06": "themes-light",
+  "07": "themes-dark",
+  "08": "flow-user-flow",
+  "09": "watch-hero",
+  "10": "watch-screens",
+  "11": "web-landing",
+  "12": "web-design-system",
+};
 
 const img = (file: string, height: number, alt: string): CaseImage => ({
   src: `${dir}/${file}.webp`,
@@ -17,6 +37,7 @@ const media = (number: string, caption: string, image: CaseImage): CaseMedia => 
   number,
   caption,
   image,
+  mobile: mobileMedia("pulsefit", mobileSection[number]),
 });
 
 export const pulsefit: CaseData = {

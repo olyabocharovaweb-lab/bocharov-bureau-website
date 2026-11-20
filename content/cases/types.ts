@@ -28,10 +28,10 @@ export type CaseMedia = {
   kind: "media";
   image: CaseImage;
   /**
-   * Optional phone version (≤ 767px), e.g. /media/cases/<slug>/mobile/<same name>.webp — 1170px wide,
-   * any height (see that folder's README). Without it the desktop image scales down (no crop).
+   * Phone versions (< 768px), in order — shown one under another instead of `image` (content/cases/mobile.ts,
+   * files in /media/cases/<slug>/mobile/). Without it the desktop image scales down (no crop).
    */
-  mobile?: Omit<CaseImage, "alt">;
+  mobile?: Array<Omit<CaseImage, "alt">>;
   caption: string;
   number: string;
   /** Desktop space above the media: 72 (default, PulseFit) or 48 (most NOVA media). Phones: always 40. */

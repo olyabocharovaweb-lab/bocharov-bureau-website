@@ -1,3 +1,4 @@
+import { mobileMedia } from "./mobile";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /**
@@ -9,6 +10,21 @@ import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 const dir = "/media/cases/graaho";
 const W = 2720; // 1360 × 2
+
+/**
+ * Media number → Figma section slug (desktop section name in kebab-case) for the phone images
+ * (Figma «Mobile media — graaho», content/cases/mobile.ts).
+ */
+const mobileSection: Record<string, string> = {
+  "01": "home-capabilities",
+  "02": "home-what-graaho-builds",
+  "03": "pages-overview",
+  "04": "pages-aws",
+  "05": "pages-pos",
+  "06": "tools-assessment",
+  "07": "insights-hub",
+  "08": "responsive-devices",
+};
 
 const img = (file: string, height: number, alt: string): CaseImage => ({
   src: `${dir}/${file}.webp`,
@@ -22,6 +38,7 @@ const media = (number: string, caption: string, image: CaseImage): CaseMedia => 
   number,
   caption,
   image,
+  mobile: mobileMedia("graaho", mobileSection[number]),
 });
 
 export const graaho: CaseData = {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Button, CreditsRow, Cta, Footer, MediaCaption, MetaItem, Nav, SectionIntro, StatCard, Tag } from "@/components/ds";
 import { RevealText } from "@/components/home/RevealText";
+import { CaseMediaMobile } from "./CaseMediaMobile";
 import { caseChain, getNextEntry, getWorkEntry, twoDigits } from "@/content/cases/work";
 import type { CaseData, CaseImage, CaseIntro, CaseMedia, CaseSection } from "@/content/cases/types";
 
@@ -116,9 +117,20 @@ function ArtImage({ image, mobile, className, priority = false }: ArtImageProps)
   );
 }
 
-/** Client media: the desktop image scales down; an optional `mobile` version replaces it at ≤ 767px. */
+/**
+ * Client media. With phone versions (`mobile`): below 768 the Figma mobile images in a column (CaseMediaMobile),
+ * from 768 the desktop image — each lazy and display:none on the other side, so only one set is downloaded.
+ * Without them the desktop image scales down at every width.
+ */
 function Media({ media }: { media: CaseMedia }) {
-  return <ArtImage image={media.image} mobile={media.mobile} className={media.plain ? "h-auto w-full" : "h-auto w-full rounded-sm"} />;
+  const desktop = media.plain ? "h-auto w-full" : "h-auto w-full rounded-sm";
+  if (!media.mobile?.length) return <ArtImage image={media.image} className={desktop} />;
+  return (
+    <>
+      <CaseMediaMobile images={media.mobile} alt={media.image.alt} />
+      <ArtImage image={media.image} className={`${desktop} max-md:hidden`} />
+    </>
+  );
 }
 
 export function CasePage({ data }: { data: CaseData }) {

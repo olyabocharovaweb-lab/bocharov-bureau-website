@@ -1,3 +1,4 @@
+import { mobileMedia } from "./mobile";
 import type { CaseData, CaseImage, CaseMedia } from "./types";
 
 /**
@@ -11,6 +12,20 @@ import type { CaseData, CaseImage, CaseMedia } from "./types";
 const dir = "/media/cases/nova";
 const W = 2720; // 1360 × 2
 
+/**
+ * Media number → Figma section slug (desktop section name in kebab-case) for the phone images
+ * (Figma «Mobile media — nova», content/cases/mobile.ts).
+ */
+const mobileSection: Record<string, string> = {
+  "01": "strategy-main-showcase",
+  "02": "strategy-architecture-media",
+  "03": "brand-orb-key-visual",
+  "04 — 06": "brand-wordmark-and-icon-media",
+  "07 — 08": "product-onboarding-media",
+  "09 — 12": "product-home-and-chat-media",
+  "13": "product-voice-media",
+};
+
 const img = (file: string, height: number, alt: string): CaseImage => ({
   src: `${dir}/${file}.webp`,
   alt,
@@ -23,6 +38,7 @@ const media = (number: string, caption: string, image: CaseImage, gap?: CaseMedi
   number,
   caption,
   image,
+  mobile: mobileMedia("nova", mobileSection[number]),
   gap,
 });
 
