@@ -1,1 +1,481 @@
-{}
+{
+  "industrylens": {
+    "logo-clear-space": [
+      {
+        "src": "/media/cases/industrylens/mobile/logo-clear-space.webp",
+        "width": 1050,
+        "height": 2121
+      }
+    ],
+    "logo-construction": [
+      {
+        "src": "/media/cases/industrylens/mobile/logo-construction-1.webp",
+        "width": 1050,
+        "height": 1459
+      },
+      {
+        "src": "/media/cases/industrylens/mobile/logo-construction-2.webp",
+        "width": 1050,
+        "height": 1459
+      }
+    ],
+    "logo-scale": [
+      {
+        "src": "/media/cases/industrylens/mobile/logo-scale.webp",
+        "width": 1050,
+        "height": 3214
+      }
+    ],
+    "logo-versions": [
+      {
+        "src": "/media/cases/industrylens/mobile/logo-versions-1.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/industrylens/mobile/logo-versions-2.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/industrylens/mobile/logo-versions-3.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/industrylens/mobile/logo-versions-4.webp",
+        "width": 1050,
+        "height": 1050
+      }
+    ],
+    "system-chart": [
+      {
+        "src": "/media/cases/industrylens/mobile/system-chart.webp",
+        "width": 1050,
+        "height": 1843
+      }
+    ]
+  },
+  "linque": {
+    "mobile-flows": [
+      {
+        "src": "/media/cases/linque/mobile/mobile-flows-1.webp",
+        "width": 780,
+        "height": 1482
+      },
+      {
+        "src": "/media/cases/linque/mobile/mobile-flows-2.webp",
+        "width": 780,
+        "height": 1482
+      },
+      {
+        "src": "/media/cases/linque/mobile/mobile-flows-3.webp",
+        "width": 780,
+        "height": 1482
+      },
+      {
+        "src": "/media/cases/linque/mobile/mobile-flows-4.webp",
+        "width": 780,
+        "height": 1482
+      },
+      {
+        "src": "/media/cases/linque/mobile/mobile-flows-5.webp",
+        "width": 780,
+        "height": 1482
+      }
+    ],
+    "onboarding-tour": [
+      {
+        "src": "/media/cases/linque/mobile/onboarding-tour.webp",
+        "width": 1050,
+        "height": 2037
+      }
+    ],
+    "problem": [
+      {
+        "src": "/media/cases/linque/mobile/problem-1.webp",
+        "width": 1050,
+        "height": 1314
+      },
+      {
+        "src": "/media/cases/linque/mobile/problem-2.webp",
+        "width": 1050,
+        "height": 1190
+      },
+      {
+        "src": "/media/cases/linque/mobile/problem-3.webp",
+        "width": 1050,
+        "height": 1190
+      },
+      {
+        "src": "/media/cases/linque/mobile/problem-4.webp",
+        "width": 1050,
+        "height": 1190
+      }
+    ],
+    "product-match-and-icebreakers": [
+      {
+        "src": "/media/cases/linque/mobile/product-match-and-icebreakers-1.webp",
+        "width": 1050,
+        "height": 1314
+      },
+      {
+        "src": "/media/cases/linque/mobile/product-match-and-icebreakers-2.webp",
+        "width": 1050,
+        "height": 1314
+      }
+    ],
+    "product-meet-up": [
+      {
+        "src": "/media/cases/linque/mobile/product-meet-up-1.webp",
+        "width": 1050,
+        "height": 1459
+      },
+      {
+        "src": "/media/cases/linque/mobile/product-meet-up-2.webp",
+        "width": 1050,
+        "height": 1459
+      }
+    ],
+    "product-preference-filters": [
+      {
+        "src": "/media/cases/linque/mobile/product-preference-filters-1.webp",
+        "width": 1050,
+        "height": 1459
+      },
+      {
+        "src": "/media/cases/linque/mobile/product-preference-filters-2.webp",
+        "width": 1050,
+        "height": 1459
+      }
+    ],
+    "product-show-me-later": [
+      {
+        "src": "/media/cases/linque/mobile/product-show-me-later-1.webp",
+        "width": 1050,
+        "height": 1459
+      },
+      {
+        "src": "/media/cases/linque/mobile/product-show-me-later-2.webp",
+        "width": 1050,
+        "height": 1459
+      }
+    ],
+    "safety-by-design": [
+      {
+        "src": "/media/cases/linque/mobile/safety-by-design-1.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/linque/mobile/safety-by-design-2.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/linque/mobile/safety-by-design-3.webp",
+        "width": 780,
+        "height": 1496
+      }
+    ],
+    "safety-moderation": [
+      {
+        "src": "/media/cases/linque/mobile/safety-moderation-1.webp",
+        "width": 1050,
+        "height": 1459
+      },
+      {
+        "src": "/media/cases/linque/mobile/safety-moderation-2.webp",
+        "width": 1050,
+        "height": 1459
+      }
+    ],
+    "system-architecture": [
+      {
+        "src": "/media/cases/linque/mobile/system-architecture.webp",
+        "width": 1050,
+        "height": 5196
+      }
+    ],
+    "system-colour": [
+      {
+        "src": "/media/cases/linque/mobile/system-colour-1.webp",
+        "width": 1050,
+        "height": 1633
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-colour-2.webp",
+        "width": 1050,
+        "height": 1633
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-colour-3.webp",
+        "width": 1050,
+        "height": 1633
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-colour-4.webp",
+        "width": 1050,
+        "height": 1633
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-colour-5.webp",
+        "width": 1050,
+        "height": 1633
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-colour-6.webp",
+        "width": 1050,
+        "height": 1633
+      }
+    ],
+    "system-decisions": [
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-1.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-2.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-3.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-4.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-5.webp",
+        "width": 1050,
+        "height": 1050
+      },
+      {
+        "src": "/media/cases/linque/mobile/system-decisions-6.webp",
+        "width": 1050,
+        "height": 1050
+      }
+    ],
+    "system-typography": [
+      {
+        "src": "/media/cases/linque/mobile/system-typography.webp",
+        "width": 1050,
+        "height": 3165
+      }
+    ]
+  },
+  "nova": {
+    "brand-orb-key-visual": [
+      {
+        "src": "/media/cases/nova/mobile/brand-orb-key-visual.webp",
+        "width": 1050,
+        "height": 1314
+      }
+    ],
+    "brand-wordmark-and-icon-media": [
+      {
+        "src": "/media/cases/nova/mobile/brand-wordmark-and-icon-media-1.webp",
+        "width": 1050,
+        "height": 1185
+      },
+      {
+        "src": "/media/cases/nova/mobile/brand-wordmark-and-icon-media-2.webp",
+        "width": 1050,
+        "height": 1185
+      }
+    ],
+    "product-home-and-chat-media": [
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-1.webp",
+        "width": 780,
+        "height": 1688
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-2.webp",
+        "width": 780,
+        "height": 1688
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-3.webp",
+        "width": 780,
+        "height": 1688
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-4.webp",
+        "width": 780,
+        "height": 1330
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-5.webp",
+        "width": 780,
+        "height": 1330
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-home-and-chat-media-6.webp",
+        "width": 780,
+        "height": 1330
+      }
+    ],
+    "product-onboarding-media": [
+      {
+        "src": "/media/cases/nova/mobile/product-onboarding-media-1.webp",
+        "width": 1050,
+        "height": 1185
+      },
+      {
+        "src": "/media/cases/nova/mobile/product-onboarding-media-2.webp",
+        "width": 1050,
+        "height": 1185
+      }
+    ],
+    "product-voice-media": [
+      {
+        "src": "/media/cases/nova/mobile/product-voice-media.webp",
+        "width": 1050,
+        "height": 1314
+      }
+    ],
+    "strategy-architecture-media": [
+      {
+        "src": "/media/cases/nova/mobile/strategy-architecture-media.webp",
+        "width": 1050,
+        "height": 3633
+      }
+    ],
+    "strategy-main-showcase": [
+      {
+        "src": "/media/cases/nova/mobile/strategy-main-showcase.webp",
+        "width": 1050,
+        "height": 1314
+      }
+    ],
+    "system-media": [
+      {
+        "src": "/media/cases/nova/mobile/system-media-1.webp",
+        "width": 1050,
+        "height": 1185
+      },
+      {
+        "src": "/media/cases/nova/mobile/system-media-2.webp",
+        "width": 1050,
+        "height": 1185
+      }
+    ]
+  },
+  "pulsefit": {
+    "brand-logo": [
+      {
+        "src": "/media/cases/pulsefit/mobile/brand-logo-1.webp",
+        "width": 1050,
+        "height": 1314
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/brand-logo-2.webp",
+        "width": 1050,
+        "height": 1314
+      }
+    ],
+    "brand-type-and-colour": [
+      {
+        "src": "/media/cases/pulsefit/mobile/brand-type-and-colour-1.webp",
+        "width": 1050,
+        "height": 1326
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/brand-type-and-colour-2.webp",
+        "width": 1050,
+        "height": 1307
+      }
+    ],
+    "product-app": [
+      {
+        "src": "/media/cases/pulsefit/mobile/product-app.webp",
+        "width": 1050,
+        "height": 5272
+      }
+    ],
+    "product-features": [
+      {
+        "src": "/media/cases/pulsefit/mobile/product-features-1.webp",
+        "width": 780,
+        "height": 1340
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/product-features-2.webp",
+        "width": 780,
+        "height": 1340
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/product-features-3.webp",
+        "width": 780,
+        "height": 1340
+      }
+    ],
+    "product-flow": [
+      {
+        "src": "/media/cases/pulsefit/mobile/product-flow.webp",
+        "width": 1050,
+        "height": 3482
+      }
+    ],
+    "themes-dark": [
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-dark-1.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-dark-2.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-dark-3.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-dark-4.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-dark-5.webp",
+        "width": 780,
+        "height": 1496
+      }
+    ],
+    "themes-light": [
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-light-1.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-light-2.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-light-3.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-light-4.webp",
+        "width": 780,
+        "height": 1496
+      },
+      {
+        "src": "/media/cases/pulsefit/mobile/themes-light-5.webp",
+        "width": 780,
+        "height": 1496
+      }
+    ]
+  }
+}

@@ -1,13 +1,10 @@
-# Mobile versions of case media (≤ 767px)
+# Phone versions of the case media (< 768px)
 
-Put phone versions of the client media here. They are optional: without one, the desktop image is shown,
-scaled down to the screen width (never cropped).
+Exported from Figma «Main direction» → «Mobile media — <case>»: layers named `<case>/<section-slug>[-N]`, PNG at
+scale 3 (350 Figma px → 1050 px; 260 → 780), converted to WebP q82 with the width unchanged:
 
-Requirements
-- Width **1170 px** (390 × 3). Any height — the layout follows the image's own ratio.
-- WebP (preferred) or AVIF.
-- **Same file name** as the desktop image in the parent folder, e.g. `../08-user-flow.webp` → `08-user-flow.webp`.
+    node scripts/mobile-media.mjs <folder with <case>/<name>.png>
 
-To switch one on, add `mobile: { src, width, height }` to that media item in `content/cases/<slug>.ts`, e.g.
-`mobile: { src: "/media/cases/pulsefit/mobile/08-user-flow.webp", width: 1170, height: 2400 }`.
-On ≤ 767px the page then shows it via `<picture><source media="(max-width: 767px)">`.
+The script writes the files here and `content/cases/mobile-media.json`; each media item picks its files by section
+slug (the Figma desktop section name in kebab-case — see `mobileSection` in `content/cases/<case>.ts`).
+A section without files falls back to the desktop image. `hero.webp` (PulseFit) is the hero crop, separate.

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test:overflow": "node tests/no-horizontal-scroll.mjs",
-    "test:links": "node tests/links.mjs"
+    "test:links": "node tests/links.mjs",
+    "test:mobile-media": "node tests/mobile-media.mjs"
   },
   "dependencies": {
     "next": "16.4.6",
