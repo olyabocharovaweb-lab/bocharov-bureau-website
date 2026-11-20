@@ -9,7 +9,7 @@ export function ContactForm() {
   return (
     <section
       id="contact"
-      className="flex w-full flex-col items-start gap-24 px-20 pt-72 md:px-32 lg:gap-40 lg:px-40 lg:pt-section"
+      className="flex w-full scroll-mt-nav-mobile flex-col items-start gap-24 px-20 pt-72 md:px-32 lg:gap-40 lg:px-40 lg:pt-section"
     >
       <h2 className="w-full text-text-primary heading-xl lg:display-l">{contact.title}</h2>
       <BriefForm />

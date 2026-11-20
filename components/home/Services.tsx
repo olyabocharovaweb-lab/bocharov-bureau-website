@@ -8,7 +8,9 @@ import { ServicesList } from "./ServicesList";
  */
 export function Services() {
   return (
-    <section className="flex w-full flex-col items-start gap-32 px-20 pt-72 md:px-32 lg:gap-48 lg:px-40 lg:pt-section">
+    <section
+      id="services"
+      className="flex w-full scroll-mt-nav-mobile flex-col items-start gap-32 px-20 pt-72 md:px-32 lg:gap-48 lg:px-40 lg:pt-section">
       <div className="flex w-full flex-col items-start lg:flex-row lg:items-end lg:justify-between">
         <h2 className="text-text-primary heading-h2 lg:whitespace-nowrap lg:display-s">{services.title}</h2>
         <div className="flex flex-col items-start gap-16 lg:items-end">

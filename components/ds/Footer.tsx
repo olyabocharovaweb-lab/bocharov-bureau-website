@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/cn";
-import { contactLinks, isExternal, socialLinks } from "@/lib/config";
+import { contactLinks, isExternal, navLinks, socialLinks } from "@/lib/config";
 
-/** Only pages that exist are links (About → /about, 2026-11-19); the rest stay plain text for now. */
+/** Only pages that exist are links (Work, Services → /#services, About); the rest stay plain text for now. */
 type FooterLink = { label: string; href?: string };
 
 /**
@@ -16,7 +16,11 @@ const columns: Array<{ title: string; links: FooterLink[] }> = [
   { title: "Social", links: socialLinks },
   {
     title: "Studio",
-    links: [{ label: "Work" }, { label: "Services" }, { label: "About", href: "/about" }, { label: "AI Lab" }, { label: "Journal" }],
+    // Work / Services / About use the menu links (lib/config.ts); AI Lab and Journal have no pages yet
+    links: ["Work", "Services", "About", "AI Lab", "Journal"].map((label) => ({
+      label,
+      href: navLinks.find((l) => l.label === label)?.href,
+    })),
   },
   { title: "Contact", links: contactLinks },
 ];

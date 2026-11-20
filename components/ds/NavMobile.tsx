@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { isCurrent, navLinks } from "@/lib/config";
 import { cn } from "@/lib/cn";
 
 /**
@@ -11,11 +13,35 @@ import { cn } from "@/lib/cn";
  *   radius/full, .glass (color/bg/glass 80% + blur 16, shadow; solid glass without backdrop-filter).
  * The header is fixed; a 76px sentinel in the flow reserves its space (no layout shift) and an
  * IntersectionObserver on it switches the state — no scroll listener. No transition (iteration rule).
- * Menu: the button exists (aria-expanded="false"); the menu screen comes in a later iteration.
+ * Menu (no Figma frame yet — interim, 2026-11-20): the button opens a full-screen panel (bg/page) under the header
+ * with the main links from lib/config.ts (navLinks) in Heading/H2, gap 16, page padding; the current page gets
+ * aria-current. Closes on a link, the button, Escape or a route change; page scroll is locked while open.
+ * Icon: two lines → × (stroke 1.5). No animation.
  */
 export function NavMobile({ className }: { className?: string }) {
   const sentinel = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  // The page the menu was opened on; a route change (a link, the back button) closes it.
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const isOpen = openOn === pathname;
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenOn(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      root.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen]);
+
+  const toggle = () => setOpenOn(isOpen ? null : pathname);
 
   useEffect(() => {
     const el = sentinel.current;
@@ -44,17 +70,46 @@ export function NavMobile({ className }: { className?: string }) {
           <Link href="/" className="whitespace-nowrap text-text-primary heading-h6 font-semibold">Bocharov®Bureau</Link>
           <button
             type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            onClick={toggle}
             className="flex size-hit shrink-0 items-center justify-center text-text-primary"
           >
-            {/* Figma icon/menu: 24 × 24, two lines, stroke 1.5 */}
+            {/* Figma icon/menu: 24 × 24, two lines, stroke 1.5; open → × */}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M3 8H21M3 16H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path
+                d={isOpen ? "M6 6L18 18M18 6L6 18" : "M3 8H21M3 16H21"}
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </div>
       </header>
+      {isOpen && (
+        <nav
+          id="mobile-menu"
+          aria-label="Primary"
+          className="fixed inset-0 z-30 flex flex-col bg-bg-page px-20 pt-nav-mobile md:px-32"
+        >
+          <ul className="flex flex-col items-start gap-16 pt-40">
+            {navLinks.map((l) => (
+              <li key={l.label}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpenOn(null)}
+                  aria-current={isCurrent(pathname, l.href) ? "page" : undefined}
+                  className="text-text-primary heading-h2"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </div>
   );
 }

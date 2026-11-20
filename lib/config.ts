@@ -27,6 +27,21 @@ export const config = {
   ] satisfies SiteLink[],
 } as const;
 
+/**
+ * Main menu (desktop Nav and the mobile menu), in Figma order. «Awards» → «About» (client, 2026-11-19).
+ * Services has no page yet → the Services section on Home.
+ */
+export const navLinks: SiteLink[] = [
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+/** A menu item is the current page when the path matches (anchors on Home are never «current») */
+export const isCurrent = (pathname: string, href: string) =>
+  !href.includes("#") && (pathname === href || pathname.startsWith(`${href}/`));
+
 /** mailto: link for the e-mail, empty when there is no e-mail */
 export const emailHref = (email: string) => (email ? `mailto:${email}` : "");
 

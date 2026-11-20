@@ -166,3 +166,8 @@ would break the layout (column widths), the value is kept in **one** file,
     shown URL = href without protocol / www / trailing slash). Layout size about-lede → page-lede (480).
     Nav «Contact» → /contact (aria-current). Home CTAs still point at /#contact (the form is on Home too).
     The form hints are text/tertiary on white (Figma) — below WCAG contrast; Lighthouse flags them (as on Home).
+25. 2026-11-20 — Menu links (client: link every existing page). One list in lib/config.ts (`navLinks`): Work → /work,
+    Services → /#services (no page yet: Home Services section, id="services"), About → /about, Contact → /contact;
+    desktop Nav, the mobile menu and the footer Studio column read it. Mobile menu has no Figma frame yet → interim:
+    full-screen bg/page panel under the header, links Heading/H2, gap 16, × icon; Escape / link / route change close
+    it, page scroll locked while open. #services and #contact get scroll-margin = mobile header height (76).
