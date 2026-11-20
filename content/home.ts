@@ -167,44 +167,9 @@ export const industries = {
   text: "Beauty / Real Estate / Hospitality / Healthcare / E-commerce / Tech & SaaS",
 };
 
-/** Sentence form (Figma «Sentence form» 256:68639): text before the field, the field, text after. */
-export type SentenceLine = {
-  /** Text before the field; `mobile` (< 1024, Figma 322:6062) differs where the layout is shorter. */
-  before: { desktop: string; mobile?: string };
-  field: {
-    name: string;
-    placeholder: { desktop: string; mobile?: string };
-    type: "text" | "email";
-    required?: boolean;
-    autoComplete?: string;
-  };
-  after: string;
-};
-
+/** Home contact block: the title; the sentence form itself is shared (content/brief.ts, components/brief/BriefForm.tsx). */
 export const contact = {
   title: "Let’s talk.",
-  lines: [
-    {
-      before: { desktop: "Hey Bocharov®, I’m", mobile: "Hi, I’m" },
-      field: { name: "name", placeholder: { desktop: "your name" }, type: "text", required: true, autoComplete: "name" },
-      after: ".",
-    },
-    {
-      before: { desktop: "I need" },
-      field: {
-        name: "project",
-        placeholder: { desktop: "a brand / website / campaign", mobile: "brand / website / ads" },
-        type: "text",
-      },
-      after: ".",
-    },
-    {
-      before: { desktop: "Reach me at" },
-      field: { name: "email", placeholder: { desktop: "email" }, type: "email", required: true, autoComplete: "email" },
-      after: ".",
-    },
-  ] as SentenceLine[],
-  cta: "Send the brief",
 };
 
 export const faq = {

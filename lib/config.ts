@@ -50,3 +50,16 @@ export const socialLinks: SiteLink[] = config.social.filter((l) => l.label && l.
 
 /** External links open in a new tab; mailto: and internal paths don't */
 export const isExternal = (href: string) => /^https?:/.test(href);
+
+/** «behance.net/OlyaBocharova» — a URL without protocol, «www.» and the trailing slash */
+export const displayUrl = (href: string) => href.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+
+/**
+ * /contact «Or reach us directly» rows: e-mail, WhatsApp, then every social link — label (Mono/Label), the value
+ * shown and the link. Entries without a value are dropped.
+ */
+export const directLinks: Array<SiteLink & { value: string }> = [
+  { label: "Email", value: config.contacts.email, href: emailHref(config.contacts.email) },
+  { label: "WhatsApp", value: config.contacts.whatsapp, href: whatsappHref(config.contacts.whatsapp) },
+  ...socialLinks.map((l) => ({ label: l.label, value: displayUrl(l.href), href: l.href })),
+].filter((l) => l.value && l.href);

@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { Cta, Footer, Nav, StatCard, Tag } from "@/components/ds";
+import { Cta, Footer, Nav, PageHero, StatCard, Tag } from "@/components/ds";
 import { about, type TwoTone } from "@/content/about";
 import { config } from "@/lib/config";
 
@@ -41,17 +41,8 @@ export function AboutPage() {
       <div className="mx-auto w-full max-w-page">
         <Nav />
         <main>
-          {/* Hero — desktop 421:6182 (pt 72, gap 28; lede 480 left, Mono right; title Display/S two-tone);
-              mobile 424:6359 (pt 32, gap 24; lede and Mono stacked; title Heading/H2 → fluid from 768). */}
-          <section className={`flex w-full flex-col items-start gap-24 pt-32 lg:gap-28 lg:pt-72 ${PX}`}>
-            <div className="flex w-full flex-col items-start lg:flex-row lg:items-end lg:justify-between">
-              <p className="w-full text-text-primary body-l lg:w-about-lede">{hero.lede}</p>
-              <div className="flex flex-col items-start gap-6 whitespace-nowrap text-text-secondary mono-body lg:items-end">
-                {hero.meta.map((m) => (
-                  <p key={m}>{m}</p>
-                ))}
-              </div>
-            </div>
+          {/* Hero — desktop 421:6182, mobile 424:6359; title Heading/H2 → fluid Display/S from 768. */}
+          <PageHero lede={hero.lede} meta={hero.meta}>
             <h1
               className="about-title w-full text-text-primary heading-h2 md:about-title-fluid lg:about-title-fluid-lg"
               style={{ "--title-ems": 12.2 } as CSSProperties}
@@ -59,7 +50,7 @@ export function AboutPage() {
               <span className="block">{hero.title.primary}</span>
               <span className="block text-text-secondary">{hero.title.secondary}</span>
             </h1>
-          </section>
+          </PageHero>
 
           <Statement label={whoWeAre.label} text={whoWeAre.text} />
 

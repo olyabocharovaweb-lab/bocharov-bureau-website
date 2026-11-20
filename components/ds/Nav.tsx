@@ -8,13 +8,13 @@ import { NavMobile } from "./NavMobile";
 
 /**
  * Only pages that exist are links (Work → /work, client request 2026-11-18); the rest stay plain text for now.
- * «Awards» (Figma) → «About» → /about (client, 2026-11-19: there is no Awards page). Active page: aria-current.
+ * «Awards» (Figma) → «About» → /about (client, 2026-11-19: there is no Awards page). Contact → /contact (2026-11-20). Active page: aria-current.
  */
 const links: Array<{ label: string; href?: string }> = [
   { label: "Work", href: "/work" },
   { label: "Services" },
   { label: "About", href: "/about" },
-  { label: "Contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function Links() {

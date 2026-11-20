@@ -1,6 +1,7 @@
 export { Nav } from "./Nav";
 export { Footer } from "./Footer";
 export { Cta } from "./Cta";
+export { PageHero } from "./PageHero";
 export { SectionIntro } from "./SectionIntro";
 export { Button } from "./Button";
 export { Tag } from "./Tag";

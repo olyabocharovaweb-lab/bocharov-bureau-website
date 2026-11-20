@@ -159,3 +159,10 @@ would break the layout (column widths), the value is kept in **one** file,
     Dribbble; Contact: e-mail (mailto:) and «WhatsApp +380 73 721 83 82» (wa.me). Instagram, Clutch, «hello@[domain]»
     and «Europe / US» removed. Below 1024 the Contact column spans both grid columns (the e-mail is wider than half).
     Home has JSON-LD Organization (name, email, sameAs from the same config).
+24. 2026-11-20 — Contact page (432:6249 / 432:6409). The Home sentence form became the shared <BriefForm />
+    (components/brief/BriefForm.tsx, copy in content/brief.ts) — Home and /contact render the same component.
+    The inner-page hero (lede + Mono lines + title) became <PageHero /> (About and Contact). Contact rows reuse the
+    Index-row hover plate (`.index-row`); their labels, values and links come from lib/config.ts (`directLinks`,
+    shown URL = href without protocol / www / trailing slash). Layout size about-lede → page-lede (480).
+    Nav «Contact» → /contact (aria-current). Home CTAs still point at /#contact (the form is on Home too).
+    The form hints are text/tertiary on white (Figma) — below WCAG contrast; Lighthouse flags them (as on Home).

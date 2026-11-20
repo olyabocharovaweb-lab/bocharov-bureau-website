@@ -145,3 +145,15 @@ Figma: desktop «About — B · No photos» (421:6180), mobile «About — Mobil
 ## Desktop (≥ 1024)
 - As Figma. Hero title stays one line per phrase (fluid below 1440: 77px at 1024). CTA heading: Display/S from 1440;
   Heading/H1 at 1024–1439 — Display/S wrapped into four lines next to the buttons there.
+
+# Contact (`/contact`)
+
+Figma: desktop «Contact — Desktop» (432:6249), mobile «Contact — Mobile 390» (432:6409). Texts: content/contact.ts;
+form copy content/brief.ts; contact rows from lib/config.ts.
+
+- Phone (≤ 767): as the mobile frame — hero lede + Mono stacked, «Let’s talk.» Heading/XL (64); the shared BriefForm
+  (Heading/H5 lines, short copy «Hi, I’m … / brand / website / ads», full-width button); rows: label over value
+  (Body/L), ↗ on the right, py 20; py 72 around the list before the black footer.
+- Tablet (768–1023): mobile structure, padding 32 (as every page).
+- Desktop (≥ 1024): as Figma — title Display/XL; rows: label in the 560 column, value Heading/H3, ↗ Heading/H3,
+  py 28; grey plate on hover (Index-row `.index-row`).
