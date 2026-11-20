@@ -1,7 +1,8 @@
 /**
- * Phone case media (< 768px): on every case page at 390 and 360 — no horizontal scroll (scrollWidth === clientWidth)
- * and every phone image (/media/cases/<slug>/mobile/…) loaded (naturalWidth > 0) after scrolling through the page;
- * at 1440 none of them is requested (the desktop image is shown instead).
+ * Phone case media (< 768px): on every case page at 390 and 360 — no horizontal scroll (scrollWidth === clientWidth),
+ * every phone image (/media/cases/<slug>/mobile/…) loaded (naturalWidth > 0) after scrolling through the page
+ * (carousels scrolled to the end too), and in every carousel the next card peeks in and ArrowRight moves the active
+ * dot; at 1440 none of the phone images is requested (the desktop image is shown instead).
  * Usage: BASE_URL=http://localhost:3100 node tests/mobile-media.mjs
  */
 import { createRequire } from "node:module";
@@ -29,6 +30,29 @@ for (const slug of slugs) {
         await new Promise((r) => setTimeout(r, 40));
       }
     });
+    // carousels: next card visible at the right edge; ArrowRight moves the active dot; then scroll each to the end
+    const carousels = await page.$$('[aria-roledescription="carousel"]');
+    for (const [ci, c] of carousels.entries()) {
+      await c.scrollIntoViewIfNeeded();
+      const peek = await c.evaluate((el) => {
+        const cards = el.querySelectorAll('[aria-roledescription="slide"]');
+        if (cards.length < 2) return true;
+        const r = cards[1].getBoundingClientRect();
+        return r.left < window.innerWidth && r.right > window.innerWidth;
+      });
+      const dot = () =>
+        c.evaluate((el) =>
+          [...el.parentElement.querySelectorAll("[aria-hidden] > span")].findIndex((d) => d.hasAttribute("data-active")),
+        );
+      const before = await dot();
+      await c.focus();
+      await page.keyboard.press("ArrowRight");
+      await page.waitForTimeout(700);
+      const after = await dot();
+      if (!peek || after === before) failures.push(`/work/${slug} @${width} carousel ${ci + 1}: peek ${peek}, dot ${before}→${after}`);
+      await c.evaluate((el) => el.scrollTo({ left: el.scrollWidth }));
+      await page.waitForTimeout(300);
+    }
     await page.waitForLoadState("networkidle");
     // give the last lazy images up to 10 s to finish
     await page
@@ -53,7 +77,9 @@ for (const slug of slugs) {
       };
     });
     const ok = r.scrollWidth === r.clientWidth && r.broken.length === 0;
-    console.log(`${ok ? "✓" : "✗"} /work/${slug.padEnd(13)} ${width}  scroll ${r.scrollWidth}/${r.clientWidth}  mobile images ${r.total}`);
+    console.log(
+      `${ok ? "✓" : "✗"} /work/${slug.padEnd(13)} ${width}  scroll ${r.scrollWidth}/${r.clientWidth}  mobile images ${r.total}  carousels ${carousels.length}`,
+    );
     if (!ok) failures.push(`/work/${slug} @${width}: ${JSON.stringify(r)}`);
     await page.close();
   }

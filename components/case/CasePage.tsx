@@ -127,7 +127,7 @@ function Media({ media }: { media: CaseMedia }) {
   if (!media.mobile?.length) return <ArtImage image={media.image} className={desktop} />;
   return (
     <>
-      <CaseMediaMobile images={media.mobile} alt={media.image.alt} />
+      <CaseMediaMobile blocks={media.mobile} label={media.caption} alt={media.image.alt} />
       <ArtImage image={media.image} className={`${desktop} max-md:hidden`} />
     </>
   );

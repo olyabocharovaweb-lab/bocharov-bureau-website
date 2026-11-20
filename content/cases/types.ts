@@ -28,10 +28,13 @@ export type CaseMedia = {
   kind: "media";
   image: CaseImage;
   /**
-   * Phone versions (< 768px), in order — shown one under another instead of `image` (content/cases/mobile.ts,
-   * files in /media/cases/<slug>/mobile/). Without it the desktop image scales down (no crop).
+   * Phone version (< 768px): blocks in order — images and carousels (content/cases/mobile.ts, files in
+   * /media/cases/<slug>/mobile/). Without it the desktop image scales down (no crop).
    */
-  mobile?: Array<Omit<CaseImage, "alt">>;
+  mobile?: Array<
+    | { type: "image"; src: string; width: number; height: number }
+    | { type: "carousel"; title?: string; items: Array<{ src: string; width: number; height: number }> }
+  >;
   caption: string;
   number: string;
   /** Desktop space above the media: 72 (default, PulseFit) or 48 (most NOVA media). Phones: always 40. */

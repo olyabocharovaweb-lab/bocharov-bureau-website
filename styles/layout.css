@@ -59,6 +59,10 @@
   --spacing-nav-mobile: 76px;
   /* Hit area for icon buttons (menu, FAQ toggle row min) — 44 × 44 */
   --spacing-hit: 44px;
+  /* Mobile media carousel: active dot pill 18 × 6 (inactive dots 6 × 6 = space/6) */
+  --spacing-dot-active: 18px;
+  /* Mobile media carousel card: 260 at 350 content ≈ 74vw, max 280 */
+  --spacing-carousel-card: min(74vw, 280px);
   /* Work → Index hover preview offsets (256:69016) */
   --spacing-index-preview-x: 279px;
   --spacing-index-preview-y: 98px;

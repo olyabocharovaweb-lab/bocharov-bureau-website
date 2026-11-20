@@ -1,0 +1,1317 @@
+{
+  "fileKey": "jecs8FGkmtzP7DVOyNqJg2",
+  "note": "Figma «Mobile media — <case>» sections (Main direction 256:68171). One entry per «<Section> — mobile[ · <type>]» box; blocks in child order. Built by hand from the Plugin API walk; images exported PNG scale 3 → scripts/mobile-media.mjs.",
+  "cases": {
+    "linque": [
+      {
+        "section": "Problem",
+        "slug": "problem",
+        "box": "Problem — mobile · reflow · column",
+        "boxId": "440:6285",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11464",
+            "name": "problem-1",
+            "w": 350,
+            "h": 438
+          },
+          {
+            "type": "image",
+            "nodeId": "440:6291",
+            "name": "problem-2",
+            "w": 350,
+            "h": 1205
+          }
+        ]
+      },
+      {
+        "section": "Product · Preference filters",
+        "slug": "product-preference-filters",
+        "box": "Product · Preference filters — mobile",
+        "boxId": "440:6304",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6305",
+            "name": "product-preference-filters-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "440:6311",
+            "name": "product-preference-filters-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "Product · Show me later",
+        "slug": "product-show-me-later",
+        "box": "Product · Show me later — mobile",
+        "boxId": "440:6315",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6316",
+            "name": "product-show-me-later-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "440:6320",
+            "name": "product-show-me-later-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "Product · Match & icebreakers",
+        "slug": "product-match-and-icebreakers",
+        "box": "Product · Match & icebreakers — mobile",
+        "boxId": "440:6326",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11465",
+            "name": "product-match-and-icebreakers-1",
+            "w": 350,
+            "h": 438
+          },
+          {
+            "type": "image",
+            "nodeId": "450:11466",
+            "name": "product-match-and-icebreakers-2",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "Product · Meet-Up",
+        "slug": "product-meet-up",
+        "box": "Product · Meet-Up — mobile",
+        "boxId": "440:6331",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6332",
+            "name": "product-meet-up-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "440:6338",
+            "name": "product-meet-up-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "Safety · By design",
+        "slug": "safety-by-design",
+        "box": "Safety · By design — mobile · carousel",
+        "boxId": "440:6342",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "440:6344",
+                "name": "safety-by-design-1",
+                "w": 260,
+                "h": 499
+              },
+              {
+                "nodeId": "440:6347",
+                "name": "safety-by-design-2",
+                "w": 260,
+                "h": 499
+              },
+              {
+                "nodeId": "440:6350",
+                "name": "safety-by-design-3",
+                "w": 260,
+                "h": 499
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Safety · Moderation",
+        "slug": "safety-moderation",
+        "box": "Safety · Moderation — mobile",
+        "boxId": "440:6353",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6354",
+            "name": "safety-moderation-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "440:6358",
+            "name": "safety-moderation-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "Onboarding · Tour",
+        "slug": "onboarding-tour",
+        "box": "Onboarding · Tour — mobile · reflow",
+        "boxId": "440:6364",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6496",
+            "name": "onboarding-tour",
+            "w": 350,
+            "h": 679
+          }
+        ]
+      },
+      {
+        "section": "Mobile · Flows",
+        "slug": "mobile-flows",
+        "box": "Mobile · Flows — mobile · carousel",
+        "boxId": "440:6373",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "440:6375",
+                "name": "mobile-flows-1",
+                "w": 260,
+                "h": 494
+              },
+              {
+                "nodeId": "440:6378",
+                "name": "mobile-flows-2",
+                "w": 260,
+                "h": 494
+              },
+              {
+                "nodeId": "440:6381",
+                "name": "mobile-flows-3",
+                "w": 260,
+                "h": 494
+              },
+              {
+                "nodeId": "440:6384",
+                "name": "mobile-flows-4",
+                "w": 260,
+                "h": 494
+              },
+              {
+                "nodeId": "440:6387",
+                "name": "mobile-flows-5",
+                "w": 260,
+                "h": 494
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "System · Decisions",
+        "slug": "system-decisions",
+        "box": "System · Decisions — mobile · column",
+        "boxId": "440:6390",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "440:6391",
+            "name": "system-decisions",
+            "w": 350,
+            "h": 2140
+          }
+        ]
+      },
+      {
+        "section": "System · Architecture",
+        "slug": "system-architecture",
+        "box": "System · Architecture — mobile · schema",
+        "boxId": "461:8893",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "461:8859",
+            "name": "system-architecture",
+            "w": 350,
+            "h": 503
+          }
+        ]
+      },
+      {
+        "section": "System · Typography",
+        "slug": "system-typography",
+        "box": "System · Typography — mobile · 4:5",
+        "boxId": "461:8900",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "461:8894",
+            "name": "system-typography",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "System · Colour",
+        "slug": "system-colour",
+        "box": "System · Colour — mobile · grid",
+        "boxId": "461:8930",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "461:8901",
+            "name": "system-colour",
+            "w": 350,
+            "h": 506
+          }
+        ]
+      }
+    ],
+    "pulsefit": [
+      {
+        "section": "Brand · Logo",
+        "slug": "brand-logo",
+        "box": "Brand · Logo — mobile",
+        "boxId": "441:6285",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11467",
+            "name": "brand-logo-1",
+            "w": 350,
+            "h": 438
+          },
+          {
+            "type": "image",
+            "nodeId": "450:11468",
+            "name": "brand-logo-2",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "Brand · Type & colour",
+        "slug": "brand-type-and-colour",
+        "box": "Brand · Type & colour — mobile",
+        "boxId": "441:6315",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "441:6316",
+            "name": "brand-type-and-colour-1",
+            "w": 350,
+            "h": 442
+          },
+          {
+            "type": "image",
+            "nodeId": "441:6362",
+            "name": "brand-type-and-colour-2",
+            "w": 350,
+            "h": 435
+          }
+        ]
+      },
+      {
+        "section": "Product · Flow",
+        "slug": "product-flow",
+        "box": "Product · Flow — mobile · column",
+        "boxId": "448:10235",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "448:10177",
+            "name": "product-flow",
+            "w": 350,
+            "h": 1161
+          }
+        ]
+      },
+      {
+        "section": "Product · App",
+        "slug": "product-app",
+        "box": "Product · App — mobile · reflow",
+        "boxId": "441:6475",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "441:6476",
+            "name": "product-app",
+            "w": 350,
+            "h": 1757
+          }
+        ]
+      },
+      {
+        "section": "Product · Features",
+        "slug": "product-features",
+        "box": "Product · Features — mobile · carousel",
+        "boxId": "441:6531",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "441:6533",
+                "name": "product-features-1",
+                "w": 260,
+                "h": 447
+              },
+              {
+                "nodeId": "441:6555",
+                "name": "product-features-2",
+                "w": 260,
+                "h": 447
+              },
+              {
+                "nodeId": "441:6572",
+                "name": "product-features-3",
+                "w": 260,
+                "h": 447
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Themes · Light",
+        "slug": "themes-light",
+        "box": "Themes · Light — mobile · carousel",
+        "boxId": "441:6598",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "441:6600",
+                "name": "themes-light-1",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6603",
+                "name": "themes-light-2",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6606",
+                "name": "themes-light-3",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6609",
+                "name": "themes-light-4",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6612",
+                "name": "themes-light-5",
+                "w": 260,
+                "h": 498
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Themes · Dark",
+        "slug": "themes-dark",
+        "box": "Themes · Dark — mobile · carousel",
+        "boxId": "441:6615",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "441:6617",
+                "name": "themes-dark-1",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6620",
+                "name": "themes-dark-2",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6623",
+                "name": "themes-dark-3",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6626",
+                "name": "themes-dark-4",
+                "w": 260,
+                "h": 498
+              },
+              {
+                "nodeId": "441:6629",
+                "name": "themes-dark-5",
+                "w": 260,
+                "h": 498
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Flow · User flow",
+        "slug": "flow-user-flow",
+        "box": "Flow · User flow — mobile · carousel",
+        "boxId": "448:9837",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "462:8971",
+            "name": "flow-user-flow-1",
+            "w": 350,
+            "h": 283
+          },
+          {
+            "type": "carousel",
+            "title": "Onboarding",
+            "items": [
+              {
+                "nodeId": "462:8972",
+                "name": "flow-user-flow-2",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8973",
+                "name": "flow-user-flow-3",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8974",
+                "name": "flow-user-flow-4",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8975",
+                "name": "flow-user-flow-5",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8976",
+                "name": "flow-user-flow-6",
+                "w": 260,
+                "h": 525
+              }
+            ]
+          },
+          {
+            "type": "carousel",
+            "title": "Daily loop",
+            "items": [
+              {
+                "nodeId": "462:8989",
+                "name": "flow-user-flow-7",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8990",
+                "name": "flow-user-flow-8",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8991",
+                "name": "flow-user-flow-9",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8992",
+                "name": "flow-user-flow-10",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:8993",
+                "name": "flow-user-flow-11",
+                "w": 260,
+                "h": 525
+              }
+            ]
+          },
+          {
+            "type": "carousel",
+            "title": "Motivation",
+            "items": [
+              {
+                "nodeId": "462:9006",
+                "name": "flow-user-flow-12",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:9007",
+                "name": "flow-user-flow-13",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:9008",
+                "name": "flow-user-flow-14",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:9009",
+                "name": "flow-user-flow-15",
+                "w": 260,
+                "h": 573
+              },
+              {
+                "nodeId": "462:9010",
+                "name": "flow-user-flow-16",
+                "w": 260,
+                "h": 525
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Watch · Hero",
+        "slug": "watch-hero",
+        "box": "Watch · Hero — mobile · reflow",
+        "boxId": "441:6675",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11469",
+            "name": "watch-hero",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "Watch · Screens",
+        "slug": "watch-screens",
+        "box": "Watch · Screens — mobile · carousel",
+        "boxId": "441:6680",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "441:6682",
+                "name": "watch-screens-1",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6685",
+                "name": "watch-screens-2",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6688",
+                "name": "watch-screens-3",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6691",
+                "name": "watch-screens-4",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6694",
+                "name": "watch-screens-5",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6697",
+                "name": "watch-screens-6",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6700",
+                "name": "watch-screens-7",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6703",
+                "name": "watch-screens-8",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6706",
+                "name": "watch-screens-9",
+                "w": 260,
+                "h": 302
+              },
+              {
+                "nodeId": "441:6709",
+                "name": "watch-screens-10",
+                "w": 260,
+                "h": 302
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Web · Landing",
+        "slug": "web-landing",
+        "box": "Web · Landing — mobile · carousel",
+        "boxId": "441:6712",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "441:6714",
+                "name": "web-landing-1",
+                "w": 260,
+                "h": 432
+              },
+              {
+                "nodeId": "441:6716",
+                "name": "web-landing-2",
+                "w": 260,
+                "h": 432
+              },
+              {
+                "nodeId": "441:6718",
+                "name": "web-landing-3",
+                "w": 260,
+                "h": 432
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Web · Design system",
+        "slug": "web-design-system",
+        "box": "Web · Design system — mobile · column",
+        "boxId": "448:10176",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "448:9838",
+            "name": "web-design-system",
+            "w": 350,
+            "h": 1395
+          }
+        ]
+      }
+    ],
+    "industrylens": [
+      {
+        "section": "Logo · Construction",
+        "slug": "logo-construction",
+        "box": "Logo · Construction — mobile",
+        "boxId": "442:6960",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:6961",
+            "name": "logo-construction-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "442:6964",
+            "name": "logo-construction-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "Logo · Versions",
+        "slug": "logo-versions",
+        "box": "Logo · Versions — mobile · column",
+        "boxId": "442:6998",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:6999",
+            "name": "logo-versions",
+            "w": 350,
+            "h": 1424
+          }
+        ]
+      },
+      {
+        "section": "Logo · Clear space",
+        "slug": "logo-clear-space",
+        "box": "Logo · Clear space — mobile · column",
+        "boxId": "449:9746",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "449:9689",
+            "name": "logo-clear-space",
+            "w": 350,
+            "h": 707
+          }
+        ]
+      },
+      {
+        "section": "Logo · Scale",
+        "slug": "logo-scale",
+        "box": "Logo · Scale — mobile · column",
+        "boxId": "447:10267",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "447:10268",
+            "name": "logo-scale",
+            "w": 350,
+            "h": 1071
+          }
+        ]
+      },
+      {
+        "section": "System · Chart",
+        "slug": "system-chart",
+        "box": "System · Chart — mobile · column",
+        "boxId": "448:9769",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "448:9738",
+            "name": "system-chart",
+            "w": 350,
+            "h": 614
+          }
+        ]
+      },
+      {
+        "section": "Type · Hierarchy",
+        "slug": "type-hierarchy",
+        "box": "Type · Hierarchy — mobile",
+        "boxId": "442:7034",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:7035",
+            "name": "type-hierarchy-1",
+            "w": 350,
+            "h": 486
+          },
+          {
+            "type": "image",
+            "nodeId": "442:7040",
+            "name": "type-hierarchy-2",
+            "w": 350,
+            "h": 486
+          }
+        ]
+      },
+      {
+        "section": "In use · Dashboard",
+        "slug": "in-use-dashboard",
+        "box": "In use · Dashboard — mobile · crop 4:5",
+        "boxId": "442:7168",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:7169",
+            "name": "in-use-dashboard",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "In use · Instagram",
+        "slug": "in-use-instagram",
+        "box": "In use · Instagram — mobile · carousel",
+        "boxId": "442:7053",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "442:7055",
+                "name": "in-use-instagram-1",
+                "w": 260,
+                "h": 501
+              },
+              {
+                "nodeId": "442:7089",
+                "name": "in-use-instagram-2",
+                "w": 260,
+                "h": 501
+              },
+              {
+                "nodeId": "442:7125",
+                "name": "in-use-instagram-3",
+                "w": 260,
+                "h": 501
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "In use · Line",
+        "slug": "in-use-line",
+        "box": "In use · Line — mobile · reflow",
+        "boxId": "442:7158",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11470",
+            "name": "in-use-line",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "In use · Audit",
+        "slug": "in-use-audit",
+        "box": "In use · Audit — mobile · crop 4:5",
+        "boxId": "442:7172",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:7173",
+            "name": "in-use-audit",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "In use · Cards",
+        "slug": "in-use-cards",
+        "box": "In use · Cards — mobile · crop 4:5",
+        "boxId": "442:7176",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:7177",
+            "name": "in-use-cards",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      }
+    ],
+    "graaho": [
+      {
+        "section": "Home · Capabilities",
+        "slug": "home-capabilities",
+        "box": "Home · Capabilities — mobile · mobile screen",
+        "boxId": "450:9534",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:9535",
+            "name": "home-capabilities",
+            "w": 350,
+            "h": 737
+          }
+        ]
+      },
+      {
+        "section": "Home · What Graaho builds",
+        "slug": "home-what-graaho-builds",
+        "box": "Home · What Graaho builds — mobile · mobile screen",
+        "boxId": "450:9554",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:9555",
+            "name": "home-what-graaho-builds",
+            "w": 350,
+            "h": 853
+          }
+        ]
+      },
+      {
+        "section": "Pages · Overview",
+        "slug": "pages-overview",
+        "box": "Pages · Overview — mobile · column",
+        "boxId": "450:11372",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:11373",
+            "name": "pages-overview-1",
+            "w": 350,
+            "h": 520
+          },
+          {
+            "type": "image",
+            "nodeId": "450:11395",
+            "name": "pages-overview-2",
+            "w": 350,
+            "h": 520
+          },
+          {
+            "type": "image",
+            "nodeId": "450:11418",
+            "name": "pages-overview-3",
+            "w": 350,
+            "h": 770
+          },
+          {
+            "type": "image",
+            "nodeId": "450:11441",
+            "name": "pages-overview-4",
+            "w": 350,
+            "h": 684
+          }
+        ]
+      },
+      {
+        "section": "Pages · AWS",
+        "slug": "pages-aws",
+        "box": "Pages · AWS — mobile · column",
+        "boxId": "450:9817",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:9818",
+            "name": "pages-aws-1",
+            "w": 350,
+            "h": 1503
+          },
+          {
+            "type": "image",
+            "nodeId": "450:9860",
+            "name": "pages-aws-2",
+            "w": 350,
+            "h": 891
+          }
+        ]
+      },
+      {
+        "section": "Pages · POS",
+        "slug": "pages-pos",
+        "box": "Pages · POS — mobile · carousel",
+        "boxId": "450:9897",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "450:9898",
+                "name": "pages-pos-1",
+                "w": 260,
+                "h": 365
+              },
+              {
+                "nodeId": "450:10035",
+                "name": "pages-pos-2",
+                "w": 260,
+                "h": 596
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Tools · Assessment",
+        "slug": "tools-assessment",
+        "box": "Tools · Assessment — mobile · column",
+        "boxId": "450:10046",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:10047",
+            "name": "tools-assessment-1",
+            "w": 350,
+            "h": 504
+          },
+          {
+            "type": "image",
+            "nodeId": "450:10126",
+            "name": "tools-assessment-2",
+            "w": 350,
+            "h": 844
+          },
+          {
+            "type": "image",
+            "nodeId": "450:10205",
+            "name": "tools-assessment-3",
+            "w": 350,
+            "h": 1684
+          }
+        ]
+      },
+      {
+        "section": "Insights · Hub",
+        "slug": "insights-hub",
+        "box": "Insights · Hub — mobile · column",
+        "boxId": "450:10239",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "450:10240",
+            "name": "insights-hub-1",
+            "w": 350,
+            "h": 826
+          },
+          {
+            "type": "image",
+            "nodeId": "450:10270",
+            "name": "insights-hub-2",
+            "w": 350,
+            "h": 838
+          },
+          {
+            "type": "image",
+            "nodeId": "450:10352",
+            "name": "insights-hub-3",
+            "w": 350,
+            "h": 872
+          }
+        ]
+      },
+      {
+        "section": "Responsive · Devices",
+        "slug": "responsive-devices",
+        "box": "Responsive · Devices — mobile · carousel",
+        "boxId": "450:10399",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "450:10401",
+                "name": "responsive-devices-1",
+                "w": 260,
+                "h": 511
+              },
+              {
+                "nodeId": "450:10529",
+                "name": "responsive-devices-2",
+                "w": 260,
+                "h": 601
+              },
+              {
+                "nodeId": "450:10540",
+                "name": "responsive-devices-3",
+                "w": 260,
+                "h": 632
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nova": [
+      {
+        "section": "Strategy · Main showcase",
+        "slug": "strategy-main-showcase",
+        "box": "Strategy · Main showcase — mobile · crop 4:5",
+        "boxId": "442:9704",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:9705",
+            "name": "strategy-main-showcase",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "Strategy · Architecture media",
+        "slug": "strategy-architecture-media",
+        "box": "Strategy · Architecture media — mobile · column",
+        "boxId": "449:9688",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "449:9598",
+            "name": "strategy-architecture-media",
+            "w": 350,
+            "h": 1211
+          }
+        ]
+      },
+      {
+        "section": "Brand · Orb key visual",
+        "slug": "brand-orb-key-visual",
+        "box": "Brand · Orb key visual — mobile · crop 4:5",
+        "boxId": "442:9784",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:9785",
+            "name": "brand-orb-key-visual",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "Brand · Wordmark & icon media",
+        "slug": "brand-wordmark-and-icon-media",
+        "box": "Brand · Wordmark & icon media — mobile · tiles",
+        "boxId": "442:11739",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:11740",
+            "name": "brand-wordmark-and-icon-media-1",
+            "w": 350,
+            "h": 395
+          },
+          {
+            "type": "image",
+            "nodeId": "442:11750",
+            "name": "brand-wordmark-and-icon-media-2",
+            "w": 350,
+            "h": 395
+          }
+        ]
+      },
+      {
+        "section": "Product · Onboarding media",
+        "slug": "product-onboarding-media",
+        "box": "Product · Onboarding media — mobile · tiles",
+        "boxId": "442:11796",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:11797",
+            "name": "product-onboarding-media-1",
+            "w": 350,
+            "h": 395
+          },
+          {
+            "type": "image",
+            "nodeId": "442:11815",
+            "name": "product-onboarding-media-2",
+            "w": 350,
+            "h": 395
+          }
+        ]
+      },
+      {
+        "section": "Product · Home & chat media",
+        "slug": "product-home-and-chat-media",
+        "box": "Product · Home & chat media — mobile · carousel",
+        "boxId": "442:11981",
+        "blocks": [
+          {
+            "type": "carousel",
+            "items": [
+              {
+                "nodeId": "442:11983",
+                "name": "product-home-and-chat-media-1",
+                "w": 260,
+                "h": 563
+              },
+              {
+                "nodeId": "442:12006",
+                "name": "product-home-and-chat-media-2",
+                "w": 260,
+                "h": 563
+              },
+              {
+                "nodeId": "442:12019",
+                "name": "product-home-and-chat-media-3",
+                "w": 260,
+                "h": 563
+              },
+              {
+                "nodeId": "442:12040",
+                "name": "product-home-and-chat-media-4",
+                "w": 260,
+                "h": 443
+              },
+              {
+                "nodeId": "442:12059",
+                "name": "product-home-and-chat-media-5",
+                "w": 260,
+                "h": 443
+              },
+              {
+                "nodeId": "442:12071",
+                "name": "product-home-and-chat-media-6",
+                "w": 260,
+                "h": 443
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "Product · Voice media",
+        "slug": "product-voice-media",
+        "box": "Product · Voice media — mobile · crop 4:5",
+        "boxId": "442:10118",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:10119",
+            "name": "product-voice-media",
+            "w": 350,
+            "h": 438
+          }
+        ]
+      },
+      {
+        "section": "System media",
+        "slug": "system-media",
+        "box": "System media — mobile · tiles",
+        "boxId": "442:12081",
+        "blocks": [
+          {
+            "type": "image",
+            "nodeId": "442:12082",
+            "name": "system-media-1",
+            "w": 350,
+            "h": 395
+          },
+          {
+            "type": "image",
+            "nodeId": "442:12086",
+            "name": "system-media-2",
+            "w": 350,
+            "h": 395
+          }
+        ]
+      }
+    ]
+  }
+}
