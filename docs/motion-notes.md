@@ -39,3 +39,4 @@ replaced with the exact section name once each page is built (step 3–4).
 | Work | Case grid | фото «відкривається» маскою знизу при скролі; на hover — легкий zoom і курсор-кнопка «View» | `262:5085` |
 | Work | Index | на hover рядок підсвічується, фото проєкту випливає за курсором і нахиляється — **plate + static tilted photo implemented; follow / fade not** | `262:5154` |
 | Case — LINQUE | Frame (stats) | лічильники від 0 | `344:7089` |
+| About | Who we are, Idea to launch | **Implemented (client request 2026-11-23, not a Figma note):** same scroll reveal as Home Manifesto (RevealText), whole text text/primary (Figma: second part grey); hero title and CTA heading all black too. `components/about/AboutPage.tsx` | `421:6202`, `421:6250` |

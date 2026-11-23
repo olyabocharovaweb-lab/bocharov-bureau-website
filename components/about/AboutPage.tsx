@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { Cta, Footer, Nav, PageHero, StatCard, Tag } from "@/components/ds";
+import { RevealText } from "@/components/home/RevealText";
 import { about, type TwoTone } from "@/content/about";
 import { config } from "@/lib/config";
 
@@ -11,25 +12,22 @@ import { config } from "@/lib/config";
 
 const PX = "px-20 md:px-32 lg:px-40";
 
-/** First part text/primary, the rest text/secondary (as the case Challenge). */
-function TwoToneText({ text }: { text: TwoTone }) {
-  return (
-    <>
-      {text.primary}
-      <span className="text-text-secondary">{text.secondary}</span>
-    </>
-  );
-}
-
-/** «( Who we are )» / «( Idea to launch )» — label + two-tone statement. Desktop Heading/H1 Large, pt 160, gap 32;
- *  mobile Heading/H5 Large, pt 72, gap 20. */
+/**
+ * «( Who we are )» / «( Idea to launch )» — label + statement. Desktop Heading/H1 Large, pt 160, gap 32;
+ * mobile Heading/H5 Large, pt 72, gap 20. Client 2026-11-23: all text/primary (Figma: second part grey) and the same
+ * scroll reveal as Home Manifesto / case Challenge (RevealText).
+ */
 function Statement({ label, text }: { label: string; text: TwoTone }) {
   return (
     <section className={`flex w-full flex-col items-start gap-20 pt-72 lg:gap-32 lg:pt-160 ${PX}`}>
       <p className="whitespace-nowrap text-text-secondary mono-label">{label}</p>
-      <p className="w-full text-text-primary heading-h5-large lg:heading-h1-large">
-        <TwoToneText text={text} />
-      </p>
+      <RevealText
+        className="w-full heading-h5-large lg:heading-h1-large"
+        segments={[
+          { text: text.primary, className: "text-text-primary" },
+          { text: text.secondary, className: "text-text-primary" },
+        ]}
+      />
     </section>
   );
 }
@@ -41,14 +39,14 @@ export function AboutPage() {
       <div className="mx-auto w-full max-w-page">
         <Nav />
         <main>
-          {/* Hero — desktop 421:6182, mobile 424:6359; title Heading/H2 → fluid Display/S from 768. */}
+          {/* Hero — desktop 421:6182, mobile 424:6359; title Heading/H2 → fluid Display/S from 768; all black (client). */}
           <PageHero lede={hero.lede} meta={hero.meta}>
             <h1
               className="about-title w-full text-text-primary heading-h2 md:about-title-fluid lg:about-title-fluid-lg"
               style={{ "--title-ems": 12.2 } as CSSProperties}
             >
               <span className="block">{hero.title.primary}</span>
-              <span className="block text-text-secondary">{hero.title.secondary}</span>
+              <span className="block">{hero.title.secondary}</span>
             </h1>
           </PageHero>
 
@@ -105,7 +103,7 @@ export function AboutPage() {
 
           {/* CTA — desktop 421:6268 (pt 200, pb 40, Display/S two-tone); mobile 424:6432 (pt 72, gap 32, pb 40). */}
           <Cta
-            heading={cta.heading}
+            heading={`${cta.heading.primary}\n${cta.heading.secondary}`}
             headingStyle="display-s"
             primary={cta.primary}
             secondary={cta.secondary}
