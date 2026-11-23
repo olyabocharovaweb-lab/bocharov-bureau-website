@@ -40,4 +40,13 @@ export const brief = {
     },
   ] as SentenceLine[],
   cta: "Send the brief",
+  /** Status line under the button (not in Figma — interim copy) */
+  status: {
+    sending: "Sending…",
+    sent: "Thanks — we’ll reply within 24 hours.",
+    mail: "Opening your mail app — just press send.",
+    error: "Couldn’t send. Write to us at",
+  },
+  /** Subject of the fallback mailto: */
+  mailSubject: "New brief",
 };

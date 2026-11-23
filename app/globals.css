@@ -188,8 +188,19 @@
     color: var(--color-text-primary);
     caret-color: var(--color-text-primary);
     border-radius: 0;
-    /* inputs never shrink below the font's natural line box; pin to the style's line-height */
-    height: 1lh;
+    /* The line box is the style's line-height (Heading/XL: 1.0), which is shorter than the glyphs:
+       descenders (g, p, y) were clipped. The field paints 0.2em more above and below and takes it back
+       with negative margins, so the text is whole and the line keeps its height and baseline. */
+    height: calc(1lh + 0.4em);
+    padding-block: 0.2em;
+    margin-block: -0.2em;
+  }
+  /* Browser autofill: no blue/yellow fill — keep the page background and the ink colour. */
+  .inline-field input:-webkit-autofill,
+  .inline-field input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text-primary);
+    box-shadow: 0 0 0 1000px var(--color-bg-page) inset;
+    transition: background-color 9999s 0s;
   }
   /* The visible hint is a text span (mobile / desktop wording); the native placeholder stays
      for assistive tech and autofill heuristics but is not painted. */
