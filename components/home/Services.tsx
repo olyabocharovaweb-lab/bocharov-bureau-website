@@ -1,5 +1,6 @@
 import { Button } from "@/components/ds";
 import { services } from "@/content/home";
+import { config } from "@/lib/config";
 import { ServicesList } from "./ServicesList";
 
 /**
@@ -15,7 +16,7 @@ export function Services() {
         <h2 className="text-text-primary heading-h2 lg:whitespace-nowrap lg:display-s">{services.title}</h2>
         <div className="flex flex-col items-start gap-16 lg:items-end">
           <p className="whitespace-nowrap text-text-secondary mono-label">{services.label}</p>
-          <Button variant="Secondary" label={services.cta} />
+          <Button variant="Secondary" label={services.cta} href={config.CONTACT_URL} />
         </div>
       </div>
       <ServicesList items={services.items} />

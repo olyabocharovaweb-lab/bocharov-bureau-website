@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button, CaseCard } from "@/components/ds";
 import { selectedWork } from "@/content/home";
 
@@ -16,7 +17,7 @@ export function SelectedWork() {
     <section className="flex w-full flex-col items-start gap-40 px-20 pt-72 md:px-32 lg:gap-48 lg:px-40 lg:pt-section">
       <div className="flex w-full flex-col items-start lg:flex-row lg:items-end lg:justify-between">
         <h2 className="text-text-primary heading-h2 lg:whitespace-nowrap lg:display-s">{selectedWork.title}</h2>
-        <Button variant="Secondary" label={selectedWork.cta} />
+        <Button variant="Secondary" label={selectedWork.cta} href={selectedWork.ctaHref} />
       </div>
       <CaseCard className="w-full" {...featured} sizes={FULL} />
       <div className="flex w-full flex-col items-start gap-40 md:flex-row md:gap-12">
@@ -28,7 +29,7 @@ export function SelectedWork() {
         Graaho is a frame (not a Case card instance) whose photo holds live screens.
         Exported from Figma as one image (2x), same title / number / tags pattern.
       */}
-      <div className="flex w-full flex-col items-start gap-14">
+      <Link href={graaho.href} className="flex w-full flex-col items-start gap-14">
         <Image
           src={graaho.image.src}
           alt={graaho.image.alt}
@@ -42,7 +43,7 @@ export function SelectedWork() {
           <p className="shrink-0 whitespace-nowrap text-text-secondary mono-body">{graaho.number}</p>
         </div>
         <p className="w-full uppercase text-text-secondary mono-body">{graaho.tags}</p>
-      </div>
+      </Link>
     </section>
   );
 }

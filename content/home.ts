@@ -79,6 +79,7 @@ export const numbers = {
 export const selectedWork = {
   title: "Selected work",
   cta: "All projects",
+  ctaHref: "/work",
   featured: {
     title: "PulseFit — fitness that listens to your body",
     number: "01",
@@ -94,12 +95,14 @@ export const selectedWork = {
       number: "02",
       tags: "B2B SaaS · Brand identity · Guidelines",
       image: { src: "/media/industrylens-card.webp", alt: "IndustryLens poster on a city wall", width: 1348, height: 1520 },
+      href: "/work/industrylens",
     },
     {
       title: "NOVA — an assistant that doesn’t stop at an answer",
       number: "03",
       tags: "AI product · UX/UI · Brand",
       image: { src: "/media/case-nova-card.webp", alt: "NOVA app on a phone next to an iridescent orb", width: 1348, height: 1520 },
+      href: "/work/nova",
     },
   ],
   graaho: {
@@ -107,6 +110,7 @@ export const selectedWork = {
     number: "04",
     tags: "Enterprise AI & cloud · Web design",
     image: { src: "/media/case-graaho-home.webp", alt: "Graaho website on desktop and mobile", width: 2720, height: 1440 },
+    href: "/work/graaho",
   },
 };
 
